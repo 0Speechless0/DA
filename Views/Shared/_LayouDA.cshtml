@@ -1,0 +1,172 @@
+﻿@{ 
+
+    List<DA.VModels.MenuVM> menuList = DA.Common.ServiceProvider.getMenu();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>商情模組</title>
+    <meta name="keywords" content="商情模組">
+    <meta name="description" content="商情模組">
+    <link rel="icon" href="@Url.Content("~/Content/images/LOGO1.png")" type="image/ico" />
+    <link href="@Url.Content("~/Content/css/bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/css/fontawesome.min.css")" rel="stylesheet">
+    <!--icon font設定-->
+    <link href="@Url.Content("~/Content/dist/css/app.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/css/all.css")" rel="stylesheet" />
+    <!--load all styles -->
+    <link href="@Url.Content("~/Content/css/layout.css")" rel="stylesheet" />
+    <!--自訂CSS-->
+    <link href="@Url.Content("~/Content/css/rwd.css")" rel="stylesheet" />
+    <!--自訂RWD設定-->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<header id="Header_front">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-bg-G">
+        <a class="navbar-brand" href="@Url.Action("Index", "Home")" title="回首頁"><img src="@Url.Content("~/Content/images/LOGO.png")" style="width:160px;" alt=""></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="主選單開合">
+            <i class="fas fa-bars fa-2x"></i>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+            <ul class="navbar-nav nav-top ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Logout", "Account")" title="登出">登出</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<body>
+    <div id="WRAPPER" class="container-fluid">
+        <!-- 內容開始 -->
+        <div class="main-left menu_bg_G">
+            <div class="menu-control btn-color13">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </div>
+            <div class="card" id="accordion" role="tablist" aria-multiselectable="true">
+                @{
+                        int index = 0;
+                        foreach (DA.VModels.MenuVM item in menuList)
+                        {
+                        <div class="card">
+                            <div class="card-header" role="tab" id="heading1">
+                                <h4 class="card-title">
+                                    @*@if (@ViewBag.Title == "原物料分析")
+                                    {
+                                        <a class="chosen" role="button" href="@Url.Action("BiMaterial","BIntelligence")">原物料分析</a>
+                                    }*@
+
+                                    <a class="collapsed" role="button" href="@item.Url">@item.Name</a>
+                                    
+                                </h4>
+                            </div>
+                        </div>
+                    }
+
+                }
+                @*<div class="card">
+                    <div class="card-header" role="tab" id="heading1">
+                        <h4 class="card-title">
+                            @if (@ViewBag.Title == "原物料分析")
+                            {
+                                <a class="chosen" role="button" href="@Url.Action("BiMaterial","BIntelligence")">原物料分析</a>
+                            }
+                            else
+                            {
+                                <a class="collapsed" role="button" href="@Url.Action("BiMaterial","BIntelligence")">原物料分析</a>
+                            }
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="collapse" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab" id="heading2">
+                        <h4 class="card-title">
+                            @if (@ViewBag.Title == "客戶分析")
+                            {
+                                <a class="chosen" role="button" href="@Url.Action("BiCustomer","BIntelligence")">客戶分析</a>
+                            }
+                            else
+                            {
+                                <a class="collapsed" role="button" href="@Url.Action("BiCustomer","BIntelligence")">客戶分析</a>
+                            }
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab" id="heading6">
+                        <h4 class="card-title">
+                            <a class="collapsed" role="button" href="@Url.Action("BiProduct","BIntelligence")">
+                                產品分析
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="heading6" data-parent="#accordion">
+                    </div>
+                </div>*@
+                <!-- <div class="card">
+        <div class="card-header" role="tab" id="heading3">
+            <h4 class="card-title">
+                <a class="collapsed" role="button" href="##">
+                    排程分析
+                </a>
+            </h4>
+        </div>
+        <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordion">
+        </div>
+    </div> -->
+
+            </div>
+        </div>
+        <div class="main-right">
+            <div class="row mb-3">
+                <div class="col-12 col-md-8">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index", "Home")" class="a-darkgray" role="button" >
+                                <i class="fas fa-home"></i> 首頁
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="name">
+                        歡迎！ &nbsp;@Session["userName"] <a class="a-darkgray" href="#" title="切換demo使用者"></a>
+                    </div>
+                </div>
+            </div>
+            <div id="app">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <footer class="inside_footer footer-G" id="Footer_front">
+        <div class="container text-right">
+    
+        </div>
+        <div id="gotop" class="btn-color1" title="回到最上方"><img src="@Url.Content("~/Content/images/icon-up.png")" alt="回到最上方icon"></div>
+    </footer>
+
+    <script src="@Url.Content("~/Content/js/jquery-3.6.0.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/script.js")"></script>
+    <script src="@Url.Content("~/Content/dist/js/app.js")"></script>
+    <script>
+        var app = new Vue({
+            //store,
+            //render: (h) => h(App),
+        }).$mount('#app');
+
+    </script>
+</body>
+</html>

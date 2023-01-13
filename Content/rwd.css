@@ -1,0 +1,143 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+
+/* ------------------手機版---------------------- */
+@media (min-width: 1200px) {
+	.main{
+		background: url(../Content/images/banner.jpg) no-repeat -100px top,url(../Content/images/bbg-in.jpg) -100px top repeat-x;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+	.main{
+		background: url(../Content/images/banner-md.jpg) no-repeat left top,url(../Content/images/bbg-in.jpg) left top repeat-x;
+	}
+	.resume{
+		padding: 30px 0 25px 50%;
+	}
+	.resume-step{
+		display: block;
+		padding-bottom:20px;
+		margin: 0 0 20px 0;
+	}
+	.resume .resume-step:nth-child(1){background: url(../Content/images/resume-arrow-down.jpg) no-repeat center bottom; background-size: 28px 34px;}
+	.resume .resume-step:nth-child(2){background: url(../Content/images/resume-arrow-down.jpg) no-repeat center bottom; background-size: 28px 34px;}
+	.resume .resume-step:nth-child(3){background: none;}
+	.resume .resume-step:nth-child(4){left:25%; top:380px;}
+	.resume-stepline{
+		width: 80%;
+		height: 255px;
+		top: 325px;
+		left: 50%;
+		margin-left: -40%;
+	}
+	.q-check .col-md-6:nth-child(even) .ehdiv{
+		margin-top: 55px;
+	}
+}
+
+@media (max-width: 767px) {
+	.logo{
+		padding:10px 0 0 20px;
+	}
+	.sidebar {
+		display: none;
+		width: 100%;
+	}
+	.nav-sidebar .logout{
+		display: block;
+	}
+	.main{
+		background: url(../Content/images/banner-small.jpg) no-repeat 0 50px; /*left 10px;*/
+		background-size: contain;
+	}
+	.form-top{
+		padding:10px 20px;
+	}
+	.rwd-table{background:#fff;overflow:hidden;}
+	.rwd-table{min-width:100%;}
+	.rwd-table th{display:none;}
+	.rwd-table td{display:block;}
+	.rwd-table td:before{content:attr(data-th) " : ";font-weight:bold;width:6.5em;display:inline-block;}
+	.rwd-table th,.rwd-table td{text-align:left;}
+	.rwd-table th,.rwd-table td:before{color:#333; font-weight:bold;}
+	.btn-logout{
+		display: none;
+	}
+	.resume{
+		padding: 30px 0 25px 50%;
+		background-image: none;
+	}
+	.resume-step{
+		display: block;
+		padding-bottom:20px;
+		margin: 0 0 20px 0;
+	}
+	.resume .resume-step:nth-child(1){background: url(../Content/images/resume-arrow-down.jpg) no-repeat center bottom; background-size: 28px 34px;}
+	.resume .resume-step:nth-child(2){background: url(../Content/images/resume-arrow-down.jpg) no-repeat center bottom; background-size: 28px 34px;}
+	.resume .resume-step:nth-child(3){background: none;}
+	.resume .resume-step:nth-child(4){left:25%; top:340px;}
+	.resume-stepline{
+		width: 90%;
+		height: 255px;
+		top: 325px;
+		left: 50%;
+		margin-left: -45%;
+	}
+	.q-check .col-md-6:nth-child(even) .ehdiv{
+		margin-top: 55px;
+	}
+}
+@media (max-width: 480px) {
+	.logo{
+		padding:10px 0 0 20px;
+	}
+	.sidebar {
+		display: none;
+		width: 100%;
+	}
+	.nav-sidebar .logout{
+		display: block;
+	}
+	.main{
+		background: url(../Content/images/banner-xs.jpg)  no-repeat 0 50px;
+		background-size: contain;
+	}
+	.form-top{
+		padding:10px 20px;
+	}
+	.rwd-table{background:#fff;overflow:hidden;}
+	.rwd-table{min-width:100%;}
+	.rwd-table th{display:none;}
+	.rwd-table td{display:block;}
+	.rwd-table td:before{content:attr(data-th) " : ";font-weight:bold;display:inline-block;}
+	.rwd-table th,.rwd-table td{text-align:left;}
+	.rwd-table th,.rwd-table td:before{color:#333; font-weight:bold;}
+	.btn-logout{
+		display: none;
+	}
+	.resume{
+		padding: 30px 0 25px 33%;
+		background-image: none;
+	}
+	.resume-step{
+		display: block;
+		padding-bottom:20px;
+		margin: 0 0 20px 0;
+	}
+	.resume .resume-step:nth-child(1){background: url(../Content/images/resume-arrow-down.jpg) no-repeat center bottom; background-size: 28px 34px;}
+	.resume .resume-step:nth-child(2){background: url(../Content/images/resume-arrow-down.jpg) no-repeat center bottom; background-size: 28px 34px;}
+	.resume .resume-step:nth-child(3){background: none;}
+	.resume .resume-step:nth-child(4){left:29%; top:340px;}
+	.resume-stepline{
+		width: 90%;
+		height: 255px;
+		top: 325px;
+		left: 50%;
+		margin-left: -45%;
+	}
+	.q-check .col-md-6:nth-child(even) .ehdiv{
+		margin-top: 55px;
+	}
+}

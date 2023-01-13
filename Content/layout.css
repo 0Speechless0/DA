@@ -1,0 +1,362 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{
+	-webkit-font-smoothing: antialiased;
+	font-family:微軟正黑體, Arial, Helvetica, sans-serif;
+	-webkit-text-size-adjust:none;
+}
+*{
+	font-family:微軟正黑體, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.clear{
+	clear: both;
+}
+/*------------登入頁開始-----------------*/
+body.login{
+	background: url(../Content/images/bbg.jpg) no-repeat;
+	-moz-background-size: cover;
+	background-size: cover;
+	background-position: 15% bottom; 
+	background-attachment:fixed;
+}
+.navbar-default{
+	background: none;
+	border:none;
+}
+.navbar-brand{
+	padding-left:0;
+}
+.navbar-brand img{
+	width: 175px;
+	height: 47px;
+}
+.login-wrapper{
+	min-height: 700px;
+}
+.btn-login{
+	background: #E05B42;
+	color: #fff;
+}
+.btn-login:hover{
+	color: #fff;
+	background: #C13820;
+}
+.form-login{
+	background: rgba(255, 255, 255, 0.8);
+	padding:60px 40px;
+	border-radius: 10px;
+	margin-top: 130px;
+	position: relative;
+}
+.form-login img{
+	position: absolute;
+	left: 0;
+	top: -90px;
+	width: 280px;
+	height: 76px;
+}
+footer{
+	background: #333;
+	padding:10px 0;
+	color: #ccc;
+	font-weight: normal;
+	font-size: 11px;
+	letter-spacing: 1px;
+}
+
+/*------------主架構開始-----------------*/
+.logo{
+	display: block;
+	padding:20px 0 0 20px;
+}
+.logo,.logo img{
+	width: 121px;
+	height: 33px;
+}
+.btn-logout{
+	display: inline-block;
+	color: #666;
+	font-size: 15px;
+	padding:20px 20px 0 0;
+	position: absolute;
+	right: 20px;
+	top: 0;
+}
+.btn-logout:hover{
+	color: #000;
+}
+.main{
+	background: url(../Content/images/banner.jpg) no-repeat -250px top,url(../Content/images/bbg-in.jpg) -250px top repeat-x;
+	padding:0 5% 90px 5%;
+}
+.page-header{
+	text-indent: -9999px;
+	border-bottom: none;
+	margin-bottom: 80px;
+}
+.breadcrumb{
+	background: none;
+}
+
+.breadcrumb > li > a {
+    font-size:20px;
+}
+
+.breadcrumb > li {
+    font-size:20px;
+}
+
+/*選單設定*/
+.sidebar {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	display: block;
+	padding: 20px;
+	overflow-x: hidden;
+	overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+	padding-top: 85px;
+	background: #D55051;
+}
+.nav-sidebar>li>a{
+	font-size: 22px;
+	color: #fff;
+	margin:20px 0;
+	border-radius: 5px;
+	background: none;
+}
+.nav-sidebar>li>a:hover,.nav-sidebar>li>a:active{
+	color: #333;
+	background: #F0A36B;
+	font-weight: bold;
+}
+.nav-sidebar .active a{
+	color: #333;
+	background: #F0A36B;
+	font-weight: bold;
+}
+.sub-header{
+	letter-spacing: 2px;
+	color: #D45151;
+	border-bottom: 3px solid #D45151;
+	padding:1px 0;
+	margin-bottom: 20px;
+}
+.sub-header span{
+    font-size: 23px;
+	display: block;
+	padding:10px 0;
+	border-bottom: 1px solid #D45151;
+}
+.form-top{
+	background: #EFF3E2;
+	border-radius: 10px;
+	padding:15px 30px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+.btn-search{
+	background: #666;
+	color: #fff;
+	border: none;
+}
+.btn-search:hover{
+	background: #333;
+	color: #fff;
+}
+.nav-sidebar .logout{
+	display: none;
+}
+.spline{
+	display: inline-block;
+	color: #ccc;
+	margin:0 10px;
+}
+.modal-header{
+	border-bottom: none;
+}
+/*頁籤設定*/
+.tab-pane{
+	padding:30px 0;
+}
+/*表格設定*/
+.table-bordered{border-color: #fff;}
+.rwd-table td:before{display:none;}
+.rwd-table th,.rwd-table td{display:table-cell;padding:0.25em 0.5em;}
+.rwd-table th:first-child,.rwd-table td:first-child{padding-left:0;}
+.rwd-table th:last-child,.rwd-table td:last-child{padding-right:0;}
+.rwd-table th,.rwd-table td{padding:1em!important;}
+
+.table-form div{
+	margin:0 5px;
+}
+
+.table1>thead{background: #F4C9C1;}
+.table1>thead>tr>th{border-bottom: none;}
+.table1>tbody>tr:nth-child(odd){background: #F1F1F1;}
+.table1>tbody>tr:nth-child(even){background: #E7E7E7;}
+.table1>tbody>tr>td:first-child{background: #FFDFB3;}
+.table1>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, 
+.table1>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{border-color: #fff;}
+
+
+
+/*------------原物料入庫開始-----------------*/
+.paper{
+	width: 95%;
+	margin:0 auto;
+	border: 3px solid #D2DCDC;
+}
+.paper img{
+	width: 100%;
+}
+
+/*------------履歷管理開始-----------------*/
+.resume{
+	position: relative;
+	text-align: center;
+	vertical-align: top;
+	border-radius: 10px;
+	padding:215px 0 35px 0;
+	width: 100%;
+	background: #f4f4f4;
+}
+.resume-step{
+	display: inline-block;
+	width: 220px;
+	text-align: center;
+	line-height: 25px;
+	font-size: 18px;
+	z-index: 800;
+	position: relative;
+}
+.resume-step:hover{
+	text-decoration: none;
+}
+.resume-step img{
+	width: 108px;
+	height: 108px;
+	margin-bottom: 8px;
+}
+.resume-step div{
+	width: 110px;
+	background: #777;
+	color: #fff;
+	border-radius: 15px;
+	font-size: 15px;
+	margin:8px auto;
+}
+.resume-step p{
+	color: #333;
+	font-size: 15px;
+	font-weight: bold;
+}
+.resume .resume-step:nth-child(1){color: #537947; background: url(../Content/images/resume-arrow.jpg) no-repeat right 40px; background-size: 34px 28px;}
+.resume .resume-step:nth-child(2){color: #CA5E2A;}
+.resume .resume-step:nth-child(3){color: #28708D; background: url(../Content/images/resume-arrow.jpg) no-repeat left 40px; background-size: 34px 28px;}
+.resume .resume-step:nth-child(4){
+	color: #B54D4D;
+	position: absolute;
+	left: 50%;
+	margin-left: -110px;
+	top: 35px;
+}
+.resume-stepline{
+	width: 150px;
+	height: 380px;
+	border:#D2DCDC 5px solid;
+	position: absolute;
+	left: 50%;
+	margin-left: -75px;
+	top: 85px;
+	z-index: 100;
+}
+.search-info{
+	font-size: 18px;
+	line-height: 30px;
+	overflow: auto;
+}
+.search-info span{
+	color: #9F732F;
+}
+.form-lg{
+	min-width: 250px;
+}
+.btn-pink{
+	background: #FF7D81;
+	color: #fff;
+}
+.btn-pink:hover{
+	background: #FF5B60;
+	color: #fff;
+}
+.q-check{
+	overflow: hidden;
+}
+.q-check .ehdiv{
+	padding:15px 30px;
+	background-color:#efefef;
+	background: #eeeeee;
+	position: relative;
+	border-radius: 0 5px 5px 5px;
+	margin: 35px 0 20px 0;
+}
+.q-check .ehdiv h5{
+	display: block;
+	position: absolute;
+	background: #B2B2B2;
+	padding:0 20px;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 5px 5px 0 0;
+	left: 0;
+	top: -35px;
+	margin:0;
+	color: #fff;
+}
+
+.ehdiv > span{
+	display: inline-block;
+	background: #fff;
+	border-radius: 5px;
+	padding:8px 15px;
+	margin:10px 0;
+	letter-spacing: 1px;
+}
+.ehdiv > span:last-child{
+	margin-bottom: 20px;
+}
+.ehdiv > span.nogood{
+	background:url(../Content/images/nogood.png) no-repeat right center #FFC6C6;
+	background-size: 35px 20px;
+	padding-right: 50px;
+}
+.ehdiv > span.good{
+	background:url(../Content/images/good.png) no-repeat right center #BEF2AA;
+	background-size: 35px 20px;
+	padding-right: 50px;
+}
+.resume-info{
+	width: 186px;
+	height: 38px;
+	margin-top: 20px;
+}
+/*手機版選單*/
+.navbar-header{
+	background: #D55051;
+}
+.navbar-header span{
+	background: #fff;
+}
+
+.control-label {
+    font-size: 18px;
+}
+
+.item {
+	margin-left: 3px; 
+	margin-right: 3px;
+}

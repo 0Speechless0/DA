@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>智慧商情模組</title>
+    <meta name="keywords" content="智慧商情模組">
+    <meta name="description" content="智慧商情模組">
+    <link rel="icon" href="images/LOGO1.png" type="image/ico" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/fontawesome.min.css" rel="stylesheet">
+    <!--icon font設定-->
+    <link href="css/all.css" rel="stylesheet">
+    <!--load all styles -->
+    <link href="css/layout.css" rel="stylesheet">
+    <!--自訂CSS-->
+    <link href="css/rwd.css" rel="stylesheet">
+    <!--自訂RWD設定-->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<header id="Header_front">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-bg-G">
+        <a class="navbar-brand" href="#" title="回首頁"><img src="images/LOGO.png" style="width:160px;" alt="LOGO"></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="主選單開合">
+            <i class="fas fa-bars fa-2x"></i>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+            <ul class="navbar-nav nav-top ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html" title="登出">登出</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div id="WRAPPER" class="container-fluid">
+        <!-- 內容開始 -->
+        <div class="main-left menu_bg_G">
+            <div class="menu-control btn-color13">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </div>
+            <div class="card" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="card">
+                    <div class="card-header" role="tab" id="heading1">
+                        <h4 class="card-title">
+                            <a class="collapsed" role="button" href="inside01_MaterialAanalysis.html">
+                                原物料分析
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="collapse" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab" id="heading2">
+                        <h4 class="card-title">
+                            <a class="chosen" role="button" href="inside01_ClientAanalysis.html">
+                                客戶分析
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab" id="heading6">
+                        <h4 class="card-title">
+                            <a class="collapsed" role="button" href="inside01_ProductAnalysis.html">
+                                產品分析
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="heading6" data-parent="#accordion">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab" id="heading3">
+                        <h4 class="card-title">
+                            <a class="collapsed" role="button" href="inside01_ScheduleAnalysis.html">
+                                排程分析
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordion">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="main-right">
+            <div class="row mb-3">
+                <div class="col-12 col-md-8">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a class="a-darkgray" role="button" href="#">
+                                <i class="fas fa-home"></i> 首頁
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="name">歡迎！ &nbsp;阿傑 <a class="a-darkgray" href="#" title="切換demo使用者">先生</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card whiteBG mb-4 pattern-F colorset_G">
+                <div class="card-header">
+                    <h3 class="card-title font-weight-bold">客戶分析</h3>
+                </div>
+                <div class="card-body">
+                    
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <!-- 一 -->
+                        <div id="menu01" class="tab-pane active">
+                            <div class="tup">說明 : 近三年客戶訂單分析</div>
+                            <div class="tup2">輸入客戶名稱關鍵字後，顯示近三年排程內的客戶清單，選擇後分析</div>
+                            <form class="form-group insearch mb-3">
+                                <div class="form-row">
+                                    <div class="col-12 col-sm-6 col-md-auto mb-3 mb-sm-0">
+                                        <label>關鍵字：</label>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-auto mb-3 mb-sm-0">
+                                        <input type="text" class="form-control text-right" value="">
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-auto mb-3 mb-sm-0">
+                                        <button type="button" class="btn btn-outline-secondary btn-sm"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="concolud">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="card whiteBG mb-4 pattern-F colorset_G">
+                            <div class="chartitle">2019-2021年</div>
+                            <div style="margin: 0 0 0 27px;">鍋數(排程管理)</div>
+                            <canvas id="myChart1" width="400" height="100" class="myChart"></canvas>
+                            <div style="text-align:center; margin:-12px 0 10px 0;">客戶名稱</div>
+                        </div>
+                        <div class="card whiteBG mb-4 pattern-F colorset_G">
+                            <div class="chartitle">2019年</div>
+                            <div style="margin: 0 0 0 27px;">鍋數(排程管理)</div>
+                            <canvas id="myChart2" width="400" height="100" class="myChart"></canvas>
+                            <div style="text-align:center; margin:-12px 0 10px 0;">客戶名稱</div>
+                        </div>
+                        <div class="card whiteBG mb-4 pattern-F colorset_G">
+                            <div class="chartitle">2020年</div>
+                            <div style="margin: 0 0 0 27px;">鍋數(排程管理)</div>
+                            <canvas id="myChart3" width="400" height="100" class="myChart"></canvas>
+                            <div style="text-align:center; margin:-12px 0 10px 0;">客戶名稱</div>
+                        </div>
+                        <div class="card whiteBG mb-4 pattern-F colorset_G">
+                            <div class="chartitle">2021年</div>
+                            <div style="margin: 0 0 0 27px;">鍋數(排程管理)</div>
+                            <canvas id="myChart4" width="400" height="100" class="myChart"></canvas>
+                            <div style="text-align:center; margin:-12px 0 10px 0;">客戶名稱</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card2 whiteBG mb-4 pattern-F colorset_G">
+                            <div class="wcolud">客戶資訊關鍵字雲</div>
+                            <div class="tup2" style="text-align:center;">依近三年客戶加總的鍋數顯示文字雲</div>
+                            <figure class="highcharts-figure cloudword">
+                              <div id="container"></div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center col-8">
+                    <div class="col-12 col-sm-4 col-xl-2 my-2">
+                        <button role="button" class="btn btn-shadow btn-color3 btn-block"> 列印 </button>
+                    </div>
+                </div>
+            </div>                           
+
+        </div>
+    </div>
+    <footer class="inside_footer footer-G" id="Footer_front">
+        <div class="container text-right">
+            © 2022 Sunyu Tech Inc. All Rights Reserved.
+        </div>
+        <div id="gotop" class="btn-color1" title="回到最上方"><img src="images/icon-up.png" alt="回到最上方icon"></div>
+    </footer>
+    
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    
+    <script>
+    const ctx = document.getElementById('myChart1').getContext('2d');
+    const myChart1 = new Chart(ctx, {
+        type: 'line',
+        data: {
+        labels: ['客戶A','客戶B','客戶C','客戶D','客戶E','客戶F','客戶G','客戶H'],
+        datasets: [
+            {
+        label: '2019年',
+        data: [65,40,42,45,52,56,49,58],
+        fill: false,
+        borderColor: 'rgb(0, 216, 217)',
+        tension: 0.1
+        },{
+        label: '2020年',
+        data: [33,61,52,57,40,38,46,42],
+        fill: false,
+        borderColor: 'rgb(37, 188, 25)',
+        tension: 0.1
+        },{
+        label: '2021年',
+        data: [70,65,83,42,33,29,25,27],
+        fill: false,
+        borderColor: 'rgb(255, 178, 0)',
+        tension: 0.1
+        }]
+        }
+    });
+    </script>
+    <script>
+    const ctx2 = document.getElementById('myChart2').getContext('2d');
+    const myChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+        labels: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+        datasets: [
+        {
+        label: '客戶A',
+        data: [65,57,55,45,52,56,49,58,63,59,55,50],
+        fill: false,
+        borderColor: 'rgb(0, 216, 217)',
+        tension: 0.1
+        }]
+        }
+    });
+    </script>
+    <script>
+    const ctx3 = document.getElementById('myChart3').getContext('2d');
+    const myChart3 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+        labels: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+        datasets: [
+        {
+        label: '客戶A',
+        data: [33,61,52,32,44,75,77,65,50,49,30,45],
+        fill: false,
+        borderColor: 'rgb(0, 216, 217)',
+        tension: 0.1
+        }]
+        }
+    });
+    </script>
+    <script>
+    const ctx4 = document.getElementById('myChart4').getContext('2d');
+    const myChart4 = new Chart(ctx4, {
+        type: 'line',
+        data: {
+        labels: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+        datasets: [
+        {
+        label: '客戶A',
+        data: [70,65,83,67,32,36,37,46,55,32,60,70],
+        fill: false,
+        borderColor: 'rgb(0, 216, 217)',
+        tension: 0.1
+        }]
+        }
+    });
+    </script>
+    <script>
+        const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum erat ac justo sollicitudin, quis lacinia ligula fringilla. Pellentesque hendrerit, nisi vitae posuere condimentum, lectus urna accumsan libero, rutrum commodo mi lacus pretium erat. Praesent ut tristique magna. Donec nisl tellus, sagittis ut tempus sit amet, consectetur eget erat. Sed ornare gravida lacinia. Curabitur iaculis metus purus, eget pretium est laoreet ut. Quisque tristique augue ac eros malesuada, vitae facilisis mauris sollicitudin. Mauris ac molestie nulla, vitae facilisis quam. Curabitur placerat ornare sem, in mattis purus posuere eget. Praesent non condimentum odio. Nunc aliquet, odio nec auctor congue, sapien justo dictum massa, nec fermentum massa sapien non tellus. Praesent luctus eros et nunc pretium hendrerit. In consequat et eros nec interdum. Ut neque dui, maximus id elit ac, consequat pretium tellus. Nullam vel accumsan lorem.',
+          lines = text.split(/[,\. ]+/g),
+          data = lines.reduce((arr, word) => {
+            let obj = Highcharts.find(arr, obj => obj.name === word);
+            if (obj) {
+              obj.weight += 1;
+            } else {
+              obj = {
+                name: word,
+                weight: 1
+              };
+              arr.push(obj);
+            }
+            return arr;
+          }, []);
+
+        Highcharts.chart('container', {
+          accessibility: {
+            screenReaderSection: {
+              beforeChartFormat: '<h5>{chartTitle}</h5>' +
+                '<div>{chartSubtitle}</div>' +
+                '<div>{chartLongdesc}</div>' +
+                '<div>{viewTableButton}</div>'
+            }
+          },
+          series: [{
+            type: 'wordcloud',
+            data,
+            name: '數量'
+          }],
+          title: {
+            text: ' '
+          }
+        });
+    </script>
+    
+</body>
+</html>

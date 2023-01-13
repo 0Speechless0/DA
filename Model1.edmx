@@ -1,0 +1,2771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ttqs_newModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="annual_course_planning">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FunctionCategory" Type="int" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TackCourseType" Type="int" Nullable="false" />
+          <Property Name="TrainingGoal" Type="int" Nullable="false" />
+          <Property Name="OtherTrainingGoal" Type="varchar" MaxLength="50" />
+          <Property Name="Memo" Type="varchar" MaxLength="500" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="UnitSeq" Type="int" Nullable="false" />
+          <Property Name="CourseHours" Type="int" Nullable="false" />
+          <Property Name="TrainingObject" Type="int" Nullable="false" />
+          <Property Name="OtherTrainingObject" Type="varchar" MaxLength="50" />
+          <Property Name="TrainingNumbers" Type="int" Nullable="false" />
+          <Property Name="EstimatedExpenses" Type="int" Nullable="false" />
+          <Property Name="EstimatedExpensesMemo" Type="varchar" MaxLength="200" />
+          <Property Name="EstimatedStartMonth" Type="int" Nullable="false" />
+          <Property Name="SubmitReview" Type="int" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="carousel_map">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="longtext" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CName" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="DeleteTag" Type="int" />
+        </EntityType>
+        <EntityType Name="course">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CourseNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CourseImage" Type="longtext" />
+          <Property Name="CourseImageType" Type="varchar" MaxLength="50" />
+          <Property Name="StartTime" Type="varchar" MaxLength="10" />
+          <Property Name="EndTime" Type="varchar" MaxLength="10" />
+          <Property Name="FunctionCategory" Type="int" />
+          <Property Name="TrainingGoal" Type="int" />
+          <Property Name="OtherTrainingGoal" Type="varchar" MaxLength="50" />
+          <Property Name="LecturerType" Type="int" />
+          <Property Name="Lecturer" Type="int" />
+          <Property Name="OtherLecturer" Type="int" />
+          <Property Name="TrainingObject" Type="int" Nullable="false" />
+          <Property Name="OtherTrainingObject" Type="varchar" MaxLength="50" />
+          <Property Name="OpenSignUp" Type="int" Nullable="false" />
+          <Property Name="AllowExternal" Type="int" Nullable="false" />
+          <Property Name="CourseSurvey1" Type="int" Nullable="false" />
+          <Property Name="CourseSurvey2" Type="int" Nullable="false" />
+          <Property Name="CourseSurvey3" Type="int" Nullable="false" />
+          <Property Name="CourseMemo" Type="varchar" MaxLength="1000" />
+          <Property Name="AuthorName" Type="varchar" MaxLength="50" />
+          <Property Name="AuthorMemo" Type="varchar" MaxLength="500" />
+          <Property Name="AuthorImage" Type="longtext" />
+          <Property Name="AuthorImageType" Type="varchar" MaxLength="50" />
+          <Property Name="CourseFocus" Type="varchar" MaxLength="500" />
+          <Property Name="QuestionNums" Type="int" />
+          <Property Name="CourseRelease" Type="int" Nullable="false" />
+          <Property Name="ReleaseDate" Type="varchar" MaxLength="10" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="course_appendix">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseSeq" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Unit" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="FilePath" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OriginalFileName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Memo" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Tag" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Duration" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="course_designate">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseSeq" Type="int" Nullable="false" />
+          <Property Name="DivisionSeq" Type="int" Nullable="false" />
+          <Property Name="SectionSeq" Type="int" />
+          <Property Name="AllowedCount" Type="int" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="course_question">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseSeq" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Question" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="OptionA" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="OptionB" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="OptionC" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="OptionD" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Answer" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="course_signup">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseSeq" Type="int" Nullable="false" />
+          <Property Name="SignUpUser" Type="int" Nullable="false" />
+          <Property Name="IsDesignate" Type="int" />
+          <Property Name="IsSignedIn" Type="int" Nullable="false" />
+          <Property Name="IsSignInTime" Type="datetime" Precision="0" />
+          <Property Name="IsSignedOut" Type="int" />
+          <Property Name="IsSignOutTime" Type="datetime" Precision="0" />
+          <Property Name="Memo" Type="varchar" MaxLength="200" />
+          <Property Name="HasExam" Type="int" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+        </EntityType>
+        <EntityType Name="course_survey1">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseSignUpSeq" Type="int" Nullable="false" />
+          <Property Name="Score11" Type="int" />
+          <Property Name="Score12" Type="int" />
+          <Property Name="Score21" Type="int" />
+          <Property Name="Score22" Type="int" />
+          <Property Name="Score31" Type="int" />
+          <Property Name="Score41" Type="int" />
+          <Property Name="Score42" Type="int" />
+          <Property Name="Score43" Type="int" />
+          <Property Name="Score44" Type="int" />
+          <Property Name="Score51" Type="int" />
+          <Property Name="Score52" Type="int" />
+          <Property Name="Score61" Type="int" />
+          <Property Name="Score62" Type="int" />
+          <Property Name="Score63" Type="int" />
+          <Property Name="Score71" Type="int" />
+          <Property Name="Score72" Type="int" />
+          <Property Name="Opinion1" Type="varchar" MaxLength="200" />
+          <Property Name="Opinion2" Type="varchar" MaxLength="200" />
+          <Property Name="Opinion3" Type="varchar" MaxLength="200" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+        </EntityType>
+        <EntityType Name="course_survey2">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseSignUpSeq" Type="int" Nullable="false" />
+          <Property Name="LessonLearned" Type="varchar" MaxLength="500" />
+          <Property Name="UsageAtWork" Type="varchar" MaxLength="500" />
+          <Property Name="FutureProposal" Type="varchar" MaxLength="500" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+        </EntityType>
+        <EntityType Name="course_survey3">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseSignUpSeq" Type="int" Nullable="false" />
+          <Property Name="ContentA" Type="varchar" MaxLength="500" />
+          <Property Name="ContentB" Type="varchar" MaxLength="500" />
+          <Property Name="ContentC" Type="varchar" MaxLength="500" />
+          <Property Name="ContentD" Type="varchar" MaxLength="500" />
+          <Property Name="ContentE" Type="varchar" MaxLength="500" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+        </EntityType>
+        <EntityType Name="description_attitude">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriptionSeq" Type="int" Nullable="false" />
+          <Property Name="Attitude" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Memo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="description_certificate">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriptionSeq" Type="int" Nullable="false" />
+          <Property Name="Certificate" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="description_experience">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriptionSeq" Type="int" Nullable="false" />
+          <Property Name="WorkExperience" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Seniority" Type="int" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="description_language">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriptionSeq" Type="int" Nullable="false" />
+          <Property Name="Language" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Hear" Type="int" Nullable="false" />
+          <Property Name="Say" Type="int" Nullable="false" />
+          <Property Name="Read" Type="int" Nullable="false" />
+          <Property Name="Write" Type="int" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="description_object">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriptionSeq" Type="int" Nullable="false" />
+          <Property Name="Way" Type="int" Nullable="false" />
+          <Property Name="Who" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Matter" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Frequency" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="description_task">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriptionSeq" Type="int" Nullable="false" />
+          <Property Name="Task" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Duty" Type="int" Nullable="false" />
+          <Property Name="Time" Type="int" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="expert_certificate">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExpertSeq" Type="int" Nullable="false" />
+          <Property Name="FilePath" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="OriginalFileName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Memo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="expert_data">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExpertMemo" Type="varchar" MaxLength="500" />
+          <Property Name="ExpertImage" Type="longtext" />
+          <Property Name="ExpertImageType" Type="varchar" MaxLength="50" />
+          <Property Name="Area" Type="varchar" MaxLength="100" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Identity" Type="varchar" MaxLength="50" />
+          <Property Name="IdentityCard" Type="varchar" MaxLength="20" />
+          <Property Name="Birthday" Type="varchar" MaxLength="50" />
+          <Property Name="Diet" Type="varchar" MaxLength="2" />
+          <Property Name="Telephone" Type="varchar" MaxLength="20" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="Mail" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="ServiceAgency" Type="varchar" MaxLength="100" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="50" />
+          <Property Name="AgencyPhone" Type="varchar" MaxLength="20" />
+          <Property Name="AgencyAddress" Type="varchar" MaxLength="200" />
+          <Property Name="Expertise" Type="varchar" MaxLength="100" />
+          <Property Name="Memo" Type="varchar" MaxLength="500" />
+          <Property Name="Education" Type="varchar" MaxLength="500" />
+          <Property Name="Experience" Type="longtext" />
+          <Property Name="ProjectExperience" Type="longtext" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="expertise">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CName" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="DeleteTag" Type="int" />
+        </EntityType>
+        <EntityType Name="function_category">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="DeleteTag" Type="int" />
+        </EntityType>
+        <EntityType Name="function_factor">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectSeq" Type="int" Nullable="false" />
+          <Property Name="Num" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Definition" Type="varchar" MaxLength="400" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="function_project">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentSeq" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'def.ttqs_expert_demo.function_set' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="function_set">
+          <Key>
+            <PropertyRef Name="Seq" />
+            <PropertyRef Name="CreatDate" />
+            <PropertyRef Name="CreatUser" />
+            <PropertyRef Name="DeleteTag" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitSeq" Type="int" />
+          <Property Name="JobSeq" Type="int" />
+          <Property Name="FillDate" Type="date" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="function_unit">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitSeq" Type="int" />
+          <Property Name="ProjectSeq" Type="int" />
+          <Property Name="FactorList" Type="varchar" MaxLength="200" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="job_description">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitSeq" Type="int" />
+          <Property Name="JobSeq" Type="int" />
+          <Property Name="Education" Type="int" />
+          <Property Name="Department" Type="varchar" MaxLength="50" />
+          <Property Name="FillDate" Type="date" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="job_title">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="IsActive" Type="int" />
+          <Property Name="DeleteTag" Type="int" />
+        </EntityType>
+        <EntityType Name="lecture_record">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExpertSeq" Type="int" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="100" />
+          <Property Name="CourseDate" Type="date" Nullable="false" />
+          <Property Name="CourseScore" Type="int" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Memo" Type="varchar" MaxLength="50" />
+          <Property Name="Region" Type="varchar" MaxLength="50" />
+          <Property Name="RegionOrderNo" Type="int" Nullable="false" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="ParentSeq" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Path" Type="varchar" MaxLength="200" />
+          <Property Name="OrderNo" Type="int" Nullable="false" />
+          <Property Name="ShowRole" Type="varchar" MaxLength="20" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="new_ticker">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="200" />
+          <Property Name="StartTime" Type="datetime" Precision="0" />
+          <Property Name="EndTime" Type="datetime" Precision="0" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="recommend_class">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseCategory" Type="varchar" MaxLength="100" />
+          <Property Name="CourseSubcategory" Type="varchar" MaxLength="100" />
+          <Property Name="CourseTitle" Type="varchar" MaxLength="100" />
+          <Property Name="CourseTime" Type="varchar" MaxLength="100" />
+          <Property Name="Participants" Type="varchar" MaxLength="100" />
+          <Property Name="Deadline" Type="varchar" MaxLength="100" />
+          <Property Name="CourseIntroduction" Type="varchar" MaxLength="500" />
+          <Property Name="CourseURL" Type="varchar" MaxLength="400" />
+          <Property Name="CreatDate" Type="date" />
+        </EntityType>
+        <EntityType Name="training_goal">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="DeleteTag" Type="int" />
+        </EntityType>
+        <EntityType Name="training_object">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="DeleteTag" Type="int" />
+        </EntityType>
+        <EntityType Name="unit">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameEN" Type="varchar" MaxLength="50" />
+          <Property Name="Abbreviation" Type="varchar" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+          <Property Name="ParentSeq" Type="int" />
+          <Property Name="Level" Type="int" />
+          <Property Name="OrderNo" Type="int" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserSeq" />
+          </Key>
+          <Property Name="UserSeq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserWorkNum" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserAccount" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserRole" Type="int" Nullable="false" />
+          <Property Name="UserMobile" Type="varchar" MaxLength="20" />
+          <Property Name="Extension" Type="varchar" MaxLength="20" />
+          <Property Name="UserMail" Type="varchar" MaxLength="50" />
+          <Property Name="UserUnit" Type="int" Nullable="false" />
+          <Property Name="UserJobTitle" Type="int" />
+          <Property Name="Management" Type="int" />
+          <Property Name="StratWorkDay" Type="date" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_role">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Memo" Type="varchar" MaxLength="100" />
+          <Property Name="DeleteTag" Type="int" />
+        </EntityType>
+        <EntityType Name="view_history">
+          <Key>
+            <PropertyRef Name="Seq" />
+            <PropertyRef Name="AppendixSeq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseSeq" Type="int" Nullable="false" />
+          <Property Name="AppendixSeq" Type="int" Nullable="false" />
+          <Property Name="UserSeq" Type="int" Nullable="false" />
+          <Property Name="ViewLastTime" Type="decimal" Precision="6" Scale="1" Nullable="false" />
+          <Property Name="FristViewTime" Type="datetime" Precision="0" />
+          <Property Name="FristFinishTime" Type="datetime" Precision="0" />
+          <Property Name="ViewFinishTag" Type="int" Nullable="false" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="view_log">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseSeq" Type="int" Nullable="false" />
+          <Property Name="AppendixSeq" Type="int" Nullable="false" />
+          <Property Name="ViewStartTime" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="ViewEndTime" Type="datetime" Precision="0" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="work_function_set">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SetSeq" Type="int" />
+          <Property Name="FactorSeq" Type="int" />
+          <Property Name="StandardScore" Type="int" />
+          <Property Name="CreatDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatUser" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Precision="0" />
+          <Property Name="ModifyUser" Type="int" />
+          <Property Name="DeleteTag" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_annual_course_planning_function_category">
+          <End Role="function_category" Type="Self.function_category" Multiplicity="1" />
+          <End Role="annual_course_planning" Type="Self.annual_course_planning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="function_category">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="annual_course_planning">
+              <PropertyRef Name="FunctionCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_annual_course_planning_training_goal">
+          <End Role="training_goal" Type="Self.training_goal" Multiplicity="1" />
+          <End Role="annual_course_planning" Type="Self.annual_course_planning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="training_goal">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="annual_course_planning">
+              <PropertyRef Name="TrainingGoal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_annual_course_planning_training_object">
+          <End Role="training_object" Type="Self.training_object" Multiplicity="1" />
+          <End Role="annual_course_planning" Type="Self.annual_course_planning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="training_object">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="annual_course_planning">
+              <PropertyRef Name="TrainingObject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_annual_course_planning_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="annual_course_planning" Type="Self.annual_course_planning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="annual_course_planning">
+              <PropertyRef Name="UnitSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_appendix_course">
+          <End Role="course" Type="Self.course" Multiplicity="1" />
+          <End Role="course_appendix" Type="Self.course_appendix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_appendix">
+              <PropertyRef Name="CourseSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_designate_course">
+          <End Role="course" Type="Self.course" Multiplicity="1" />
+          <End Role="course_designate" Type="Self.course_designate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_designate">
+              <PropertyRef Name="CourseSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_designate_Division">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="course_designate" Type="Self.course_designate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_designate">
+              <PropertyRef Name="DivisionSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_designate_Section">
+          <End Role="unit" Type="Self.unit" Multiplicity="0..1" />
+          <End Role="course_designate" Type="Self.course_designate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_designate">
+              <PropertyRef Name="SectionSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_function_category">
+          <End Role="function_category" Type="Self.function_category" Multiplicity="0..1" />
+          <End Role="course" Type="Self.course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="function_category">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course">
+              <PropertyRef Name="FunctionCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_signup_course">
+          <End Role="course" Type="Self.course" Multiplicity="1" />
+          <End Role="course_signup" Type="Self.course_signup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_signup">
+              <PropertyRef Name="CourseSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_signup_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="course_signup" Type="Self.course_signup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserSeq" />
+            </Principal>
+            <Dependent Role="course_signup">
+              <PropertyRef Name="SignUpUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_survey1_course_signup">
+          <End Role="course_signup" Type="Self.course_signup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="course_survey1" Type="Self.course_survey1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course_signup">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_survey1">
+              <PropertyRef Name="CourseSignUpSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_survey2_course_signup">
+          <End Role="course_signup" Type="Self.course_signup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="course_survey2" Type="Self.course_survey2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course_signup">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_survey2">
+              <PropertyRef Name="CourseSignUpSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_survey3_course_signup">
+          <End Role="course_signup" Type="Self.course_signup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="course_survey3" Type="Self.course_survey3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course_signup">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_survey3">
+              <PropertyRef Name="CourseSignUpSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_training_goal">
+          <End Role="training_goal" Type="Self.training_goal" Multiplicity="0..1" />
+          <End Role="course" Type="Self.course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="training_goal">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course">
+              <PropertyRef Name="TrainingGoal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_training_object">
+          <End Role="training_object" Type="Self.training_object" Multiplicity="1" />
+          <End Role="course" Type="Self.course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="training_object">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course">
+              <PropertyRef Name="TrainingObject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factor_project">
+          <End Role="function_project" Type="Self.function_project" Multiplicity="1" />
+          <End Role="function_factor" Type="Self.function_factor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="function_project">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="function_factor">
+              <PropertyRef Name="ProjectSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_menu_menu">
+          <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
+          <End Role="menu1" Type="Self.menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="menu1">
+              <PropertyRef Name="ParentSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_project">
+          <End Role="function_project" Type="Self.function_project" Multiplicity="0..1" />
+          <End Role="function_project1" Type="Self.function_project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="function_project">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="function_project1">
+              <PropertyRef Name="ParentSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ttqs_newModelStoreContainer">
+          <EntitySet Name="annual_course_planning" EntityType="Self.annual_course_planning" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="carousel_map" EntityType="Self.carousel_map" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="city" EntityType="Self.city" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="course" EntityType="Self.course" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="course_appendix" EntityType="Self.course_appendix" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="course_designate" EntityType="Self.course_designate" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="course_question" EntityType="Self.course_question" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="course_signup" EntityType="Self.course_signup" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="course_survey1" EntityType="Self.course_survey1" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="course_survey2" EntityType="Self.course_survey2" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="course_survey3" EntityType="Self.course_survey3" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="description_attitude" EntityType="Self.description_attitude" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="description_certificate" EntityType="Self.description_certificate" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="description_experience" EntityType="Self.description_experience" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="description_language" EntityType="Self.description_language" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="description_object" EntityType="Self.description_object" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="description_task" EntityType="Self.description_task" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="expert_certificate" EntityType="Self.expert_certificate" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="expert_data" EntityType="Self.expert_data" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="expertise" EntityType="Self.expertise" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="function_category" EntityType="Self.function_category" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="function_factor" EntityType="Self.function_factor" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="function_project" EntityType="Self.function_project" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="function_unit" EntityType="Self.function_unit" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="job_description" EntityType="Self.job_description" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="job_title" EntityType="Self.job_title" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="lecture_record" EntityType="Self.lecture_record" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="location" EntityType="Self.location" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="menu" EntityType="Self.menu" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="new_ticker" EntityType="Self.new_ticker" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="recommend_class" EntityType="Self.recommend_class" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="training_goal" EntityType="Self.training_goal" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="training_object" EntityType="Self.training_object" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="unit" EntityType="Self.unit" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="user_role" EntityType="Self.user_role" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="view_history" EntityType="Self.view_history" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="view_log" EntityType="Self.view_log" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="work_function_set" EntityType="Self.work_function_set" Schema="ttqs_expert_demo" store:Type="Tables" />
+          <EntitySet Name="function_set" EntityType="Self.function_set" store:Type="Tables" store:Schema="ttqs_expert_demo">
+            <DefiningQuery>SELECT 
+`function_set`.`Seq`, 
+`function_set`.`UnitSeq`, 
+`function_set`.`JobSeq`, 
+`function_set`.`FillDate`, 
+`function_set`.`CreatDate`, 
+`function_set`.`CreatUser`, 
+`function_set`.`ModifyDate`, 
+`function_set`.`ModifyUser`, 
+`function_set`.`DeleteTag`
+ FROM `function_set` AS `function_set`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_annual_course_planning_function_category" Association="Self.FK_annual_course_planning_function_category">
+            <End Role="function_category" EntitySet="function_category" />
+            <End Role="annual_course_planning" EntitySet="annual_course_planning" />
+          </AssociationSet>
+          <AssociationSet Name="FK_annual_course_planning_training_goal" Association="Self.FK_annual_course_planning_training_goal">
+            <End Role="training_goal" EntitySet="training_goal" />
+            <End Role="annual_course_planning" EntitySet="annual_course_planning" />
+          </AssociationSet>
+          <AssociationSet Name="FK_annual_course_planning_training_object" Association="Self.FK_annual_course_planning_training_object">
+            <End Role="training_object" EntitySet="training_object" />
+            <End Role="annual_course_planning" EntitySet="annual_course_planning" />
+          </AssociationSet>
+          <AssociationSet Name="FK_annual_course_planning_unit" Association="Self.FK_annual_course_planning_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="annual_course_planning" EntitySet="annual_course_planning" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_appendix_course" Association="Self.FK_course_appendix_course">
+            <End Role="course" EntitySet="course" />
+            <End Role="course_appendix" EntitySet="course_appendix" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_designate_course" Association="Self.FK_course_designate_course">
+            <End Role="course" EntitySet="course" />
+            <End Role="course_designate" EntitySet="course_designate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_designate_Division" Association="Self.FK_course_designate_Division">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="course_designate" EntitySet="course_designate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_designate_Section" Association="Self.FK_course_designate_Section">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="course_designate" EntitySet="course_designate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_function_category" Association="Self.FK_course_function_category">
+            <End Role="function_category" EntitySet="function_category" />
+            <End Role="course" EntitySet="course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_signup_course" Association="Self.FK_course_signup_course">
+            <End Role="course" EntitySet="course" />
+            <End Role="course_signup" EntitySet="course_signup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_signup_user" Association="Self.FK_course_signup_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="course_signup" EntitySet="course_signup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_survey1_course_signup" Association="Self.FK_course_survey1_course_signup">
+            <End Role="course_signup" EntitySet="course_signup" />
+            <End Role="course_survey1" EntitySet="course_survey1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_survey2_course_signup" Association="Self.FK_course_survey2_course_signup">
+            <End Role="course_signup" EntitySet="course_signup" />
+            <End Role="course_survey2" EntitySet="course_survey2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_survey3_course_signup" Association="Self.FK_course_survey3_course_signup">
+            <End Role="course_signup" EntitySet="course_signup" />
+            <End Role="course_survey3" EntitySet="course_survey3" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_training_goal" Association="Self.FK_course_training_goal">
+            <End Role="training_goal" EntitySet="training_goal" />
+            <End Role="course" EntitySet="course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_training_object" Association="Self.FK_course_training_object">
+            <End Role="training_object" EntitySet="training_object" />
+            <End Role="course" EntitySet="course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factor_project" Association="Self.FK_factor_project">
+            <End Role="function_project" EntitySet="function_project" />
+            <End Role="function_factor" EntitySet="function_factor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_menu_menu" Association="Self.FK_menu_menu">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="menu1" EntitySet="menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_project" Association="Self.FK_project_project">
+            <End Role="function_project" EntitySet="function_project" />
+            <End Role="function_project1" EntitySet="function_project" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ttqs_newModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ttqs_newEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="annual_course_planning" EntityType="ttqs_newModel.annual_course_planning" />
+          <EntitySet Name="carousel_map" EntityType="ttqs_newModel.carousel_map" />
+          <EntitySet Name="city" EntityType="ttqs_newModel.city" />
+          <EntitySet Name="course" EntityType="ttqs_newModel.course" />
+          <EntitySet Name="course_appendix" EntityType="ttqs_newModel.course_appendix" />
+          <EntitySet Name="course_designate" EntityType="ttqs_newModel.course_designate" />
+          <EntitySet Name="course_question" EntityType="ttqs_newModel.course_question" />
+          <EntitySet Name="course_signup" EntityType="ttqs_newModel.course_signup" />
+          <EntitySet Name="course_survey1" EntityType="ttqs_newModel.course_survey1" />
+          <EntitySet Name="course_survey2" EntityType="ttqs_newModel.course_survey2" />
+          <EntitySet Name="course_survey3" EntityType="ttqs_newModel.course_survey3" />
+          <EntitySet Name="description_attitude" EntityType="ttqs_newModel.description_attitude" />
+          <EntitySet Name="description_certificate" EntityType="ttqs_newModel.description_certificate" />
+          <EntitySet Name="description_experience" EntityType="ttqs_newModel.description_experience" />
+          <EntitySet Name="description_language" EntityType="ttqs_newModel.description_language" />
+          <EntitySet Name="description_object" EntityType="ttqs_newModel.description_object" />
+          <EntitySet Name="description_task" EntityType="ttqs_newModel.description_task" />
+          <EntitySet Name="expert_certificate" EntityType="ttqs_newModel.expert_certificate" />
+          <EntitySet Name="expert_data" EntityType="ttqs_newModel.expert_data" />
+          <EntitySet Name="expertise" EntityType="ttqs_newModel.expertise" />
+          <EntitySet Name="function_category" EntityType="ttqs_newModel.function_category" />
+          <EntitySet Name="function_factor" EntityType="ttqs_newModel.function_factor" />
+          <EntitySet Name="function_project" EntityType="ttqs_newModel.function_project" />
+          <EntitySet Name="function_unit" EntityType="ttqs_newModel.function_unit" />
+          <EntitySet Name="job_description" EntityType="ttqs_newModel.job_description" />
+          <EntitySet Name="job_title" EntityType="ttqs_newModel.job_title" />
+          <EntitySet Name="lecture_record" EntityType="ttqs_newModel.lecture_record" />
+          <EntitySet Name="location" EntityType="ttqs_newModel.location" />
+          <EntitySet Name="menu" EntityType="ttqs_newModel.menu" />
+          <EntitySet Name="new_ticker" EntityType="ttqs_newModel.new_ticker" />
+          <EntitySet Name="recommend_class" EntityType="ttqs_newModel.recommend_class" />
+          <EntitySet Name="training_goal" EntityType="ttqs_newModel.training_goal" />
+          <EntitySet Name="training_object" EntityType="ttqs_newModel.training_object" />
+          <EntitySet Name="unit" EntityType="ttqs_newModel.unit" />
+          <EntitySet Name="user" EntityType="ttqs_newModel.user" />
+          <EntitySet Name="user_role" EntityType="ttqs_newModel.user_role" />
+          <EntitySet Name="view_history" EntityType="ttqs_newModel.view_history" />
+          <EntitySet Name="view_log" EntityType="ttqs_newModel.view_log" />
+          <EntitySet Name="work_function_set" EntityType="ttqs_newModel.work_function_set" />
+          <EntitySet Name="function_set" EntityType="ttqs_newModel.function_set" />
+          <AssociationSet Name="FK_annual_course_planning_function_category" Association="ttqs_newModel.FK_annual_course_planning_function_category">
+            <End Role="function_category" EntitySet="function_category" />
+            <End Role="annual_course_planning" EntitySet="annual_course_planning" />
+          </AssociationSet>
+          <AssociationSet Name="FK_annual_course_planning_training_goal" Association="ttqs_newModel.FK_annual_course_planning_training_goal">
+            <End Role="training_goal" EntitySet="training_goal" />
+            <End Role="annual_course_planning" EntitySet="annual_course_planning" />
+          </AssociationSet>
+          <AssociationSet Name="FK_annual_course_planning_training_object" Association="ttqs_newModel.FK_annual_course_planning_training_object">
+            <End Role="training_object" EntitySet="training_object" />
+            <End Role="annual_course_planning" EntitySet="annual_course_planning" />
+          </AssociationSet>
+          <AssociationSet Name="FK_annual_course_planning_unit" Association="ttqs_newModel.FK_annual_course_planning_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="annual_course_planning" EntitySet="annual_course_planning" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_appendix_course" Association="ttqs_newModel.FK_course_appendix_course">
+            <End Role="course" EntitySet="course" />
+            <End Role="course_appendix" EntitySet="course_appendix" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_designate_course" Association="ttqs_newModel.FK_course_designate_course">
+            <End Role="course" EntitySet="course" />
+            <End Role="course_designate" EntitySet="course_designate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_function_category" Association="ttqs_newModel.FK_course_function_category">
+            <End Role="function_category" EntitySet="function_category" />
+            <End Role="course" EntitySet="course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_signup_course" Association="ttqs_newModel.FK_course_signup_course">
+            <End Role="course" EntitySet="course" />
+            <End Role="course_signup" EntitySet="course_signup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_training_goal" Association="ttqs_newModel.FK_course_training_goal">
+            <End Role="training_goal" EntitySet="training_goal" />
+            <End Role="course" EntitySet="course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_training_object" Association="ttqs_newModel.FK_course_training_object">
+            <End Role="training_object" EntitySet="training_object" />
+            <End Role="course" EntitySet="course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_designate_Division" Association="ttqs_newModel.FK_course_designate_Division">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="course_designate" EntitySet="course_designate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_designate_Section" Association="ttqs_newModel.FK_course_designate_Section">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="course_designate" EntitySet="course_designate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_signup_user" Association="ttqs_newModel.FK_course_signup_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="course_signup" EntitySet="course_signup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_survey1_course_signup" Association="ttqs_newModel.FK_course_survey1_course_signup">
+            <End Role="course_signup" EntitySet="course_signup" />
+            <End Role="course_survey1" EntitySet="course_survey1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_survey2_course_signup" Association="ttqs_newModel.FK_course_survey2_course_signup">
+            <End Role="course_signup" EntitySet="course_signup" />
+            <End Role="course_survey2" EntitySet="course_survey2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_survey3_course_signup" Association="ttqs_newModel.FK_course_survey3_course_signup">
+            <End Role="course_signup" EntitySet="course_signup" />
+            <End Role="course_survey3" EntitySet="course_survey3" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factor_project" Association="ttqs_newModel.FK_factor_project">
+            <End Role="function_project" EntitySet="function_project" />
+            <End Role="function_factor" EntitySet="function_factor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_project" Association="ttqs_newModel.FK_project_project">
+            <End Role="function_project" EntitySet="function_project" />
+            <End Role="function_project1" EntitySet="function_project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_menu_menu" Association="ttqs_newModel.FK_menu_menu">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="menu1" EntitySet="menu" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="annual_course_planning">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FunctionCategory" Type="Int32" Nullable="false" />
+          <Property Name="CourseName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TackCourseType" Type="Int32" Nullable="false" />
+          <Property Name="TrainingGoal" Type="Int32" Nullable="false" />
+          <Property Name="OtherTrainingGoal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Memo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="UnitSeq" Type="Int32" Nullable="false" />
+          <Property Name="CourseHours" Type="Int32" Nullable="false" />
+          <Property Name="TrainingObject" Type="Int32" Nullable="false" />
+          <Property Name="OtherTrainingObject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TrainingNumbers" Type="Int32" Nullable="false" />
+          <Property Name="EstimatedExpenses" Type="Int32" Nullable="false" />
+          <Property Name="EstimatedExpensesMemo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="EstimatedStartMonth" Type="Int32" Nullable="false" />
+          <Property Name="SubmitReview" Type="Int32" Nullable="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="function_category" Relationship="ttqs_newModel.FK_annual_course_planning_function_category" FromRole="annual_course_planning" ToRole="function_category" />
+          <NavigationProperty Name="training_goal" Relationship="ttqs_newModel.FK_annual_course_planning_training_goal" FromRole="annual_course_planning" ToRole="training_goal" />
+          <NavigationProperty Name="training_object" Relationship="ttqs_newModel.FK_annual_course_planning_training_object" FromRole="annual_course_planning" ToRole="training_object" />
+          <NavigationProperty Name="unit" Relationship="ttqs_newModel.FK_annual_course_planning_unit" FromRole="annual_course_planning" ToRole="unit" />
+        </EntityType>
+        <EntityType Name="carousel_map">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteTag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="course">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CourseNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CourseImage" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="CourseImageType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartTime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EndTime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FunctionCategory" Type="Int32" />
+          <Property Name="TrainingGoal" Type="Int32" />
+          <Property Name="OtherTrainingGoal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LecturerType" Type="Int32" />
+          <Property Name="Lecturer" Type="Int32" />
+          <Property Name="OtherLecturer" Type="Int32" />
+          <Property Name="TrainingObject" Type="Int32" Nullable="false" />
+          <Property Name="OtherTrainingObject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OpenSignUp" Type="Int32" Nullable="false" />
+          <Property Name="AllowExternal" Type="Int32" Nullable="false" />
+          <Property Name="CourseSurvey1" Type="Int32" Nullable="false" />
+          <Property Name="CourseSurvey2" Type="Int32" Nullable="false" />
+          <Property Name="CourseSurvey3" Type="Int32" Nullable="false" />
+          <Property Name="CourseMemo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="AuthorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AuthorMemo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AuthorImage" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="AuthorImageType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CourseFocus" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="QuestionNums" Type="Int32" />
+          <Property Name="CourseRelease" Type="Int32" Nullable="false" />
+          <Property Name="ReleaseDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="course_appendix" Relationship="ttqs_newModel.FK_course_appendix_course" FromRole="course" ToRole="course_appendix" />
+          <NavigationProperty Name="course_designate" Relationship="ttqs_newModel.FK_course_designate_course" FromRole="course" ToRole="course_designate" />
+          <NavigationProperty Name="function_category" Relationship="ttqs_newModel.FK_course_function_category" FromRole="course" ToRole="function_category" />
+          <NavigationProperty Name="course_signup" Relationship="ttqs_newModel.FK_course_signup_course" FromRole="course" ToRole="course_signup" />
+          <NavigationProperty Name="training_goal" Relationship="ttqs_newModel.FK_course_training_goal" FromRole="course" ToRole="training_goal" />
+          <NavigationProperty Name="training_object" Relationship="ttqs_newModel.FK_course_training_object" FromRole="course" ToRole="training_object" />
+        </EntityType>
+        <EntityType Name="course_appendix">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseSeq" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Unit" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OriginalFileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Memo" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Tag" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Duration" Type="Decimal" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="course" Relationship="ttqs_newModel.FK_course_appendix_course" FromRole="course_appendix" ToRole="course" />
+        </EntityType>
+        <EntityType Name="course_designate">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseSeq" Type="Int32" Nullable="false" />
+          <Property Name="DivisionSeq" Type="Int32" Nullable="false" />
+          <Property Name="SectionSeq" Type="Int32" />
+          <Property Name="AllowedCount" Type="Int32" Nullable="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="course" Relationship="ttqs_newModel.FK_course_designate_course" FromRole="course_designate" ToRole="course" />
+          <NavigationProperty Name="unit" Relationship="ttqs_newModel.FK_course_designate_Division" FromRole="course_designate" ToRole="unit" />
+          <NavigationProperty Name="unit1" Relationship="ttqs_newModel.FK_course_designate_Section" FromRole="course_designate" ToRole="unit" />
+        </EntityType>
+        <EntityType Name="course_question">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseSeq" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Question" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OptionA" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="OptionB" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="OptionC" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="OptionD" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Answer" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="course_signup">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseSeq" Type="Int32" Nullable="false" />
+          <Property Name="SignUpUser" Type="Int32" Nullable="false" />
+          <Property Name="IsDesignate" Type="Int32" />
+          <Property Name="IsSignedIn" Type="Int32" Nullable="false" />
+          <Property Name="IsSignInTime" Type="DateTime" />
+          <Property Name="IsSignedOut" Type="Int32" />
+          <Property Name="IsSignOutTime" Type="DateTime" />
+          <Property Name="Memo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <NavigationProperty Name="course" Relationship="ttqs_newModel.FK_course_signup_course" FromRole="course_signup" ToRole="course" />
+          <NavigationProperty Name="user" Relationship="ttqs_newModel.FK_course_signup_user" FromRole="course_signup" ToRole="user" />
+          <NavigationProperty Name="course_survey1" Relationship="ttqs_newModel.FK_course_survey1_course_signup" FromRole="course_signup" ToRole="course_survey1" />
+          <NavigationProperty Name="course_survey2" Relationship="ttqs_newModel.FK_course_survey2_course_signup" FromRole="course_signup" ToRole="course_survey2" />
+          <NavigationProperty Name="course_survey3" Relationship="ttqs_newModel.FK_course_survey3_course_signup" FromRole="course_signup" ToRole="course_survey3" />
+          <Property Name="HasExam" Type="Int32" />
+        </EntityType>
+        <EntityType Name="course_survey1">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseSignUpSeq" Type="Int32" Nullable="false" />
+          <Property Name="Score11" Type="Int32" />
+          <Property Name="Score12" Type="Int32" />
+          <Property Name="Score21" Type="Int32" />
+          <Property Name="Score22" Type="Int32" />
+          <Property Name="Score31" Type="Int32" />
+          <Property Name="Score41" Type="Int32" />
+          <Property Name="Score42" Type="Int32" />
+          <Property Name="Score43" Type="Int32" />
+          <Property Name="Score44" Type="Int32" />
+          <Property Name="Score51" Type="Int32" />
+          <Property Name="Score52" Type="Int32" />
+          <Property Name="Score61" Type="Int32" />
+          <Property Name="Score62" Type="Int32" />
+          <Property Name="Score63" Type="Int32" />
+          <Property Name="Score71" Type="Int32" />
+          <Property Name="Score72" Type="Int32" />
+          <Property Name="Opinion1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Opinion2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Opinion3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <NavigationProperty Name="course_signup" Relationship="ttqs_newModel.FK_course_survey1_course_signup" FromRole="course_survey1" ToRole="course_signup" />
+        </EntityType>
+        <EntityType Name="course_survey2">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseSignUpSeq" Type="Int32" Nullable="false" />
+          <Property Name="LessonLearned" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="UsageAtWork" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FutureProposal" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <NavigationProperty Name="course_signup" Relationship="ttqs_newModel.FK_course_survey2_course_signup" FromRole="course_survey2" ToRole="course_signup" />
+        </EntityType>
+        <EntityType Name="course_survey3">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseSignUpSeq" Type="Int32" Nullable="false" />
+          <Property Name="ContentA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ContentB" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ContentC" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ContentD" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ContentE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <NavigationProperty Name="course_signup" Relationship="ttqs_newModel.FK_course_survey3_course_signup" FromRole="course_survey3" ToRole="course_signup" />
+        </EntityType>
+        <EntityType Name="description_attitude">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriptionSeq" Type="Int32" Nullable="false" />
+          <Property Name="Attitude" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Memo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="description_certificate">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriptionSeq" Type="Int32" Nullable="false" />
+          <Property Name="Certificate" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="description_experience">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriptionSeq" Type="Int32" Nullable="false" />
+          <Property Name="WorkExperience" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Seniority" Type="Int32" Nullable="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="description_language">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriptionSeq" Type="Int32" Nullable="false" />
+          <Property Name="Language" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Hear" Type="Int32" Nullable="false" />
+          <Property Name="Say" Type="Int32" Nullable="false" />
+          <Property Name="Read" Type="Int32" Nullable="false" />
+          <Property Name="Write" Type="Int32" Nullable="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="description_object">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriptionSeq" Type="Int32" Nullable="false" />
+          <Property Name="Way" Type="Int32" Nullable="false" />
+          <Property Name="Who" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Matter" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Frequency" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="description_task">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriptionSeq" Type="Int32" Nullable="false" />
+          <Property Name="Task" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Duty" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="Int32" Nullable="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="expert_certificate">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpertSeq" Type="Int32" Nullable="false" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="OriginalFileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Memo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="expert_data">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdentityCard" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Birthday" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Diet" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceAgency" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AgencyPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AgencyAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Expertise" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Memo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Education" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectExperience" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+          <Property Name="ExpertMemo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ExpertImage" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="ExpertImageType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="expertise">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteTag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="function_category">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteTag" Type="Int32" />
+          <NavigationProperty Name="annual_course_planning" Relationship="ttqs_newModel.FK_annual_course_planning_function_category" FromRole="function_category" ToRole="annual_course_planning" />
+          <NavigationProperty Name="course" Relationship="ttqs_newModel.FK_course_function_category" FromRole="function_category" ToRole="course" />
+        </EntityType>
+        <EntityType Name="function_factor">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectSeq" Type="Int32" Nullable="false" />
+          <Property Name="Num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Definition" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="function_project" Relationship="ttqs_newModel.FK_factor_project" FromRole="function_factor" ToRole="function_project" />
+        </EntityType>
+        <EntityType Name="function_project">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentSeq" Type="Int32" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="function_factor" Relationship="ttqs_newModel.FK_factor_project" FromRole="function_project" ToRole="function_factor" />
+          <NavigationProperty Name="function_project1" Relationship="ttqs_newModel.FK_project_project" FromRole="function_project" ToRole="function_project1" />
+          <NavigationProperty Name="function_project2" Relationship="ttqs_newModel.FK_project_project" FromRole="function_project1" ToRole="function_project" />
+        </EntityType>
+        <EntityType Name="function_unit">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitSeq" Type="Int32" />
+          <Property Name="ProjectSeq" Type="Int32" />
+          <Property Name="FactorList" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="job_description">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitSeq" Type="Int32" />
+          <Property Name="JobSeq" Type="Int32" />
+          <Property Name="Education" Type="Int32" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FillDate" Type="DateTime" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="job_title">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="lecture_record">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpertSeq" Type="Int32" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CourseDate" Type="DateTime" Nullable="false" />
+          <Property Name="CourseScore" Type="Int32" Nullable="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Memo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegionOrderNo" Type="Int32" Nullable="false" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="ParentSeq" Type="Int32" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="ShowRole" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="menu1" Relationship="ttqs_newModel.FK_menu_menu" FromRole="menu" ToRole="menu1" />
+          <NavigationProperty Name="menu2" Relationship="ttqs_newModel.FK_menu_menu" FromRole="menu1" ToRole="menu" />
+        </EntityType>
+        <EntityType Name="new_ticker">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="StartTime" Type="DateTime" />
+          <Property Name="EndTime" Type="DateTime" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="recommend_class">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CourseSubcategory" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CourseTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CourseTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Participants" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Deadline" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CourseIntroduction" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CourseURL" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="CreatDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="training_goal">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteTag" Type="Int32" />
+          <NavigationProperty Name="annual_course_planning" Relationship="ttqs_newModel.FK_annual_course_planning_training_goal" FromRole="training_goal" ToRole="annual_course_planning" />
+          <NavigationProperty Name="course" Relationship="ttqs_newModel.FK_course_training_goal" FromRole="training_goal" ToRole="course" />
+        </EntityType>
+        <EntityType Name="training_object">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteTag" Type="Int32" />
+          <NavigationProperty Name="annual_course_planning" Relationship="ttqs_newModel.FK_annual_course_planning_training_object" FromRole="training_object" ToRole="annual_course_planning" />
+          <NavigationProperty Name="course" Relationship="ttqs_newModel.FK_course_training_object" FromRole="training_object" ToRole="course" />
+        </EntityType>
+        <EntityType Name="unit">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameEN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Abbreviation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentSeq" Type="Int32" />
+          <Property Name="Level" Type="Int32" />
+          <Property Name="OrderNo" Type="Int32" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="annual_course_planning" Relationship="ttqs_newModel.FK_annual_course_planning_unit" FromRole="unit" ToRole="annual_course_planning" />
+          <NavigationProperty Name="course_designate" Relationship="ttqs_newModel.FK_course_designate_Division" FromRole="unit" ToRole="course_designate" />
+          <NavigationProperty Name="course_designate1" Relationship="ttqs_newModel.FK_course_designate_Section" FromRole="unit" ToRole="course_designate" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserSeq" />
+          </Key>
+          <Property Name="UserSeq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserWorkNum" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserAccount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserRole" Type="Int32" Nullable="false" />
+          <Property Name="UserMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Extension" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserUnit" Type="Int32" Nullable="false" />
+          <Property Name="UserJobTitle" Type="Int32" />
+          <Property Name="Management" Type="Int32" />
+          <Property Name="StratWorkDay" Type="DateTime" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="course_signup" Relationship="ttqs_newModel.FK_course_signup_user" FromRole="user" ToRole="course_signup" />
+        </EntityType>
+        <EntityType Name="user_role">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Memo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteTag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="view_history">
+          <Key>
+            <PropertyRef Name="Seq" />
+            <PropertyRef Name="AppendixSeq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseSeq" Type="Int32" Nullable="false" />
+          <Property Name="AppendixSeq" Type="Int32" Nullable="false" />
+          <Property Name="UserSeq" Type="Int32" Nullable="false" />
+          <Property Name="ViewLastTime" Type="Decimal" Nullable="false" />
+          <Property Name="FristViewTime" Type="DateTime" />
+          <Property Name="FristFinishTime" Type="DateTime" />
+          <Property Name="ViewFinishTag" Type="Int32" Nullable="false" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="view_log">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseSeq" Type="Int32" Nullable="false" />
+          <Property Name="AppendixSeq" Type="Int32" Nullable="false" />
+          <Property Name="ViewStartTime" Type="DateTime" Nullable="false" />
+          <Property Name="ViewEndTime" Type="DateTime" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="work_function_set">
+          <Key>
+            <PropertyRef Name="Seq" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SetSeq" Type="Int32" />
+          <Property Name="FactorSeq" Type="Int32" />
+          <Property Name="StandardScore" Type="Int32" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="function_set">
+          <Key>
+            <PropertyRef Name="Seq" />
+            <PropertyRef Name="CreatDate" />
+            <PropertyRef Name="CreatUser" />
+            <PropertyRef Name="DeleteTag" />
+          </Key>
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitSeq" Type="Int32" />
+          <Property Name="JobSeq" Type="Int32" />
+          <Property Name="FillDate" Type="DateTime" />
+          <Property Name="CreatDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatUser" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" />
+          <Property Name="ModifyUser" Type="Int32" />
+          <Property Name="DeleteTag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_annual_course_planning_function_category">
+          <End Type="ttqs_newModel.function_category" Role="function_category" Multiplicity="1" />
+          <End Type="ttqs_newModel.annual_course_planning" Role="annual_course_planning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="function_category">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="annual_course_planning">
+              <PropertyRef Name="FunctionCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_annual_course_planning_training_goal">
+          <End Type="ttqs_newModel.training_goal" Role="training_goal" Multiplicity="1" />
+          <End Type="ttqs_newModel.annual_course_planning" Role="annual_course_planning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="training_goal">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="annual_course_planning">
+              <PropertyRef Name="TrainingGoal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_annual_course_planning_training_object">
+          <End Type="ttqs_newModel.training_object" Role="training_object" Multiplicity="1" />
+          <End Type="ttqs_newModel.annual_course_planning" Role="annual_course_planning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="training_object">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="annual_course_planning">
+              <PropertyRef Name="TrainingObject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_annual_course_planning_unit">
+          <End Type="ttqs_newModel.unit" Role="unit" Multiplicity="1" />
+          <End Type="ttqs_newModel.annual_course_planning" Role="annual_course_planning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="annual_course_planning">
+              <PropertyRef Name="UnitSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_appendix_course">
+          <End Type="ttqs_newModel.course" Role="course" Multiplicity="1" />
+          <End Type="ttqs_newModel.course_appendix" Role="course_appendix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_appendix">
+              <PropertyRef Name="CourseSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_designate_course">
+          <End Type="ttqs_newModel.course" Role="course" Multiplicity="1" />
+          <End Type="ttqs_newModel.course_designate" Role="course_designate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_designate">
+              <PropertyRef Name="CourseSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_function_category">
+          <End Type="ttqs_newModel.function_category" Role="function_category" Multiplicity="0..1" />
+          <End Type="ttqs_newModel.course" Role="course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="function_category">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course">
+              <PropertyRef Name="FunctionCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_signup_course">
+          <End Type="ttqs_newModel.course" Role="course" Multiplicity="1" />
+          <End Type="ttqs_newModel.course_signup" Role="course_signup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_signup">
+              <PropertyRef Name="CourseSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_training_goal">
+          <End Type="ttqs_newModel.training_goal" Role="training_goal" Multiplicity="0..1" />
+          <End Type="ttqs_newModel.course" Role="course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="training_goal">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course">
+              <PropertyRef Name="TrainingGoal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_training_object">
+          <End Type="ttqs_newModel.training_object" Role="training_object" Multiplicity="1" />
+          <End Type="ttqs_newModel.course" Role="course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="training_object">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course">
+              <PropertyRef Name="TrainingObject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_designate_Division">
+          <End Type="ttqs_newModel.unit" Role="unit" Multiplicity="1" />
+          <End Type="ttqs_newModel.course_designate" Role="course_designate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_designate">
+              <PropertyRef Name="DivisionSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_designate_Section">
+          <End Type="ttqs_newModel.unit" Role="unit" Multiplicity="0..1" />
+          <End Type="ttqs_newModel.course_designate" Role="course_designate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_designate">
+              <PropertyRef Name="SectionSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_signup_user">
+          <End Type="ttqs_newModel.user" Role="user" Multiplicity="1" />
+          <End Type="ttqs_newModel.course_signup" Role="course_signup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserSeq" />
+            </Principal>
+            <Dependent Role="course_signup">
+              <PropertyRef Name="SignUpUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_survey1_course_signup">
+          <End Type="ttqs_newModel.course_signup" Role="course_signup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ttqs_newModel.course_survey1" Role="course_survey1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course_signup">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_survey1">
+              <PropertyRef Name="CourseSignUpSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_survey2_course_signup">
+          <End Type="ttqs_newModel.course_signup" Role="course_signup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ttqs_newModel.course_survey2" Role="course_survey2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course_signup">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_survey2">
+              <PropertyRef Name="CourseSignUpSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_survey3_course_signup">
+          <End Type="ttqs_newModel.course_signup" Role="course_signup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ttqs_newModel.course_survey3" Role="course_survey3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course_signup">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="course_survey3">
+              <PropertyRef Name="CourseSignUpSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factor_project">
+          <End Type="ttqs_newModel.function_project" Role="function_project" Multiplicity="1" />
+          <End Type="ttqs_newModel.function_factor" Role="function_factor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="function_project">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="function_factor">
+              <PropertyRef Name="ProjectSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_project">
+          <End Type="ttqs_newModel.function_project" Role="function_project" Multiplicity="0..1" />
+          <End Type="ttqs_newModel.function_project" Role="function_project1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="function_project">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="function_project1">
+              <PropertyRef Name="ParentSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_menu_menu">
+          <End Type="ttqs_newModel.menu" Role="menu" Multiplicity="0..1" />
+          <End Type="ttqs_newModel.menu" Role="menu1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="Seq" />
+            </Principal>
+            <Dependent Role="menu1">
+              <PropertyRef Name="ParentSeq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ttqs_newModelStoreContainer" CdmEntityContainer="ttqs_newEntities">
+          <EntitySetMapping Name="annual_course_planning">
+            <EntityTypeMapping TypeName="ttqs_newModel.annual_course_planning">
+              <MappingFragment StoreEntitySet="annual_course_planning">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="SubmitReview" ColumnName="SubmitReview" />
+                <ScalarProperty Name="EstimatedStartMonth" ColumnName="EstimatedStartMonth" />
+                <ScalarProperty Name="EstimatedExpensesMemo" ColumnName="EstimatedExpensesMemo" />
+                <ScalarProperty Name="EstimatedExpenses" ColumnName="EstimatedExpenses" />
+                <ScalarProperty Name="TrainingNumbers" ColumnName="TrainingNumbers" />
+                <ScalarProperty Name="OtherTrainingObject" ColumnName="OtherTrainingObject" />
+                <ScalarProperty Name="TrainingObject" ColumnName="TrainingObject" />
+                <ScalarProperty Name="CourseHours" ColumnName="CourseHours" />
+                <ScalarProperty Name="UnitSeq" ColumnName="UnitSeq" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="OtherTrainingGoal" ColumnName="OtherTrainingGoal" />
+                <ScalarProperty Name="TrainingGoal" ColumnName="TrainingGoal" />
+                <ScalarProperty Name="TackCourseType" ColumnName="TackCourseType" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="FunctionCategory" ColumnName="FunctionCategory" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="carousel_map">
+            <EntityTypeMapping TypeName="ttqs_newModel.carousel_map">
+              <MappingFragment StoreEntitySet="carousel_map">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="city">
+            <EntityTypeMapping TypeName="ttqs_newModel.city">
+              <MappingFragment StoreEntitySet="city">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CName" ColumnName="CName" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course">
+            <EntityTypeMapping TypeName="ttqs_newModel.course">
+              <MappingFragment StoreEntitySet="course">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="CourseRelease" ColumnName="CourseRelease" />
+                <ScalarProperty Name="QuestionNums" ColumnName="QuestionNums" />
+                <ScalarProperty Name="CourseFocus" ColumnName="CourseFocus" />
+                <ScalarProperty Name="AuthorImageType" ColumnName="AuthorImageType" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="AuthorMemo" ColumnName="AuthorMemo" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="CourseMemo" ColumnName="CourseMemo" />
+                <ScalarProperty Name="CourseSurvey3" ColumnName="CourseSurvey3" />
+                <ScalarProperty Name="CourseSurvey2" ColumnName="CourseSurvey2" />
+                <ScalarProperty Name="CourseSurvey1" ColumnName="CourseSurvey1" />
+                <ScalarProperty Name="AllowExternal" ColumnName="AllowExternal" />
+                <ScalarProperty Name="OpenSignUp" ColumnName="OpenSignUp" />
+                <ScalarProperty Name="OtherTrainingObject" ColumnName="OtherTrainingObject" />
+                <ScalarProperty Name="TrainingObject" ColumnName="TrainingObject" />
+                <ScalarProperty Name="OtherLecturer" ColumnName="OtherLecturer" />
+                <ScalarProperty Name="Lecturer" ColumnName="Lecturer" />
+                <ScalarProperty Name="LecturerType" ColumnName="LecturerType" />
+                <ScalarProperty Name="OtherTrainingGoal" ColumnName="OtherTrainingGoal" />
+                <ScalarProperty Name="TrainingGoal" ColumnName="TrainingGoal" />
+                <ScalarProperty Name="FunctionCategory" ColumnName="FunctionCategory" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="CourseImageType" ColumnName="CourseImageType" />
+                <ScalarProperty Name="CourseImage" ColumnName="CourseImage" />
+                <ScalarProperty Name="CourseNumber" ColumnName="CourseNumber" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course_appendix">
+            <EntityTypeMapping TypeName="ttqs_newModel.course_appendix">
+              <MappingFragment StoreEntitySet="course_appendix">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="OriginalFileName" ColumnName="OriginalFileName" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CourseSeq" ColumnName="CourseSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course_designate">
+            <EntityTypeMapping TypeName="ttqs_newModel.course_designate">
+              <MappingFragment StoreEntitySet="course_designate">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="AllowedCount" ColumnName="AllowedCount" />
+                <ScalarProperty Name="SectionSeq" ColumnName="SectionSeq" />
+                <ScalarProperty Name="DivisionSeq" ColumnName="DivisionSeq" />
+                <ScalarProperty Name="CourseSeq" ColumnName="CourseSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course_question">
+            <EntityTypeMapping TypeName="ttqs_newModel.course_question">
+              <MappingFragment StoreEntitySet="course_question">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="OptionD" ColumnName="OptionD" />
+                <ScalarProperty Name="OptionC" ColumnName="OptionC" />
+                <ScalarProperty Name="OptionB" ColumnName="OptionB" />
+                <ScalarProperty Name="OptionA" ColumnName="OptionA" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CourseSeq" ColumnName="CourseSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course_signup">
+            <EntityTypeMapping TypeName="ttqs_newModel.course_signup">
+              <MappingFragment StoreEntitySet="course_signup">
+                <ScalarProperty Name="HasExam" ColumnName="HasExam" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="IsSignOutTime" ColumnName="IsSignOutTime" />
+                <ScalarProperty Name="IsSignedOut" ColumnName="IsSignedOut" />
+                <ScalarProperty Name="IsSignInTime" ColumnName="IsSignInTime" />
+                <ScalarProperty Name="IsSignedIn" ColumnName="IsSignedIn" />
+                <ScalarProperty Name="IsDesignate" ColumnName="IsDesignate" />
+                <ScalarProperty Name="SignUpUser" ColumnName="SignUpUser" />
+                <ScalarProperty Name="CourseSeq" ColumnName="CourseSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course_survey1">
+            <EntityTypeMapping TypeName="ttqs_newModel.course_survey1">
+              <MappingFragment StoreEntitySet="course_survey1">
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Opinion3" ColumnName="Opinion3" />
+                <ScalarProperty Name="Opinion2" ColumnName="Opinion2" />
+                <ScalarProperty Name="Opinion1" ColumnName="Opinion1" />
+                <ScalarProperty Name="Score72" ColumnName="Score72" />
+                <ScalarProperty Name="Score71" ColumnName="Score71" />
+                <ScalarProperty Name="Score63" ColumnName="Score63" />
+                <ScalarProperty Name="Score62" ColumnName="Score62" />
+                <ScalarProperty Name="Score61" ColumnName="Score61" />
+                <ScalarProperty Name="Score52" ColumnName="Score52" />
+                <ScalarProperty Name="Score51" ColumnName="Score51" />
+                <ScalarProperty Name="Score44" ColumnName="Score44" />
+                <ScalarProperty Name="Score43" ColumnName="Score43" />
+                <ScalarProperty Name="Score42" ColumnName="Score42" />
+                <ScalarProperty Name="Score41" ColumnName="Score41" />
+                <ScalarProperty Name="Score31" ColumnName="Score31" />
+                <ScalarProperty Name="Score22" ColumnName="Score22" />
+                <ScalarProperty Name="Score21" ColumnName="Score21" />
+                <ScalarProperty Name="Score12" ColumnName="Score12" />
+                <ScalarProperty Name="Score11" ColumnName="Score11" />
+                <ScalarProperty Name="CourseSignUpSeq" ColumnName="CourseSignUpSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course_survey2">
+            <EntityTypeMapping TypeName="ttqs_newModel.course_survey2">
+              <MappingFragment StoreEntitySet="course_survey2">
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="FutureProposal" ColumnName="FutureProposal" />
+                <ScalarProperty Name="UsageAtWork" ColumnName="UsageAtWork" />
+                <ScalarProperty Name="LessonLearned" ColumnName="LessonLearned" />
+                <ScalarProperty Name="CourseSignUpSeq" ColumnName="CourseSignUpSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course_survey3">
+            <EntityTypeMapping TypeName="ttqs_newModel.course_survey3">
+              <MappingFragment StoreEntitySet="course_survey3">
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="ContentE" ColumnName="ContentE" />
+                <ScalarProperty Name="ContentD" ColumnName="ContentD" />
+                <ScalarProperty Name="ContentC" ColumnName="ContentC" />
+                <ScalarProperty Name="ContentB" ColumnName="ContentB" />
+                <ScalarProperty Name="ContentA" ColumnName="ContentA" />
+                <ScalarProperty Name="CourseSignUpSeq" ColumnName="CourseSignUpSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="description_attitude">
+            <EntityTypeMapping TypeName="ttqs_newModel.description_attitude">
+              <MappingFragment StoreEntitySet="description_attitude">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="Attitude" ColumnName="Attitude" />
+                <ScalarProperty Name="DescriptionSeq" ColumnName="DescriptionSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="description_certificate">
+            <EntityTypeMapping TypeName="ttqs_newModel.description_certificate">
+              <MappingFragment StoreEntitySet="description_certificate">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Certificate" ColumnName="Certificate" />
+                <ScalarProperty Name="DescriptionSeq" ColumnName="DescriptionSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="description_experience">
+            <EntityTypeMapping TypeName="ttqs_newModel.description_experience">
+              <MappingFragment StoreEntitySet="description_experience">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Seniority" ColumnName="Seniority" />
+                <ScalarProperty Name="WorkExperience" ColumnName="WorkExperience" />
+                <ScalarProperty Name="DescriptionSeq" ColumnName="DescriptionSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="description_language">
+            <EntityTypeMapping TypeName="ttqs_newModel.description_language">
+              <MappingFragment StoreEntitySet="description_language">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Write" ColumnName="Write" />
+                <ScalarProperty Name="Read" ColumnName="Read" />
+                <ScalarProperty Name="Say" ColumnName="Say" />
+                <ScalarProperty Name="Hear" ColumnName="Hear" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="DescriptionSeq" ColumnName="DescriptionSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="description_object">
+            <EntityTypeMapping TypeName="ttqs_newModel.description_object">
+              <MappingFragment StoreEntitySet="description_object">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+                <ScalarProperty Name="Matter" ColumnName="Matter" />
+                <ScalarProperty Name="Who" ColumnName="Who" />
+                <ScalarProperty Name="Way" ColumnName="Way" />
+                <ScalarProperty Name="DescriptionSeq" ColumnName="DescriptionSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="description_task">
+            <EntityTypeMapping TypeName="ttqs_newModel.description_task">
+              <MappingFragment StoreEntitySet="description_task">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Duty" ColumnName="Duty" />
+                <ScalarProperty Name="Task" ColumnName="Task" />
+                <ScalarProperty Name="DescriptionSeq" ColumnName="DescriptionSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="expert_certificate">
+            <EntityTypeMapping TypeName="ttqs_newModel.expert_certificate">
+              <MappingFragment StoreEntitySet="expert_certificate">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="OriginalFileName" ColumnName="OriginalFileName" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="ExpertSeq" ColumnName="ExpertSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="expert_data">
+            <EntityTypeMapping TypeName="ttqs_newModel.expert_data">
+              <MappingFragment StoreEntitySet="expert_data">
+                <ScalarProperty Name="ExpertImageType" ColumnName="ExpertImageType" />
+                <ScalarProperty Name="ExpertImage" ColumnName="ExpertImage" />
+                <ScalarProperty Name="ExpertMemo" ColumnName="ExpertMemo" />
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="ProjectExperience" ColumnName="ProjectExperience" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="Expertise" ColumnName="Expertise" />
+                <ScalarProperty Name="AgencyAddress" ColumnName="AgencyAddress" />
+                <ScalarProperty Name="AgencyPhone" ColumnName="AgencyPhone" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="ServiceAgency" ColumnName="ServiceAgency" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Diet" ColumnName="Diet" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="IdentityCard" ColumnName="IdentityCard" />
+                <ScalarProperty Name="Identity" ColumnName="Identity" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="expertise">
+            <EntityTypeMapping TypeName="ttqs_newModel.expertise">
+              <MappingFragment StoreEntitySet="expertise">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CName" ColumnName="CName" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="function_category">
+            <EntityTypeMapping TypeName="ttqs_newModel.function_category">
+              <MappingFragment StoreEntitySet="function_category">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="function_factor">
+            <EntityTypeMapping TypeName="ttqs_newModel.function_factor">
+              <MappingFragment StoreEntitySet="function_factor">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Definition" ColumnName="Definition" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="ProjectSeq" ColumnName="ProjectSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="function_project">
+            <EntityTypeMapping TypeName="ttqs_newModel.function_project">
+              <MappingFragment StoreEntitySet="function_project">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentSeq" ColumnName="ParentSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="function_unit">
+            <EntityTypeMapping TypeName="ttqs_newModel.function_unit">
+              <MappingFragment StoreEntitySet="function_unit">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="FactorList" ColumnName="FactorList" />
+                <ScalarProperty Name="ProjectSeq" ColumnName="ProjectSeq" />
+                <ScalarProperty Name="UnitSeq" ColumnName="UnitSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="job_description">
+            <EntityTypeMapping TypeName="ttqs_newModel.job_description">
+              <MappingFragment StoreEntitySet="job_description">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="FillDate" ColumnName="FillDate" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="JobSeq" ColumnName="JobSeq" />
+                <ScalarProperty Name="UnitSeq" ColumnName="UnitSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="job_title">
+            <EntityTypeMapping TypeName="ttqs_newModel.job_title">
+              <MappingFragment StoreEntitySet="job_title">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lecture_record">
+            <EntityTypeMapping TypeName="ttqs_newModel.lecture_record">
+              <MappingFragment StoreEntitySet="lecture_record">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="CourseScore" ColumnName="CourseScore" />
+                <ScalarProperty Name="CourseDate" ColumnName="CourseDate" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="ExpertSeq" ColumnName="ExpertSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location">
+            <EntityTypeMapping TypeName="ttqs_newModel.location">
+              <MappingFragment StoreEntitySet="location">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="RegionOrderNo" ColumnName="RegionOrderNo" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="menu">
+            <EntityTypeMapping TypeName="ttqs_newModel.menu">
+              <MappingFragment StoreEntitySet="menu">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="ShowRole" ColumnName="ShowRole" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentSeq" ColumnName="ParentSeq" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="new_ticker">
+            <EntityTypeMapping TypeName="ttqs_newModel.new_ticker">
+              <MappingFragment StoreEntitySet="new_ticker">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="recommend_class">
+            <EntityTypeMapping TypeName="ttqs_newModel.recommend_class">
+              <MappingFragment StoreEntitySet="recommend_class">
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="CourseURL" ColumnName="CourseURL" />
+                <ScalarProperty Name="CourseIntroduction" ColumnName="CourseIntroduction" />
+                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+                <ScalarProperty Name="Participants" ColumnName="Participants" />
+                <ScalarProperty Name="CourseTime" ColumnName="CourseTime" />
+                <ScalarProperty Name="CourseTitle" ColumnName="CourseTitle" />
+                <ScalarProperty Name="CourseSubcategory" ColumnName="CourseSubcategory" />
+                <ScalarProperty Name="CourseCategory" ColumnName="CourseCategory" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="training_goal">
+            <EntityTypeMapping TypeName="ttqs_newModel.training_goal">
+              <MappingFragment StoreEntitySet="training_goal">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="training_object">
+            <EntityTypeMapping TypeName="ttqs_newModel.training_object">
+              <MappingFragment StoreEntitySet="training_object">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="unit">
+            <EntityTypeMapping TypeName="ttqs_newModel.unit">
+              <MappingFragment StoreEntitySet="unit">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="ParentSeq" ColumnName="ParentSeq" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="ttqs_newModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="StratWorkDay" ColumnName="StratWorkDay" />
+                <ScalarProperty Name="Management" ColumnName="Management" />
+                <ScalarProperty Name="UserJobTitle" ColumnName="UserJobTitle" />
+                <ScalarProperty Name="UserUnit" ColumnName="UserUnit" />
+                <ScalarProperty Name="UserMail" ColumnName="UserMail" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="UserMobile" ColumnName="UserMobile" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserAccount" ColumnName="UserAccount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserWorkNum" ColumnName="UserWorkNum" />
+                <ScalarProperty Name="UserSeq" ColumnName="UserSeq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_role">
+            <EntityTypeMapping TypeName="ttqs_newModel.user_role">
+              <MappingFragment StoreEntitySet="user_role">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_history">
+            <EntityTypeMapping TypeName="ttqs_newModel.view_history">
+              <MappingFragment StoreEntitySet="view_history">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="ViewFinishTag" ColumnName="ViewFinishTag" />
+                <ScalarProperty Name="FristFinishTime" ColumnName="FristFinishTime" />
+                <ScalarProperty Name="FristViewTime" ColumnName="FristViewTime" />
+                <ScalarProperty Name="ViewLastTime" ColumnName="ViewLastTime" />
+                <ScalarProperty Name="UserSeq" ColumnName="UserSeq" />
+                <ScalarProperty Name="AppendixSeq" ColumnName="AppendixSeq" />
+                <ScalarProperty Name="CourseSeq" ColumnName="CourseSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_log">
+            <EntityTypeMapping TypeName="ttqs_newModel.view_log">
+              <MappingFragment StoreEntitySet="view_log">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="ViewEndTime" ColumnName="ViewEndTime" />
+                <ScalarProperty Name="ViewStartTime" ColumnName="ViewStartTime" />
+                <ScalarProperty Name="AppendixSeq" ColumnName="AppendixSeq" />
+                <ScalarProperty Name="CourseSeq" ColumnName="CourseSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="work_function_set">
+            <EntityTypeMapping TypeName="ttqs_newModel.work_function_set">
+              <MappingFragment StoreEntitySet="work_function_set">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="StandardScore" ColumnName="StandardScore" />
+                <ScalarProperty Name="FactorSeq" ColumnName="FactorSeq" />
+                <ScalarProperty Name="SetSeq" ColumnName="SetSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="function_set">
+            <EntityTypeMapping TypeName="ttqs_newModel.function_set">
+              <MappingFragment StoreEntitySet="function_set">
+                <ScalarProperty Name="DeleteTag" ColumnName="DeleteTag" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreatUser" ColumnName="CreatUser" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="FillDate" ColumnName="FillDate" />
+                <ScalarProperty Name="JobSeq" ColumnName="JobSeq" />
+                <ScalarProperty Name="UnitSeq" ColumnName="UnitSeq" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

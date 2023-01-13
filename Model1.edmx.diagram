@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7274cdda9bd34328ba4439806a261d22" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="ttqs_newModel.annual_course_planning" Width="1.5" PointX="3" PointY="13.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.carousel_map" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.city" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.course" Width="1.5" PointX="6" PointY="12.5" />
+        <EntityTypeShape EntityType="ttqs_newModel.course_appendix" Width="1.5" PointX="8.25" PointY="32.875" />
+        <EntityTypeShape EntityType="ttqs_newModel.course_designate" Width="1.5" PointX="8.25" PointY="15" />
+        <EntityTypeShape EntityType="ttqs_newModel.course_question" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.course_signup" Width="1.5" PointX="11.25" PointY="14.5" />
+        <EntityTypeShape EntityType="ttqs_newModel.course_survey1" Width="1.5" PointX="13.5" PointY="17.5" />
+        <EntityTypeShape EntityType="ttqs_newModel.course_survey2" Width="1.5" PointX="13.5" PointY="13.875" />
+        <EntityTypeShape EntityType="ttqs_newModel.course_survey3" Width="1.5" PointX="13.5" PointY="10" />
+        <EntityTypeShape EntityType="ttqs_newModel.description_attitude" Width="1.5" PointX="6.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.description_certificate" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.description_experience" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.description_language" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.description_object" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.description_task" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.expert_certificate" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.expert_data" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.expertise" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.function_category" Width="1.5" PointX="0.75" PointY="15.625" />
+        <EntityTypeShape EntityType="ttqs_newModel.function_factor" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="ttqs_newModel.function_project" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="ttqs_newModel.function_unit" Width="1.5" PointX="15.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.job_description" Width="1.5" PointX="15.75" PointY="11.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.job_title" Width="1.5" PointX="15.75" PointY="15.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.lecture_record" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.location" Width="1.5" PointX="16.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.menu" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.new_ticker" Width="1.5" PointX="17.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.recommend_class" Width="1.5" PointX="17.75" PointY="11.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.training_goal" Width="1.5" PointX="0.75" PointY="21.375" />
+        <EntityTypeShape EntityType="ttqs_newModel.training_object" Width="1.5" PointX="0.75" PointY="18.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.unit" Width="1.5" PointX="0.75" PointY="10" />
+        <EntityTypeShape EntityType="ttqs_newModel.user" Width="1.5" PointX="9" PointY="9.5" />
+        <EntityTypeShape EntityType="ttqs_newModel.user_role" Width="1.5" PointX="17.75" PointY="15.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.view_history" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.view_log" Width="1.5" PointX="15.75" PointY="18.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.work_function_set" Width="1.5" PointX="17.75" PointY="18.75" />
+        <EntityTypeShape EntityType="ttqs_newModel.function_set" Width="1.5" PointX="19.75" PointY="5.75" />
+        <AssociationConnector Association="ttqs_newModel.FK_annual_course_planning_function_category" />
+        <AssociationConnector Association="ttqs_newModel.FK_annual_course_planning_training_goal" />
+        <AssociationConnector Association="ttqs_newModel.FK_annual_course_planning_training_object" />
+        <AssociationConnector Association="ttqs_newModel.FK_annual_course_planning_unit" />
+        <AssociationConnector Association="ttqs_newModel.FK_course_appendix_course" />
+        <AssociationConnector Association="ttqs_newModel.FK_course_designate_course" />
+        <AssociationConnector Association="ttqs_newModel.FK_course_function_category" />
+        <AssociationConnector Association="ttqs_newModel.FK_course_signup_course" />
+        <AssociationConnector Association="ttqs_newModel.FK_course_training_goal" />
+        <AssociationConnector Association="ttqs_newModel.FK_course_training_object" />
+        <AssociationConnector Association="ttqs_newModel.FK_course_designate_Division" />
+        <AssociationConnector Association="ttqs_newModel.FK_course_designate_Section" />
+        <AssociationConnector Association="ttqs_newModel.FK_course_signup_user" />
+        <AssociationConnector Association="ttqs_newModel.FK_course_survey1_course_signup" />
+        <AssociationConnector Association="ttqs_newModel.FK_course_survey2_course_signup" />
+        <AssociationConnector Association="ttqs_newModel.FK_course_survey3_course_signup" />
+        <AssociationConnector Association="ttqs_newModel.FK_factor_project" />
+        <AssociationConnector Association="ttqs_newModel.FK_project_project" />
+        <AssociationConnector Association="ttqs_newModel.FK_menu_menu" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
