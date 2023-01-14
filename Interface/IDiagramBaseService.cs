@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace DA.Interface
 {
-    interface IDiagramBaseService<T> where T : class
+    public interface IDiagramBaseService<T> where T : class
     {
-        //資
+        //資料
         List<T> dataSource{ get; set; }
 
-         Func<T, bool> _simplification { get; set; }
-        void loadDataSource(DbSet<T> data);
+        void loadDataSource(DbSet<T> data, Func<T, bool> simplification);
         void buildDataSource(Func<T, decimal> dataSelector, params Func<T, object>[] keySelector);
 
         //主圖類項
@@ -26,6 +25,8 @@ namespace DA.Interface
 
         //雲圖項
         List<CloudWord> getCloudWords(Func<T, object> categorySelector, Func<T, decimal> dataSelector);
+
+        List<string> getSubCategories(int year, string category);
 
 
     }

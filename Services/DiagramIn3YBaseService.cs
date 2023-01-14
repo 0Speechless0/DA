@@ -42,19 +42,7 @@ namespace DA.Services
             }
         }
 
-        public DiagramIn3YBaseService(Func<ttqs_newEntities, DbSet<T> > dbSetSelector, Func<T, bool> simplification =null)
-        {
-            _simplification = simplification;
 
-            using (ttqs_newEntities context = new ttqs_newEntities ())
-            {
-
-                loadDataSource(dbSetSelector.Invoke(context));
-                
-            }
-
-        
-        }
         public Dictionary<string, Dictionary<string, List<T> > > DataBuilded { get; set; }
 
         public List<TResult> getCategoriesMost<TResult>(Func<T, TResult> selector)

@@ -587,13 +587,6 @@
     <Content Include="Scripts\vue.js" />
     <Content Include="Scripts\vue.min.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -604,7 +597,14 @@
     <Content Include="Views\Shared\_LayouDA.cshtml" />
     <Content Include="Views\DA\DAView.cshtml" />
     <Content Include="Views\DA\Index.cshtml" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <None Include="Web.example.config" />
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

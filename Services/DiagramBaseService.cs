@@ -7,13 +7,19 @@ namespace DA.Services
 {
     public class DiagramBaseService<T> where T : class
     {
-        public Func<T, bool> _simplification { get; set; }
         public List<T> dataSource { get; set; }
-        public void loadDataSource(DbSet<T> data)
+        public void loadDataSource(DbSet<T> data, Func<T, bool> simplification = null)
         {
-            dataSource = data
-            .Where((_simplification) ?? (row => true))
-            .ToList();
+
+            using (ttqs_newEntities context = new ttqs_newEntities())
+            {
+
+                dataSource = data
+                .Where((simplification) ?? (row => true))
+                .ToList();
+
+            }
+
         }
     }
 }

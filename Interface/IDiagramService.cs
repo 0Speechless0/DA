@@ -9,7 +9,7 @@ namespace DA.Interface
     /// <summary>
     /// 該介面用於智慧商情模組一般化分析頁的資料串接
     /// </summary>
-    public interface IDiagramService
+    public interface IDiagramService<T> where T : class
     {
 
 
@@ -17,7 +17,7 @@ namespace DA.Interface
         /// 取得表單橫項之項目標題
         /// </summary>
         /// <returns>表單橫項之項目</returns>
-        List<string> getCategories(string word = "");
+        List<string> getCategories();
 
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace DA.Interface
         /// </summary>
         /// <param name="year">西元年</param>
         /// <returns>某年度表單縱向資料清單</returns>
-        List<decimal> getCategriesDataInYear(int year, string word = "");
+        List<decimal> getCategriesDataInYear(int year);
 
         /// <summary>
         /// 取得某年度的類別衍生出的表單縱項之項目資料
@@ -46,5 +46,7 @@ namespace DA.Interface
         /// </summary>
         /// <returns>衍生出的表單橫向項之項目標題清單</returns>
         List<string> getSubCategories(int year, string category);
+
+        void dataBuild(IDiagramBaseService<T> service, string searchWord) 
     }
 }
