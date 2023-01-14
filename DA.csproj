@@ -604,6 +604,7 @@
     <Content Include="Views\Shared\_LayouDA.cshtml" />
     <Content Include="Views\DA\DAView.cshtml" />
     <Content Include="Views\DA\Index.cshtml" />
+    <None Include="Web.example.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
