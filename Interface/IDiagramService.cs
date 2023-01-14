@@ -9,7 +9,7 @@ namespace DA.Interface
     /// <summary>
     /// 該介面用於智慧商情模組一般化分析頁的資料串接
     /// </summary>
-    public interface IDiagramService<T> where T : class
+    public interface IDiagramService 
     {
 
 
@@ -47,6 +47,9 @@ namespace DA.Interface
         /// <returns>衍生出的表單橫向項之項目標題清單</returns>
         List<string> getSubCategories(int year, string category);
 
-        void dataBuild(IDiagramBaseService<T> service, string searchWord) 
+        List<string> getBigCategories();
+
+        void dataBuild(params string[] searchWord);
+
     }
 }

@@ -7,13 +7,18 @@ using DA.Common;
 
 namespace DA.Services
 {
-    public class CourseDAService :  IDiagramService<course>
+    public class CourseDAService :  IDiagramService
     {
 
         public static Dictionary<int, string> functionCategoryMap = new Dictionary<int, string>();
 
         private IDiagramBaseService<course> _service;
-        public void dataBuild(IDiagramBaseService<course> service, string searchWord)
+
+        public CourseDAService()
+        {
+            _service = new DiagramIn3YBaseService<course>();
+        }
+        public void dataBuild(string[] searchWord)
         {
 
             using (ttqs_newEntities context = new ttqs_newEntities())
@@ -22,15 +27,14 @@ namespace DA.Services
                     from row in context.function_category
                     select row).ToDictionary(row => row.Seq, row => row.Name);
 
-                service.loadDataSource(context.course, row => functionCategoryMap[row.FunctionCategory ?? 0].Contains(searchWord ?? String.Empty));
+                _service.loadDataSource(context.course, row => functionCategoryMap[row.FunctionCategory ?? 0].Contains(searchWord[0] ?? String.Empty));
             }
 
-            service.buildDataSource(
+            _service.buildDataSource(
                 row => 1,
                 row => row.CreatDate.Year, 
                 row => functionCategoryMap[row.FunctionCategory ?? 0] );
 
-            _service = service;
 
         }
 

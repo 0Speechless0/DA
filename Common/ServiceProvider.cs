@@ -39,20 +39,19 @@ namespace DA.Common
 
         public static ServiceSwitchModel getService(int index, params string[] keyWord)
         {
-            keyWord.CopyTo(_keyWord, 0);
             switch(index)
             {
                 case 0:
-                    serviceList[index].Service = new CourseDAService(_keyWord[0]);
+                    serviceList[index].Service = new CourseDAService();
                     break;
                 case 1:
-                    serviceList[index].Service = new StudentDAService(_keyWord[0]);
+                    serviceList[index].Service = new StudentDAService();
                     break;
                 case 2:
-                    serviceList[index].Service = new TeacherDAService(_keyWord[0]);
+                    serviceList[index].Service = new TeacherDAService();
                     break;
                 case 3:
-                    serviceList[index].Service = new GoodCourseDAService(_keyWord[0], _keyWord[1]);
+                    serviceList[index].Service = new GoodCourseDAService();
                     break;
             }
 
@@ -62,9 +61,9 @@ namespace DA.Common
         {
             return serviceList[type].ViewTitle;
         }
-        public static ServiceSwitchModel getInitService(int type)
+        public static IDiagramService getService(int type)
         {
-            return serviceList[type];
+            return serviceList[type].Service;
         }
 
         public static List<MenuVM> getMenu(user userInfo = null)

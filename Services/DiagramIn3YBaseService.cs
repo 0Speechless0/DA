@@ -10,7 +10,7 @@ using System.Collections;
 
 namespace DA.Services
 {
-    public abstract class DiagramIn3YBaseService<T> : DiagramBaseService<T>, IDiagramBaseService<T> where T : class
+    public class DiagramIn3YBaseService<T> : DiagramBaseService<T>, IDiagramBaseService<T> where T : class
     {
         public class monthCompare : IEqualityComparer<DateTime?>
         {
@@ -43,7 +43,7 @@ namespace DA.Services
         }
 
 
-        public Dictionary<string, Dictionary<string, List<T> > > DataBuilded { get; set; }
+        public static Dictionary<string, Dictionary<string, List<T> > > DataBuilded { get; set; }
 
         public List<TResult> getCategoriesMost<TResult>(Func<T, TResult> selector)
         {
@@ -160,6 +160,11 @@ namespace DA.Services
         public List<string> getSubCategories(int year, string category)
         {
             return new List<string>() { "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月" };
+        }
+
+        public List<CloudWord> getCloudWordsV2(Func<T, int> dataSelector)
+        {
+            throw new NotImplementedException();
         }
     }
 }

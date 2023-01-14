@@ -7,46 +7,54 @@ using DA.Interface;
 
 namespace DA.Services
 {
-    public class StudentDAService : DiagramIn3YBaseService<view_history>, IDiagramService
+    public class StudentDAService : IDiagramService
     {
         public static Dictionary<int, string> studentNameMap = new Dictionary<int, string>();
-        public StudentDAService(string searchWord) : base(
-            dbset => dbset.view_history)
-        { 
-            using(ttqs_newEntities context = new ttqs_newEntities())
+
+        IDiagramBaseService<view_history> _service;
+
+       
+        public StudentDAService()
+        {
+            _service = new DiagramIn3YBaseService<view_history>();
+        }
+        public void dataBuild(string[] searchWord)
+        {
+
+            using (ttqs_newEntities context = new ttqs_newEntities())
             {
 
                 studentNameMap = context.user.ToDictionary(row => row.UserSeq, row => row.UserName);
+                _service.loadDataSource(context.view_history, row => studentNameMap[row.UserSeq].Contains(searchWord[0] ?? String.Empty));
             }
-            dataSource = dataSource.Where(row => studentNameMap[row.UserSeq ].Contains(searchWord ?? String.Empty)).ToList();
 
-            buildDataSource(
+            _service.buildDataSource(
                 row => row.ViewFinishTag,
-                row => row.FristFinishTime?.Year, 
-                row => studentNameMap[row.UserSeq] );
+                row => row.FristFinishTime?.Year,
+                row => studentNameMap[row.UserSeq]);
 
         }
-        public List<string> getCategories(string word = "")
+        public List<string> getCategories()
         {
-            return getCategoriesMost(
+            return _service.getCategoriesMost(
                 row => studentNameMap[row.CourseSeq])
                 .ToList();
         }
 
-        public List<decimal> getCategriesDataInYear(int year, string word = "")
+        public List<decimal> getCategriesDataInYear(int year)
         {
-            return getCategriesDataInYear(year, row => row.ViewFinishTag);
+            return _service.getCategriesDataInYear(year, row => row.ViewFinishTag);
                 
         }
 
         public List<decimal> getCategoryYearData(int year, string category)
         {
-            return getCategoryYearData(year, category, row => row.ViewFinishTag, row => row.FristFinishTime );
+            return _service.getCategoryYearData(year, category, row => row.ViewFinishTag, row => row.FristFinishTime );
         }
 
         public List<CloudWord> getCloudWords()
         {
-            return getCloudWords(
+            return _service.getCloudWords(
                 row => studentNameMap[row.UserSeq],
                 row => row.ViewFinishTag
             ).ToList();
@@ -58,5 +66,9 @@ namespace DA.Services
             throw new NotImplementedException();
         }
 
+        public List<string> getSubCategories(int year, string category)
+        {
+            return _service.getSubCategories(year, category);
+        }
     }
 }

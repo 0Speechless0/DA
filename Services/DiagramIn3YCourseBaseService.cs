@@ -10,23 +10,13 @@ namespace DA.Services
 {
     public class DiagramIn3YCourseBaseService<T> : DiagramBaseService<T>, IDiagramBaseService<T> where T : class
     {
-        private Dictionary<string, Dictionary<string, Dictionary<string, List<T>>>> DataBuilded { get; set; }
+        private static Dictionary<string, Dictionary<string, Dictionary<string, List<T>>>> DataBuilded { get; set; }
 
 
         /// <param name="categorySelector">關鍵字搜尋欄位</param>
         /// <param name="searchWrod">關鍵字</param>
         /// <returns>使用者名稱</returns>
-        public DiagramIn3YCourseBaseService(Func<ttqs_newEntities, DbSet<T>> dbSetSelector, Func<T, bool> simplification = null) 
-        {
-            _simplification = simplification;
-            using (ttqs_newEntities context = new ttqs_newEntities())
-            {
 
-                loadDataSource(dbSetSelector.Invoke(context));
-
-            }
-
-        }
 
         public void buildDataSource(Func<T, decimal> dataSelector, params Func<T, object>[] keySelector)
         {
@@ -92,7 +82,7 @@ namespace DA.Services
                 .Select(row => decimal.Round(row, 1))
                 .ToList();
         }
-        public List<CloudWord> getCloudWords(Func<T, int> dataSelector)
+        public List<CloudWord> getCloudWordsV2(Func<T, int> dataSelector)
         {
             return DataBuilded.Select(row =>
                    new CloudWord

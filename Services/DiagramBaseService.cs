@@ -7,7 +7,7 @@ namespace DA.Services
 {
     public class DiagramBaseService<T> where T : class
     {
-        public List<T> dataSource { get; set; }
+        protected  List<T> dataSource { get; set; }
         public void loadDataSource(DbSet<T> data, Func<T, bool> simplification = null)
         {
 

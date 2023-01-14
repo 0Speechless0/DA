@@ -25,6 +25,8 @@ namespace DA.Controllers
         {
 
             var service = ServiceProvider.getService(type, bigCategory, category).Service;
+            service.dataBuild(bigCategory, category);
+
             int firstYear = DateTime.Now.Year;
             return Json(new
             {
@@ -82,7 +84,7 @@ namespace DA.Controllers
         }
         public JsonResult getBigCategories(int type)
         {
-            var options = ServiceProvider.getInitService(type).getBigCategoriesService.Invoke();
+            var options = ServiceProvider.getService(type).getBigCategories();
             return Json(new
             {
                 options = options

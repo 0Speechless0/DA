@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
--- 主機:                           59.126.242.4
--- 伺服器版本:                        8.0.24 - MySQL Community Server - GPL
+-- 主機:                           127.0.0.1
+-- 伺服器版本:                        10.4.22-MariaDB - mariadb.org binary distribution
 -- 伺服器作業系統:                      Win64
--- HeidiSQL 版本:                  12.0.0.6468
+-- HeidiSQL 版本:                  12.3.0.6589
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,24 +16,25 @@
 
 
 -- 傾印 ttqs_expert_demo 的資料庫結構
-CREATE DATABASE IF NOT EXISTS `ttqs_expert_demo` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `ttqs_expert_demo` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
 USE `ttqs_expert_demo`;
 
 -- 傾印  資料表 ttqs_expert_demo.administrativedeeds 結構
 CREATE TABLE IF NOT EXISTS `administrativedeeds` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `TeacherMainId` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `TeacherMainId` int(11) DEFAULT NULL,
   `StartDate` datetime DEFAULT NULL,
   `EndDate` datetime DEFAULT NULL,
-  `Description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `Creater` int DEFAULT NULL,
+  `Description` text DEFAULT NULL,
+  `Creater` int(11) DEFAULT NULL,
   `CreateTime` datetime DEFAULT NULL,
-  `Updater` int DEFAULT NULL,
+  `Updater` int(11) DEFAULT NULL,
   `UpdateTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 -- 正在傾印表格  ttqs_expert_demo.administrativedeeds 的資料：~6 rows (近似值)
+DELETE FROM `administrativedeeds`;
 INSERT INTO `administrativedeeds` (`id`, `TeacherMainId`, `StartDate`, `EndDate`, `Description`, `Creater`, `CreateTime`, `Updater`, `UpdateTime`) VALUES
 	(1, 1042, '2022-01-01 00:00:00', '2023-01-31 00:00:00', '<p><strong>sdfsdfssdfsdgf</strong></p><p><strong>df</strong></p><p><strong>gd</strong></p><p><strong>fg</strong></p><p><strong>d</strong></p><p><strong>fg</strong></p><p><strong>dg</strong></p><p><strong>sd</strong></p><p><strong>gsd</strong></p><p><strong>fh</strong></p><p><strong>ea</strong></p><p><strong>h</strong></p><p><strong>df</strong></p><p><strong>fhfh</strong></p><p><strong>g</strong></p><p><strong>f</strong></p>', 1, '2023-01-05 14:07:47', 1, '2023-01-05 15:18:15'),
 	(2, 1042, '2023-01-01 00:00:00', '2023-01-31 00:00:00', '<p>123sdfsdfsdf</p>', 1, '2023-01-05 14:08:14', 1, '2023-01-05 14:08:14'),
@@ -44,28 +45,28 @@ INSERT INTO `administrativedeeds` (`id`, `TeacherMainId`, `StartDate`, `EndDate`
 
 -- 傾印  資料表 ttqs_expert_demo.annual_course_planning 結構
 CREATE TABLE IF NOT EXISTS `annual_course_planning` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `FunctionCategory` int NOT NULL DEFAULT '1' COMMENT '職能類別',
-  `CourseName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '課程名稱',
-  `TackCourseType` int NOT NULL DEFAULT '1' COMMENT '修課類型 1:必修 0: 選修',
-  `TrainingGoal` int NOT NULL DEFAULT '1' COMMENT '訓練目的',
-  `OtherTrainingGoal` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '其他訓練目的',
-  `Memo` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程大綱',
-  `Year` int NOT NULL DEFAULT '0' COMMENT '年度',
-  `UnitSeq` int NOT NULL COMMENT '單位Seq',
-  `CourseHours` int NOT NULL DEFAULT '0' COMMENT '課程時數',
-  `TrainingObject` int NOT NULL DEFAULT '1' COMMENT '訓練對象 對應表:training_object',
-  `OtherTrainingObject` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '其他訓練對象',
-  `TrainingNumbers` int NOT NULL COMMENT '訓練人數',
-  `EstimatedExpenses` int NOT NULL COMMENT '預估經費',
-  `EstimatedExpensesMemo` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '經費說明',
-  `EstimatedStartMonth` int NOT NULL COMMENT '預計開始月份',
-  `SubmitReview` int NOT NULL DEFAULT '0' COMMENT '是否送審 0:否 1:是',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `FunctionCategory` int(11) NOT NULL DEFAULT 1 COMMENT '職能類別',
+  `CourseName` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '課程名稱',
+  `TackCourseType` int(11) NOT NULL DEFAULT 1 COMMENT '修課類型 1:必修 0: 選修',
+  `TrainingGoal` int(11) NOT NULL DEFAULT 1 COMMENT '訓練目的',
+  `OtherTrainingGoal` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '其他訓練目的',
+  `Memo` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程大綱',
+  `Year` int(11) NOT NULL DEFAULT 0 COMMENT '年度',
+  `UnitSeq` int(11) NOT NULL COMMENT '單位Seq',
+  `CourseHours` int(11) NOT NULL DEFAULT 0 COMMENT '課程時數',
+  `TrainingObject` int(11) NOT NULL DEFAULT 1 COMMENT '訓練對象 對應表:training_object',
+  `OtherTrainingObject` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '其他訓練對象',
+  `TrainingNumbers` int(11) NOT NULL COMMENT '訓練人數',
+  `EstimatedExpenses` int(11) NOT NULL COMMENT '預估經費',
+  `EstimatedExpensesMemo` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '經費說明',
+  `EstimatedStartMonth` int(11) NOT NULL COMMENT '預計開始月份',
+  `SubmitReview` int(11) NOT NULL DEFAULT 0 COMMENT '是否送審 0:否 1:是',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`),
   KEY `FK_annual_course_planning_unit` (`UnitSeq`),
   KEY `FK_annual_course_planning_training_object` (`TrainingObject`),
@@ -78,21 +79,23 @@ CREATE TABLE IF NOT EXISTS `annual_course_planning` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='年度課程規劃';
 
 -- 正在傾印表格  ttqs_expert_demo.annual_course_planning 的資料：~0 rows (近似值)
+DELETE FROM `annual_course_planning`;
 
 -- 傾印  資料表 ttqs_expert_demo.carousel_map 結構
 CREATE TABLE IF NOT EXISTS `carousel_map` (
-  `Seq` int NOT NULL AUTO_INCREMENT,
-  `Image` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '圖片(base64)',
-  `IsActive` int NOT NULL DEFAULT '1' COMMENT '是否啟用 0:不啟用 1:啟用',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT,
+  `Image` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '圖片(base64)',
+  `IsActive` int(11) NOT NULL DEFAULT 1 COMMENT '是否啟用 0:不啟用 1:啟用',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='輪播圖';
 
--- 正在傾印表格  ttqs_expert_demo.carousel_map 的資料：~2 rows (近似值)
+-- 正在傾印表格  ttqs_expert_demo.carousel_map 的資料：~3 rows (近似值)
+DELETE FROM `carousel_map`;
 INSERT INTO `carousel_map` (`Seq`, `Image`, `IsActive`, `CreatDate`, `CreatUser`, `ModifyDate`, `ModifyUser`, `DeleteTag`) VALUES
 	(2, '/carouselMapImage/20221213094858_2.jpg', 1, '2999-12-31 00:00:00', 1, '2022-12-13 09:48:58', 1, 0),
 	(3, '/carouselMapImage/20221213094905_3.jpg', 1, '2999-12-31 00:00:00', 1, '2022-12-13 09:49:05', 1, 0),
@@ -100,14 +103,15 @@ INSERT INTO `carousel_map` (`Seq`, `Image`, `IsActive`, `CreatDate`, `CreatUser`
 
 -- 傾印  資料表 ttqs_expert_demo.city 結構
 CREATE TABLE IF NOT EXISTS `city` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `CName` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '序號',
-  `Name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '名稱',
-  `DeleteTag` int DEFAULT '0' COMMENT '刪除標記',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `CName` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '序號',
+  `Name` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '名稱',
+  `DeleteTag` int(11) DEFAULT 0 COMMENT '刪除標記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 正在傾印表格  ttqs_expert_demo.city 的資料：~22 rows (近似值)
+DELETE FROM `city`;
 INSERT INTO `city` (`Seq`, `CName`, `Name`, `DeleteTag`) VALUES
 	(1, 'A', '臺北市', 0),
 	(2, 'B', '新北市', 0),
@@ -134,12 +138,13 @@ INSERT INTO `city` (`Seq`, `CName`, `Name`, `DeleteTag`) VALUES
 
 -- 傾印  資料表 ttqs_expert_demo.classify 結構
 CREATE TABLE IF NOT EXISTS `classify` (
-  `Kind` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Code` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Kind` varchar(30) DEFAULT NULL,
+  `Code` varchar(10) DEFAULT NULL,
+  `Name` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- 正在傾印表格  ttqs_expert_demo.classify 的資料：~13 rows (近似值)
+DELETE FROM `classify`;
 INSERT INTO `classify` (`Kind`, `Code`, `Name`) VALUES
 	('JobTitle', '01', '講座教授'),
 	('JobTitle', '02', '特聘教授'),
@@ -157,39 +162,41 @@ INSERT INTO `classify` (`Kind`, `Code`, `Name`) VALUES
 
 -- 傾印  資料表 ttqs_expert_demo.cooperativeevent 結構
 CREATE TABLE IF NOT EXISTS `cooperativeevent` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `RequestUnit` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `EventNo` varchar(13) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `EventDescription` varchar(4000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `RequestUnit` varchar(10) DEFAULT NULL,
+  `EventNo` varchar(13) DEFAULT NULL,
+  `EventDescription` varchar(4000) DEFAULT NULL,
   `DueDate` datetime DEFAULT NULL,
   `EmailDate` datetime DEFAULT NULL,
-  `Creater` int DEFAULT NULL,
+  `Creater` int(11) DEFAULT NULL,
   `CreateTime` datetime DEFAULT NULL,
-  `Updater` int DEFAULT NULL,
+  `Updater` int(11) DEFAULT NULL,
   `UpdateTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
--- 正在傾印表格  ttqs_expert_demo.cooperativeevent 的資料：~1 rows (近似值)
+-- 正在傾印表格  ttqs_expert_demo.cooperativeevent 的資料：~2 rows (近似值)
+DELETE FROM `cooperativeevent`;
 INSERT INTO `cooperativeevent` (`id`, `RequestUnit`, `EventNo`, `EventDescription`, `DueDate`, `EmailDate`, `Creater`, `CreateTime`, `Updater`, `UpdateTime`) VALUES
 	(13, '01', 'CE20230105011', 'ASDFSDGSDFGSGSF', '2023-01-02 00:00:00', '2023-01-25 00:00:00', 1, '2023-01-05 15:02:26', 1, '2023-01-05 15:02:26'),
 	(14, '01', 'CE20230105012', 'AAAA', '2023-02-01 00:00:00', '2023-01-18 00:00:00', 1, '2023-01-05 16:33:15', 1, '2023-01-05 16:33:15');
 
 -- 傾印  資料表 ttqs_expert_demo.cooperativeeventassign 結構
 CREATE TABLE IF NOT EXISTS `cooperativeeventassign` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `ParentId` int DEFAULT NULL,
-  `Assigner` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ParentId` int(11) DEFAULT NULL,
+  `Assigner` int(11) DEFAULT NULL,
   `AssignTime` datetime DEFAULT NULL,
-  `TeacherMainId` int DEFAULT NULL,
+  `TeacherMainId` int(11) DEFAULT NULL,
   `CompleteDate` datetime DEFAULT NULL,
-  `Comments` varchar(4000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Comments` varchar(4000) DEFAULT NULL,
   `ReplyFirstTime` datetime DEFAULT NULL,
   `ReplyLastTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
--- 正在傾印表格  ttqs_expert_demo.cooperativeeventassign 的資料：~4 rows (近似值)
+-- 正在傾印表格  ttqs_expert_demo.cooperativeeventassign 的資料：~5 rows (近似值)
+DELETE FROM `cooperativeeventassign`;
 INSERT INTO `cooperativeeventassign` (`id`, `ParentId`, `Assigner`, `AssignTime`, `TeacherMainId`, `CompleteDate`, `Comments`, `ReplyFirstTime`, `ReplyLastTime`) VALUES
 	(10, 13, 1, '2023-01-05 15:13:17', 1042, NULL, NULL, NULL, NULL),
 	(12, 14, 1, '2023-01-05 17:05:18', 1042, NULL, NULL, NULL, NULL),
@@ -199,40 +206,40 @@ INSERT INTO `cooperativeeventassign` (`id`, `ParentId`, `Assigner`, `AssignTime`
 
 -- 傾印  資料表 ttqs_expert_demo.course 結構
 CREATE TABLE IF NOT EXISTS `course` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `CourseName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '課程名稱',
-  `CourseNumber` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '課程編號 西元年月日+2碼流水號',
-  `CourseImage` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '課程封面圖',
-  `CourseImageType` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程封面圖檔類型',
-  `StartTime` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '開始時間 資料為 0000-00-00 表示不限時間',
-  `EndTime` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '結束時間 資料為 0000-00-00 表示不限時間',
-  `FunctionCategory` int DEFAULT '1' COMMENT '職能類別',
-  `TrainingGoal` int DEFAULT '1' COMMENT '訓練目的',
-  `OtherTrainingGoal` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '其他訓練目的',
-  `LecturerType` int DEFAULT NULL COMMENT '講師類型 1:內部 2:外部',
-  `Lecturer` int DEFAULT '0' COMMENT '內部講師Seq',
-  `OtherLecturer` int DEFAULT '0' COMMENT '外部講師Seq (從講師資料庫)',
-  `TrainingObject` int NOT NULL DEFAULT '1' COMMENT '訓練對象 對應表:training_object',
-  `OtherTrainingObject` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '其他訓練對象',
-  `OpenSignUp` int NOT NULL DEFAULT '0' COMMENT '報名方法 0:限制報名 1:公開報名 2:必修',
-  `AllowExternal` int NOT NULL DEFAULT '0' COMMENT '開放外部報名 0:不開放 1:開放',
-  `CourseSurvey1` int NOT NULL DEFAULT '0' COMMENT '滿意度調查表',
-  `CourseSurvey2` int NOT NULL DEFAULT '0' COMMENT '訓後成效追蹤表',
-  `CourseSurvey3` int NOT NULL DEFAULT '0' COMMENT '課後行動方案',
-  `CourseMemo` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程簡介',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `CourseName` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '課程名稱',
+  `CourseNumber` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '課程編號 西元年月日+2碼流水號',
+  `CourseImage` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程封面圖',
+  `CourseImageType` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程封面圖檔類型',
+  `StartTime` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '開始時間 資料為 0000-00-00 表示不限時間',
+  `EndTime` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '結束時間 資料為 0000-00-00 表示不限時間',
+  `FunctionCategory` int(11) DEFAULT 1 COMMENT '職能類別',
+  `TrainingGoal` int(11) DEFAULT 1 COMMENT '訓練目的',
+  `OtherTrainingGoal` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '其他訓練目的',
+  `LecturerType` int(11) DEFAULT NULL COMMENT '講師類型 1:內部 2:外部',
+  `Lecturer` int(11) DEFAULT 0 COMMENT '內部講師Seq',
+  `OtherLecturer` int(11) DEFAULT 0 COMMENT '外部講師Seq (從講師資料庫)',
+  `TrainingObject` int(11) NOT NULL DEFAULT 1 COMMENT '訓練對象 對應表:training_object',
+  `OtherTrainingObject` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '其他訓練對象',
+  `OpenSignUp` int(11) NOT NULL DEFAULT 0 COMMENT '報名方法 0:限制報名 1:公開報名 2:必修',
+  `AllowExternal` int(11) NOT NULL DEFAULT 0 COMMENT '開放外部報名 0:不開放 1:開放',
+  `CourseSurvey1` int(11) NOT NULL DEFAULT 0 COMMENT '滿意度調查表',
+  `CourseSurvey2` int(11) NOT NULL DEFAULT 0 COMMENT '訓後成效追蹤表',
+  `CourseSurvey3` int(11) NOT NULL DEFAULT 0 COMMENT '課後行動方案',
+  `CourseMemo` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程簡介',
   `AuthorName` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '作者姓名',
-  `AuthorMemo` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '作者介紹',
-  `AuthorImage` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '作者照片',
-  `AuthorImageType` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '作者照片圖檔類型',
-  `CourseFocus` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程重點',
-  `QuestionNums` int DEFAULT '5' COMMENT '題庫抽題數',
-  `CourseRelease` int NOT NULL DEFAULT '0' COMMENT '課程發佈狀態 1:發佈 0: 未發佈',
-  `ReleaseDate` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '課程上架日期',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `AuthorMemo` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '作者介紹',
+  `AuthorImage` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '作者照片',
+  `AuthorImageType` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '作者照片圖檔類型',
+  `CourseFocus` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程重點',
+  `QuestionNums` int(11) DEFAULT 5 COMMENT '題庫抽題數',
+  `CourseRelease` int(11) NOT NULL DEFAULT 0 COMMENT '課程發佈狀態 1:發佈 0: 未發佈',
+  `ReleaseDate` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '課程上架日期',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`),
   KEY `FK_course_training_object` (`TrainingObject`),
   KEY `FK_course_training_goal` (`TrainingGoal`),
@@ -243,6 +250,7 @@ CREATE TABLE IF NOT EXISTS `course` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='課程清單';
 
 -- 正在傾印表格  ttqs_expert_demo.course 的資料：~10 rows (近似值)
+DELETE FROM `course`;
 INSERT INTO `course` (`Seq`, `CourseName`, `CourseNumber`, `CourseImage`, `CourseImageType`, `StartTime`, `EndTime`, `FunctionCategory`, `TrainingGoal`, `OtherTrainingGoal`, `LecturerType`, `Lecturer`, `OtherLecturer`, `TrainingObject`, `OtherTrainingObject`, `OpenSignUp`, `AllowExternal`, `CourseSurvey1`, `CourseSurvey2`, `CourseSurvey3`, `CourseMemo`, `AuthorName`, `AuthorMemo`, `AuthorImage`, `AuthorImageType`, `CourseFocus`, `QuestionNums`, `CourseRelease`, `ReleaseDate`, `CreatDate`, `CreatUser`, `ModifyDate`, `ModifyUser`, `DeleteTag`) VALUES
 	(1, '樂齡活化記憶樂齡手作', '2023010701', NULL, NULL, '', '', 5, 4, '', 2, 0, 5, 1, '', 1, 0, 1, 0, 0, '臺中市社區大學教師協會-白芳瑜老師【樂齡活化記憶樂齡手作】', NULL, '<p>白芳瑜老師出生於南投縣埔里鎮。從小見識母親進行服裝的製作，成長歲月耳濡目染，凡手工類都有濃厚興趣。科技大學學習功能性創作的學習，由淺入深領悟各類工藝。繼續不斷的進修各種專業學習，實踐活到老學到老的終身學習。</p>', NULL, NULL, '', 5, 1, '2023-01-07', '2023-01-07 13:31:14', 1, '2023-01-09 11:55:08', 1, 0),
 	(2, '萬和宮老二媽西屯省親的故事', '2023010702', NULL, NULL, '', '', 1, 1, NULL, NULL, 0, 0, 1, NULL, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 5, 0, '', '2023-01-07 15:22:22', 1, '2023-01-09 11:42:44', 1, 1),
@@ -257,27 +265,28 @@ INSERT INTO `course` (`Seq`, `CourseName`, `CourseNumber`, `CourseImage`, `Cours
 
 -- 傾印  資料表 ttqs_expert_demo.course_appendix 結構
 CREATE TABLE IF NOT EXISTS `course_appendix` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `CourseSeq` int NOT NULL COMMENT '課程Seq',
-  `Type` int NOT NULL DEFAULT '2' COMMENT '檔案類型 1:附件 2:影片',
-  `Unit` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '單元數',
-  `FilePath` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '檔案路徑',
-  `FileName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '檔案名稱',
-  `OriginalFileName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '顯示名稱',
-  `Memo` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '影片說明',
-  `Tag` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '標籤',
-  `Duration` decimal(6,2) DEFAULT '0.00' COMMENT '紀錄影片長度',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `CourseSeq` int(11) NOT NULL COMMENT '課程Seq',
+  `Type` int(11) NOT NULL DEFAULT 2 COMMENT '檔案類型 1:附件 2:影片',
+  `Unit` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '單元數',
+  `FilePath` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '檔案路徑',
+  `FileName` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '檔案名稱',
+  `OriginalFileName` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '顯示名稱',
+  `Memo` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '影片說明',
+  `Tag` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '標籤',
+  `Duration` decimal(6,2) DEFAULT 0.00 COMMENT '紀錄影片長度',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`),
   KEY `FK_course_appendix_course` (`CourseSeq`),
   CONSTRAINT `FK_course_appendix_course` FOREIGN KEY (`CourseSeq`) REFERENCES `course` (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='課程檔案';
 
 -- 正在傾印表格  ttqs_expert_demo.course_appendix 的資料：~9 rows (近似值)
+DELETE FROM `course_appendix`;
 INSERT INTO `course_appendix` (`Seq`, `CourseSeq`, `Type`, `Unit`, `FilePath`, `FileName`, `OriginalFileName`, `Memo`, `Tag`, `Duration`, `CreatDate`, `CreatUser`, `ModifyDate`, `ModifyUser`, `DeleteTag`) VALUES
 	(1, 3, 2, '', '/coursefile/textbook/', '20230109115010_3_萬和宮老二媽西屯省親的故事_張昭友_壓縮.mp4', '萬和宮老二媽西屯省親的故事_張昭友_壓縮.mp4', '', '', 256.28, '2023-01-09 11:50:10', 1, NULL, NULL, 0),
 	(2, 1, 2, '', '/coursefile/textbook/', '20230109115307_1_樂齡活化記憶樂齡手作_白芳瑜_壓縮..mp4', '樂齡活化記憶樂齡手作_白芳瑜_壓縮..mp4', '', '', 117.16, '2023-01-09 11:53:07', 1, NULL, NULL, 0),
@@ -291,81 +300,84 @@ INSERT INTO `course_appendix` (`Seq`, `CourseSeq`, `Type`, `Unit`, `FilePath`, `
 
 -- 傾印  資料表 ttqs_expert_demo.course_designate 結構
 CREATE TABLE IF NOT EXISTS `course_designate` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `CourseSeq` int NOT NULL COMMENT '課程Seq',
-  `DivisionSeq` int NOT NULL COMMENT '指定部門',
-  `SectionSeq` int DEFAULT NULL COMMENT '指定子部門',
-  `AllowedCount` int NOT NULL COMMENT '參加人數',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `CourseSeq` int(11) NOT NULL COMMENT '課程Seq',
+  `DivisionSeq` int(11) NOT NULL COMMENT '指定部門',
+  `SectionSeq` int(11) DEFAULT NULL COMMENT '指定子部門',
+  `AllowedCount` int(11) NOT NULL COMMENT '參加人數',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`),
   KEY `FK_course_designate_Division` (`DivisionSeq`),
   KEY `FK_course_designate_Section` (`SectionSeq`),
   KEY `FK_course_designate_course` (`CourseSeq`),
-  CONSTRAINT `FK_course_designate_course` FOREIGN KEY (`CourseSeq`) REFERENCES `course` (`Seq`),
   CONSTRAINT `FK_course_designate_Division` FOREIGN KEY (`DivisionSeq`) REFERENCES `unit` (`Seq`),
-  CONSTRAINT `FK_course_designate_Section` FOREIGN KEY (`SectionSeq`) REFERENCES `unit` (`Seq`)
+  CONSTRAINT `FK_course_designate_Section` FOREIGN KEY (`SectionSeq`) REFERENCES `unit` (`Seq`),
+  CONSTRAINT `FK_course_designate_course` FOREIGN KEY (`CourseSeq`) REFERENCES `course` (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='指派參加課程';
 
 -- 正在傾印表格  ttqs_expert_demo.course_designate 的資料：~0 rows (近似值)
+DELETE FROM `course_designate`;
 
 -- 傾印  資料表 ttqs_expert_demo.course_exam 結構
 CREATE TABLE IF NOT EXISTS `course_exam` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `CourseSeq` int NOT NULL COMMENT '課程Seq',
-  `UserSeq` int NOT NULL COMMENT '學員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `CourseSeq` int(11) NOT NULL COMMENT '課程Seq',
+  `UserSeq` int(11) NOT NULL COMMENT '學員Seq',
   `Question` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '問題清單seq 用,分隔',
   `Answer` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '回答用,分隔',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='課程測驗紀錄';
 
 -- 正在傾印表格  ttqs_expert_demo.course_exam 的資料：~0 rows (近似值)
+DELETE FROM `course_exam`;
 
 -- 傾印  資料表 ttqs_expert_demo.course_question 結構
 CREATE TABLE IF NOT EXISTS `course_question` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `CourseSeq` int NOT NULL COMMENT '課程Seq',
-  `Type` int NOT NULL COMMENT '問題類型',
-  `Question` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '問題',
-  `OptionA` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '選項A',
-  `OptionB` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '選項B',
-  `OptionC` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '選項C',
-  `OptionD` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '選項D',
-  `Answer` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '解答',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `CourseSeq` int(11) NOT NULL COMMENT '課程Seq',
+  `Type` int(11) NOT NULL COMMENT '問題類型',
+  `Question` varchar(500) CHARACTER SET utf8mb4 NOT NULL COMMENT '問題',
+  `OptionA` varchar(1000) CHARACTER SET utf8mb4 NOT NULL COMMENT '選項A',
+  `OptionB` varchar(1000) CHARACTER SET utf8mb4 NOT NULL COMMENT '選項B',
+  `OptionC` varchar(1000) CHARACTER SET utf8mb4 NOT NULL COMMENT '選項C',
+  `OptionD` varchar(1000) CHARACTER SET utf8mb4 NOT NULL COMMENT '選項D',
+  `Answer` varchar(10) CHARACTER SET utf8mb4 NOT NULL COMMENT '解答',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='課程題庫';
 
 -- 正在傾印表格  ttqs_expert_demo.course_question 的資料：~0 rows (近似值)
+DELETE FROM `course_question`;
 
 -- 傾印  資料表 ttqs_expert_demo.course_signup 結構
 CREATE TABLE IF NOT EXISTS `course_signup` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `CourseSeq` int NOT NULL COMMENT '課程Seq',
-  `SignUpUser` int NOT NULL COMMENT '報名人員Seq',
-  `IsDesignate` int DEFAULT NULL COMMENT '指定參加 1:是',
-  `IsSignedIn` int NOT NULL DEFAULT '0' COMMENT '已簽到 0:否 1:是',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `CourseSeq` int(11) NOT NULL COMMENT '課程Seq',
+  `SignUpUser` int(11) NOT NULL COMMENT '報名人員Seq',
+  `IsDesignate` int(11) DEFAULT NULL COMMENT '指定參加 1:是',
+  `IsSignedIn` int(11) NOT NULL DEFAULT 0 COMMENT '已簽到 0:否 1:是',
   `IsSignInTime` datetime DEFAULT NULL COMMENT '簽到時間',
-  `IsSignedOut` int DEFAULT '0' COMMENT '已簽退 0:否 1:是',
+  `IsSignedOut` int(11) DEFAULT 0 COMMENT '已簽退 0:否 1:是',
   `IsSignOutTime` datetime DEFAULT NULL COMMENT '簽退時間',
-  `Memo` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '備註',
-  `HasExam` int DEFAULT '0' COMMENT '是否已測驗 0:否 1:是',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Memo` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '備註',
+  `HasExam` int(11) DEFAULT 0 COMMENT '是否已測驗 0:否 1:是',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
   PRIMARY KEY (`Seq`),
   KEY `FK_course_signup_user` (`SignUpUser`),
   KEY `FK_course_signup_course` (`CourseSeq`),
@@ -374,311 +386,326 @@ CREATE TABLE IF NOT EXISTS `course_signup` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='課程報名清單';
 
 -- 正在傾印表格  ttqs_expert_demo.course_signup 的資料：~1 rows (近似值)
+DELETE FROM `course_signup`;
 INSERT INTO `course_signup` (`Seq`, `CourseSeq`, `SignUpUser`, `IsDesignate`, `IsSignedIn`, `IsSignInTime`, `IsSignedOut`, `IsSignOutTime`, `Memo`, `HasExam`, `CreatDate`, `CreatUser`, `ModifyDate`, `ModifyUser`) VALUES
 	(1, 3, 5, NULL, 1, '2023-01-11 10:20:06', 1, '2023-01-11 11:03:36', NULL, 0, '2023-01-11 10:19:44', 5, NULL, NULL);
 
 -- 傾印  資料表 ttqs_expert_demo.course_survey1 結構
 CREATE TABLE IF NOT EXISTS `course_survey1` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `CourseSignUpSeq` int NOT NULL COMMENT '報名Seq',
-  `Score11` int DEFAULT NULL,
-  `Score12` int DEFAULT NULL,
-  `Score21` int DEFAULT NULL,
-  `Score22` int DEFAULT NULL,
-  `Score31` int DEFAULT NULL,
-  `Score41` int DEFAULT NULL,
-  `Score42` int DEFAULT NULL,
-  `Score43` int DEFAULT NULL,
-  `Score44` int DEFAULT NULL,
-  `Score51` int DEFAULT NULL,
-  `Score52` int DEFAULT NULL,
-  `Score61` int DEFAULT NULL,
-  `Score62` int DEFAULT NULL,
-  `Score63` int DEFAULT NULL,
-  `Score71` int DEFAULT NULL,
-  `Score72` int DEFAULT NULL,
-  `Opinion1` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '其他意見',
-  `Opinion2` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Opinion3` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `CourseSignUpSeq` int(11) NOT NULL COMMENT '報名Seq',
+  `Score11` int(11) DEFAULT NULL,
+  `Score12` int(11) DEFAULT NULL,
+  `Score21` int(11) DEFAULT NULL,
+  `Score22` int(11) DEFAULT NULL,
+  `Score31` int(11) DEFAULT NULL,
+  `Score41` int(11) DEFAULT NULL,
+  `Score42` int(11) DEFAULT NULL,
+  `Score43` int(11) DEFAULT NULL,
+  `Score44` int(11) DEFAULT NULL,
+  `Score51` int(11) DEFAULT NULL,
+  `Score52` int(11) DEFAULT NULL,
+  `Score61` int(11) DEFAULT NULL,
+  `Score62` int(11) DEFAULT NULL,
+  `Score63` int(11) DEFAULT NULL,
+  `Score71` int(11) DEFAULT NULL,
+  `Score72` int(11) DEFAULT NULL,
+  `Opinion1` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '其他意見',
+  `Opinion2` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Opinion3` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
   PRIMARY KEY (`Seq`),
   KEY `FK_course_survey1_course_signup` (`CourseSignUpSeq`),
   CONSTRAINT `FK_course_survey1_course_signup` FOREIGN KEY (`CourseSignUpSeq`) REFERENCES `course_signup` (`Seq`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='滿意度調查表';
 
 -- 正在傾印表格  ttqs_expert_demo.course_survey1 的資料：~1 rows (近似值)
+DELETE FROM `course_survey1`;
 INSERT INTO `course_survey1` (`Seq`, `CourseSignUpSeq`, `Score11`, `Score12`, `Score21`, `Score22`, `Score31`, `Score41`, `Score42`, `Score43`, `Score44`, `Score51`, `Score52`, `Score61`, `Score62`, `Score63`, `Score71`, `Score72`, `Opinion1`, `Opinion2`, `Opinion3`, `CreatDate`, `CreatUser`, `ModifyDate`, `ModifyUser`) VALUES
 	(1, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, '', '', '', '2023-01-11 10:20:47', 5, NULL, NULL);
 
 -- 傾印  資料表 ttqs_expert_demo.course_survey2 結構
 CREATE TABLE IF NOT EXISTS `course_survey2` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `CourseSignUpSeq` int NOT NULL COMMENT '報名Seq',
-  `LessonLearned` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '學習心得',
-  `UsageAtWork` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '應用情形',
-  `FutureProposal` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '需求建議',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `CourseSignUpSeq` int(11) NOT NULL COMMENT '報名Seq',
+  `LessonLearned` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '學習心得',
+  `UsageAtWork` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '應用情形',
+  `FutureProposal` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '需求建議',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
   PRIMARY KEY (`Seq`),
   KEY `FK_course_survey2_course_signup` (`CourseSignUpSeq`),
   CONSTRAINT `FK_course_survey2_course_signup` FOREIGN KEY (`CourseSignUpSeq`) REFERENCES `course_signup` (`Seq`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='課程課後心得表';
 
 -- 正在傾印表格  ttqs_expert_demo.course_survey2 的資料：~0 rows (近似值)
+DELETE FROM `course_survey2`;
 
 -- 傾印  資料表 ttqs_expert_demo.course_survey3 結構
 CREATE TABLE IF NOT EXISTS `course_survey3` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `CourseSignUpSeq` int NOT NULL COMMENT '報名Seq',
-  `ContentA` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ContentB` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ContentC` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ContentD` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ContentE` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `CourseSignUpSeq` int(11) NOT NULL COMMENT '報名Seq',
+  `ContentA` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ContentB` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ContentC` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ContentD` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ContentE` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
   PRIMARY KEY (`Seq`),
   KEY `FK_course_survey3_course_signup` (`CourseSignUpSeq`),
   CONSTRAINT `FK_course_survey3_course_signup` FOREIGN KEY (`CourseSignUpSeq`) REFERENCES `course_signup` (`Seq`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='課後行動方案';
 
 -- 正在傾印表格  ttqs_expert_demo.course_survey3 的資料：~0 rows (近似值)
+DELETE FROM `course_survey3`;
 
 -- 傾印  資料表 ttqs_expert_demo.creditclass 結構
 CREATE TABLE IF NOT EXISTS `creditclass` (
-  `Seq` int NOT NULL AUTO_INCREMENT,
-  `Semester` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `CreditClassPlaceSeq` int DEFAULT NULL,
-  `ClassId` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `TeacherMainId` int DEFAULT NULL,
+  `Seq` int(11) NOT NULL AUTO_INCREMENT,
+  `Semester` varchar(4) DEFAULT NULL,
+  `CreditClassPlaceSeq` int(11) DEFAULT NULL,
+  `ClassId` varchar(10) DEFAULT NULL,
+  `TeacherMainId` int(11) DEFAULT NULL,
   `CreateTime` datetime DEFAULT NULL,
-  `CreateUserSeq` int DEFAULT NULL,
+  `CreateUserSeq` int(11) DEFAULT NULL,
   `ModifyTime` datetime DEFAULT NULL,
-  `ModifyUserSeq` int DEFAULT NULL,
-  `Course1` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Course2` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Course3` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Course4` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Course5` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Course6` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Course7` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Course8` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Course9` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Course10` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Course11` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Course12` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Course13` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `ModifyUserSeq` int(11) DEFAULT NULL,
+  `Course1` varchar(255) DEFAULT NULL,
+  `Course2` varchar(255) DEFAULT NULL,
+  `Course3` varchar(255) DEFAULT NULL,
+  `Course4` varchar(255) DEFAULT NULL,
+  `Course5` varchar(255) DEFAULT NULL,
+  `Course6` varchar(255) DEFAULT NULL,
+  `Course7` varchar(255) DEFAULT NULL,
+  `Course8` varchar(255) DEFAULT NULL,
+  `Course9` varchar(255) DEFAULT NULL,
+  `Course10` varchar(255) DEFAULT NULL,
+  `Course11` varchar(255) DEFAULT NULL,
+  `Course12` varchar(255) DEFAULT NULL,
+  `Course13` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Seq`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- 正在傾印表格  ttqs_expert_demo.creditclass 的資料：~0 rows (近似值)
+DELETE FROM `creditclass`;
 
 -- 傾印  資料表 ttqs_expert_demo.creditclassplace 結構
 CREATE TABLE IF NOT EXISTS `creditclassplace` (
-  `Seq` int NOT NULL AUTO_INCREMENT,
-  `PlaceId` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `PlaceName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `PlaceAddr` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `PlaceTel` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Contact` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `TrafficGuide` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Memo` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Seq` int(11) NOT NULL AUTO_INCREMENT,
+  `PlaceId` varchar(10) DEFAULT NULL,
+  `PlaceName` varchar(50) DEFAULT NULL,
+  `PlaceAddr` varchar(50) DEFAULT NULL,
+  `PlaceTel` varchar(15) DEFAULT NULL,
+  `Contact` varchar(50) DEFAULT NULL,
+  `TrafficGuide` varchar(400) DEFAULT NULL,
+  `Memo` varchar(200) DEFAULT NULL,
   `CreateTime` datetime DEFAULT NULL,
-  `CreateUserSeq` int DEFAULT NULL,
+  `CreateUserSeq` int(11) DEFAULT NULL,
   `ModifyTime` datetime DEFAULT NULL,
-  `ModifyUserSeq` int DEFAULT NULL,
+  `ModifyUserSeq` int(11) DEFAULT NULL,
   PRIMARY KEY (`Seq`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- 正在傾印表格  ttqs_expert_demo.creditclassplace 的資料：~0 rows (近似值)
+DELETE FROM `creditclassplace`;
 
 -- 傾印  資料表 ttqs_expert_demo.creditclasssignup 結構
 CREATE TABLE IF NOT EXISTS `creditclasssignup` (
-  `Seq` int NOT NULL AUTO_INCREMENT,
-  `CreditClassSeq` int DEFAULT NULL,
-  `Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Seq` int(11) NOT NULL AUTO_INCREMENT,
+  `CreditClassSeq` int(11) DEFAULT NULL,
+  `Name` varchar(50) DEFAULT NULL,
   `Birthday` datetime DEFAULT NULL,
-  `IdCardNo` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IdCardNo` varchar(20) DEFAULT NULL,
+  `Email` varchar(255) DEFAULT NULL,
   `IsOC` tinyint(1) DEFAULT NULL,
   `IsLowIncome` tinyint(1) DEFAULT NULL,
   `JobStatus` tinyint(1) DEFAULT NULL,
-  `SchoolName` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `DepartmentName` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `SchoolName` varchar(30) DEFAULT NULL,
+  `DepartmentName` varchar(15) DEFAULT NULL,
   `IsNewGraduate` tinyint(1) DEFAULT NULL,
-  `GraduateYear` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `EquEduStatus` int DEFAULT NULL,
-  `ServiceUnitName` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Position` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Tel` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Mobile` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ResAddr` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `CommAddr` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ReferrerName` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `EmgContact` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `EmgMobile` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `EmgRelation` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `FacePicFile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `GraduFile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `WorkFile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ReviewFile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `OCFile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `GraduateYear` varchar(3) DEFAULT NULL,
+  `EquEduStatus` int(11) DEFAULT NULL,
+  `ServiceUnitName` varchar(30) DEFAULT NULL,
+  `Position` varchar(10) DEFAULT NULL,
+  `Tel` varchar(20) DEFAULT NULL,
+  `Mobile` varchar(20) DEFAULT NULL,
+  `ResAddr` varchar(50) DEFAULT NULL,
+  `CommAddr` varchar(50) DEFAULT NULL,
+  `ReferrerName` varchar(10) DEFAULT NULL,
+  `EmgContact` varchar(10) DEFAULT NULL,
+  `EmgMobile` varchar(11) DEFAULT NULL,
+  `EmgRelation` varchar(10) DEFAULT NULL,
+  `FacePicFile` varchar(255) DEFAULT NULL,
+  `GraduFile` varchar(255) DEFAULT NULL,
+  `WorkFile` varchar(255) DEFAULT NULL,
+  `ReviewFile` varchar(255) DEFAULT NULL,
+  `OCFile` varchar(255) DEFAULT NULL,
   `IsTrans` tinyint(1) DEFAULT NULL,
   `CreateTime` datetime DEFAULT NULL,
-  `CreateUserSeq` int DEFAULT NULL,
+  `CreateUserSeq` int(11) DEFAULT NULL,
   `ModifyTime` datetime DEFAULT NULL,
-  `ModifyUserSeq` int DEFAULT NULL,
-  `TelMeg` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `ModifyUserSeq` int(11) DEFAULT NULL,
+  `TelMeg` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`Seq`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- 正在傾印表格  ttqs_expert_demo.creditclasssignup 的資料：~0 rows (近似值)
+DELETE FROM `creditclasssignup`;
 
 -- 傾印  資料表 ttqs_expert_demo.departmentwork 結構
 CREATE TABLE IF NOT EXISTS `departmentwork` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `TeacherMainId` int DEFAULT NULL,
-  `WorkNo` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Category` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `WorkBrief` varchar(4000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `TeacherMainId` int(11) DEFAULT NULL,
+  `WorkNo` varchar(14) DEFAULT NULL,
+  `Category` varchar(30) DEFAULT NULL,
+  `WorkBrief` varchar(4000) DEFAULT NULL,
   `DueDate` datetime DEFAULT NULL,
-  `WorkDescription` varchar(4000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `WorkDescription` varchar(4000) DEFAULT NULL,
   `StartDate` datetime DEFAULT NULL,
   `EndDate` datetime DEFAULT NULL,
-  `Creater` int DEFAULT NULL,
+  `Creater` int(11) DEFAULT NULL,
   `CreateTime` datetime DEFAULT NULL,
-  `Updater` int DEFAULT NULL,
+  `Updater` int(11) DEFAULT NULL,
   `UpdateTime` datetime DEFAULT NULL,
   `CompleteDate` datetime DEFAULT NULL,
-  `Comments` varchar(4000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Comments` varchar(4000) DEFAULT NULL,
   `ReplyFirstTime` datetime DEFAULT NULL,
   `ReplyLastTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 -- 正在傾印表格  ttqs_expert_demo.departmentwork 的資料：~2 rows (近似值)
+DELETE FROM `departmentwork`;
 INSERT INTO `departmentwork` (`id`, `TeacherMainId`, `WorkNo`, `Category`, `WorkBrief`, `DueDate`, `WorkDescription`, `StartDate`, `EndDate`, `Creater`, `CreateTime`, `Updater`, `UpdateTime`, `CompleteDate`, `Comments`, `ReplyFirstTime`, `ReplyLastTime`) VALUES
 	(4, 3, 'DW20230105004', 'AAAA', 'sdfsdgfgjhdghk', '2023-01-23 00:00:00', 'tgjkgdhksfhjgdhkgk', '2023-01-06 00:00:00', '2023-01-17 00:00:00', 1, '2023-01-05 17:59:25', 1, '2023-01-05 18:07:17', NULL, NULL, NULL, NULL),
 	(5, 2, 'DW20230105005', 'CCCC', 'sdfsdfgsdfgdfshdf', '2023-01-21 00:00:00', '', '2023-01-01 00:00:00', '2023-01-12 00:00:00', 1, '2023-01-05 18:13:43', 1, '2023-01-05 18:13:43', NULL, NULL, NULL, NULL);
 
 -- 傾印  資料表 ttqs_expert_demo.description_attitude 結構
 CREATE TABLE IF NOT EXISTS `description_attitude` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `DescriptionSeq` int NOT NULL COMMENT '職務說明書流水序',
-  `Attitude` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '工作態度',
-  `Memo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '定義',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `DescriptionSeq` int(11) NOT NULL COMMENT '職務說明書流水序',
+  `Attitude` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '工作態度',
+  `Memo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '定義',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='職務說明書-工作態度';
 
 -- 正在傾印表格  ttqs_expert_demo.description_attitude 的資料：~0 rows (近似值)
+DELETE FROM `description_attitude`;
 
 -- 傾印  資料表 ttqs_expert_demo.description_certificate 結構
 CREATE TABLE IF NOT EXISTS `description_certificate` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `DescriptionSeq` int NOT NULL COMMENT '職務說明書流水序',
-  `Certificate` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '專業證照',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `DescriptionSeq` int(11) NOT NULL COMMENT '職務說明書流水序',
+  `Certificate` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '專業證照',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='職務說明書-專業證照';
 
 -- 正在傾印表格  ttqs_expert_demo.description_certificate 的資料：~0 rows (近似值)
+DELETE FROM `description_certificate`;
 
 -- 傾印  資料表 ttqs_expert_demo.description_experience 結構
 CREATE TABLE IF NOT EXISTS `description_experience` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `DescriptionSeq` int NOT NULL COMMENT '職務說明書流水序',
-  `WorkExperience` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '工作經驗',
-  `Seniority` int NOT NULL DEFAULT '0' COMMENT '年資',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `DescriptionSeq` int(11) NOT NULL COMMENT '職務說明書流水序',
+  `WorkExperience` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '工作經驗',
+  `Seniority` int(11) NOT NULL DEFAULT 0 COMMENT '年資',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='職務說明書-工作經驗及年資';
 
 -- 正在傾印表格  ttqs_expert_demo.description_experience 的資料：~0 rows (近似值)
+DELETE FROM `description_experience`;
 
 -- 傾印  資料表 ttqs_expert_demo.description_language 結構
 CREATE TABLE IF NOT EXISTS `description_language` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `DescriptionSeq` int NOT NULL COMMENT '職務說明書流水序',
-  `Language` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '語言',
-  `Hear` int NOT NULL DEFAULT '1' COMMENT '聽 1:不會 2:略懂 3:普通 4:精通',
-  `Say` int NOT NULL DEFAULT '1' COMMENT '說 1:不會 2:略懂 3:普通 4:精通',
-  `Read` int NOT NULL DEFAULT '1' COMMENT '讀 1:不會 2:略懂 3:普通 4:精通',
-  `Write` int NOT NULL DEFAULT '1' COMMENT '寫 1:不會 2:略懂 3:普通 4:精通',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `DescriptionSeq` int(11) NOT NULL COMMENT '職務說明書流水序',
+  `Language` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '語言',
+  `Hear` int(11) NOT NULL DEFAULT 1 COMMENT '聽 1:不會 2:略懂 3:普通 4:精通',
+  `Say` int(11) NOT NULL DEFAULT 1 COMMENT '說 1:不會 2:略懂 3:普通 4:精通',
+  `Read` int(11) NOT NULL DEFAULT 1 COMMENT '讀 1:不會 2:略懂 3:普通 4:精通',
+  `Write` int(11) NOT NULL DEFAULT 1 COMMENT '寫 1:不會 2:略懂 3:普通 4:精通',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='職務說明書-語言能力';
 
 -- 正在傾印表格  ttqs_expert_demo.description_language 的資料：~0 rows (近似值)
+DELETE FROM `description_language`;
 
 -- 傾印  資料表 ttqs_expert_demo.description_object 結構
 CREATE TABLE IF NOT EXISTS `description_object` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `DescriptionSeq` int NOT NULL COMMENT '職務說明書流水序',
-  `Way` int NOT NULL COMMENT '接觸地點 1:內部 2:外部',
-  `Who` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '接觸對象',
-  `Matter` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '工作事項',
-  `Frequency` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '接觸頻率',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `DescriptionSeq` int(11) NOT NULL COMMENT '職務說明書流水序',
+  `Way` int(11) NOT NULL COMMENT '接觸地點 1:內部 2:外部',
+  `Who` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '接觸對象',
+  `Matter` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '工作事項',
+  `Frequency` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '接觸頻率',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='職務說明書-接觸對象';
 
 -- 正在傾印表格  ttqs_expert_demo.description_object 的資料：~0 rows (近似值)
+DELETE FROM `description_object`;
 
 -- 傾印  資料表 ttqs_expert_demo.description_task 結構
 CREATE TABLE IF NOT EXISTS `description_task` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `DescriptionSeq` int NOT NULL COMMENT '職務說明書流水序',
-  `Task` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '任務',
-  `Duty` int NOT NULL DEFAULT '1' COMMENT '責任 1:主辦 2:協辦',
-  `Time` int NOT NULL DEFAULT '0' COMMENT '工時(%)',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `DescriptionSeq` int(11) NOT NULL COMMENT '職務說明書流水序',
+  `Task` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '任務',
+  `Duty` int(11) NOT NULL DEFAULT 1 COMMENT '責任 1:主辦 2:協辦',
+  `Time` int(11) NOT NULL DEFAULT 0 COMMENT '工時(%)',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='職務說明書-執掌與任務';
 
 -- 正在傾印表格  ttqs_expert_demo.description_task 的資料：~0 rows (近似值)
+DELETE FROM `description_task`;
 
 -- 傾印  資料表 ttqs_expert_demo.expertise 結構
 CREATE TABLE IF NOT EXISTS `expertise` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `CName` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '序號',
-  `Name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '專長名稱',
-  `DeleteTag` int DEFAULT '0' COMMENT '刪除標記',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `CName` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '序號',
+  `Name` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '專長名稱',
+  `DeleteTag` int(11) DEFAULT 0 COMMENT '刪除標記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='專長類型';
 
 -- 正在傾印表格  ttqs_expert_demo.expertise 的資料：~24 rows (近似值)
+DELETE FROM `expertise`;
 INSERT INTO `expertise` (`Seq`, `CName`, `Name`, `DeleteTag`) VALUES
 	(1, 'A', '資訊安全', 0),
 	(2, 'B', '經營管理', 0),
@@ -707,57 +734,59 @@ INSERT INTO `expertise` (`Seq`, `CName`, `Name`, `DeleteTag`) VALUES
 
 -- 傾印  資料表 ttqs_expert_demo.expert_certificate 結構
 CREATE TABLE IF NOT EXISTS `expert_certificate` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `ExpertSeq` int NOT NULL DEFAULT '0' COMMENT '專家Seq',
-  `FilePath` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '檔案路徑',
-  `FileName` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '檔案名稱',
-  `OriginalFileName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '下載名稱',
-  `Memo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '證照說明',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `ExpertSeq` int(11) NOT NULL DEFAULT 0 COMMENT '專家Seq',
+  `FilePath` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '檔案路徑',
+  `FileName` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '檔案名稱',
+  `OriginalFileName` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '下載名稱',
+  `Memo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '證照說明',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='專家證照';
 
 -- 正在傾印表格  ttqs_expert_demo.expert_certificate 的資料：~0 rows (近似值)
+DELETE FROM `expert_certificate`;
 
 -- 傾印  資料表 ttqs_expert_demo.expert_data 結構
 CREATE TABLE IF NOT EXISTS `expert_data` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '姓名',
-  `ExpertMemo` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '專家介紹',
-  `ExpertImage` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '專家照片',
-  `ExpertImageType` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '專家照片圖檔類型',
-  `Area` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '區域別 以","分隔',
-  `Gender` int NOT NULL DEFAULT '1' COMMENT '性別1:男 2:女',
-  `Identity` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '身份',
-  `IdentityCard` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '身份證號',
-  `Birthday` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '生日',
-  `Diet` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '飲食 1:葷 2:素',
-  `Telephone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '連絡電話',
-  `Mobile` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '手機',
-  `Mail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '電子郵件',
-  `Address` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '地址',
-  `ServiceAgency` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '服務機關',
-  `JobTitle` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '職稱',
-  `AgencyPhone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '機關電話',
-  `AgencyAddress` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '機關地址',
-  `Expertise` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '專長 以","分隔',
-  `Memo` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '備註',
-  `Education` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '學歷',
-  `Experience` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '經歷',
-  `ProjectExperience` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '專案經歷',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `Name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '姓名',
+  `ExpertMemo` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '專家介紹',
+  `ExpertImage` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '專家照片',
+  `ExpertImageType` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '專家照片圖檔類型',
+  `Area` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '區域別 以","分隔',
+  `Gender` int(11) NOT NULL DEFAULT 1 COMMENT '性別1:男 2:女',
+  `Identity` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '身份',
+  `IdentityCard` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '身份證號',
+  `Birthday` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '生日',
+  `Diet` varchar(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '飲食 1:葷 2:素',
+  `Telephone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '連絡電話',
+  `Mobile` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '手機',
+  `Mail` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '電子郵件',
+  `Address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '地址',
+  `ServiceAgency` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '服務機關',
+  `JobTitle` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '職稱',
+  `AgencyPhone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '機關電話',
+  `AgencyAddress` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '機關地址',
+  `Expertise` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '專長 以","分隔',
+  `Memo` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '備註',
+  `Education` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '學歷',
+  `Experience` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '經歷',
+  `ProjectExperience` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '專案經歷',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='專家資料';
 
--- 正在傾印表格  ttqs_expert_demo.expert_data 的資料：~9 rows (近似值)
+-- 正在傾印表格  ttqs_expert_demo.expert_data 的資料：~11 rows (近似值)
+DELETE FROM `expert_data`;
 INSERT INTO `expert_data` (`Seq`, `Name`, `ExpertMemo`, `ExpertImage`, `ExpertImageType`, `Area`, `Gender`, `Identity`, `IdentityCard`, `Birthday`, `Diet`, `Telephone`, `Mobile`, `Mail`, `Address`, `ServiceAgency`, `JobTitle`, `AgencyPhone`, `AgencyAddress`, `Expertise`, `Memo`, `Education`, `Experience`, `ProjectExperience`, `CreatDate`, `CreatUser`, `ModifyDate`, `ModifyUser`, `DeleteTag`) VALUES
 	(1, '陳大同(範例)', '<p>影片教材大師，擁有獨家專利A智能配音技術，將簡報變成影片</p>', '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', 'data:image/png;base64,', NULL, 1, NULL, 'A123456789', '1999-8-8', '1', '0211115555', '0923456789', 'test1@geo.com.tw', '新北市三峽區鶯歌路100號', '國立台北大學', '資管系教授', '0222554488', '新北市三峽區大學路 151 號', NULL, '中小企業合作、研究方法、非營利行銷', '測試學歷1', '測試經歷1', NULL, '2022-10-25 16:00:01', 1, NULL, NULL, 0),
 	(2, '黃小武(範例)', '<p>影片教材大師，擁有獨家專利AI智能配音技術，將簡報變成影片</p>', '/9j/4AAQSkZJRgABAgEBLAEsAAD/7RgeUGhvdG9zaG9wIDMuMAA4QklNA+0KUmVzb2x1dGlvbgAAAAAQASwAAAABAAIBLAAAAAEAAjhCSU0EDRhGWCBHbG9iYWwgTGlnaHRpbmcgQW5nbGUAAAAABAAAAHg4QklNBBkSRlggR2xvYmFsIEFsdGl0dWRlAAAAAAQAAAAeOEJJTQPzC1ByaW50IEZsYWdzAAAACQAAAAAAAAAAAQA4QklNBAoOQ29weXJpZ2h0IEZsYWcAAAAAAQAAOEJJTScQFEphcGFuZXNlIFByaW50IEZsYWdzAAAAAAoAAQAAAAAAAAACOEJJTQP1F0NvbG9yIEhhbGZ0b25lIFNldHRpbmdzAAAASAAvZmYAAQBsZmYABgAAAAAAAQAvZmYAAQChmZoABgAAAAAAAQAyAAAAAQBaAAAABgAAAAAAAQA1AAAAAQAtAAAABgAAAAAAAThCSU0D+BdDb2xvciBUcmFuc2ZlciBTZXR0aW5ncwAAAHAAAP////////////////////////////8D6AAAAAD/////////////////////////////A+gAAAAA/////////////////////////////wPoAAAAAP////////////////////////////8D6AAAOEJJTQQAC0xheWVyIFN0YXRlAAAAAgAAOEJJTQQCDExheWVyIEdyb3VwcwAAAAAMAAAAAAAAAAAAAAAAOEJJTQQIBkd1aWRlcwAAAAAQAAAAAQAAAkAAAAJAAAAAADhCSU0EHg1VUkwgb3ZlcnJpZGVzAAAABAAAAAA4QklNBBoGU2xpY2VzAAAAAGcAAAAGAAAAAAAAAAAAAADIAAAAyAAAAAMAVwAtgNYAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAMgAAADIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADhCSU0EERFJQ0MgVW50YWdnZWQgRmxhZwAAAAEBADhCSU0EFBdMYXllciBJRCBHZW5lcmF0b3IgQmFzZQAAAAQAAAAZOEJJTQQMFU5ldyBXaW5kb3dzIFRodW1ibmFpbAAAFEcAAAABAAAAcAAAAHAAAAFQAACTAAAAFCsAGAAB/9j/4AAQSkZJRgABAgEASABIAAD/7gAO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', 'data:image/png;base64,', NULL, 1, NULL, 'A123456798', '1987-7-7', '2', '0488886666', '0932987654', 'test2@geo.com.tw', '臺中市重慶路300號', '經建會', '經建會代表', '0222974468', '台北市中正區寶慶路3號', NULL, '行銷學、農業合作', '測試學歷2', '測試經歷2', NULL, '2022-10-25 16:00:01', 1, NULL, NULL, 0),
@@ -773,10 +802,9 @@ INSERT INTO `expert_data` (`Seq`, `Name`, `ExpertMemo`, `ExpertImage`, `ExpertIm
 
 -- 傾印  函式 ttqs_expert_demo.formatNumber 結構
 DELIMITER //
-CREATE FUNCTION `formatNumber`(
-	`number` INT,
+CREATE FUNCTION `formatNumber`(`number` INT,
 	`fomater` VARCHAR(20)
-) RETURNS varchar(20) CHARSET utf8mb4 COLLATE utf8mb4_general_ci
+) RETURNS varchar(20) CHARSET utf8mb4
     DETERMINISTIC
 BEGIN
 	RETURN CONCAT( substring(`fomater`, 1,  LENGTH(`fomater`) - LENGTH(`number`)), `number`  );
@@ -785,13 +813,14 @@ DELIMITER ;
 
 -- 傾印  資料表 ttqs_expert_demo.function_category 結構
 CREATE TABLE IF NOT EXISTS `function_category` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
   `Name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '職稱',
-  `DeleteTag` int DEFAULT '0' COMMENT '刪除標記',
+  `DeleteTag` int(11) DEFAULT 0 COMMENT '刪除標記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COMMENT='職能類別清單';
 
 -- 正在傾印表格  ttqs_expert_demo.function_category 的資料：~5 rows (近似值)
+DELETE FROM `function_category`;
 INSERT INTO `function_category` (`Seq`, `Name`, `DeleteTag`) VALUES
 	(1, '集團核心價值', 0),
 	(2, '管理訓練', 0),
@@ -801,39 +830,41 @@ INSERT INTO `function_category` (`Seq`, `Name`, `DeleteTag`) VALUES
 
 -- 傾印  資料表 ttqs_expert_demo.function_factor 結構
 CREATE TABLE IF NOT EXISTS `function_factor` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `ProjectSeq` int NOT NULL COMMENT '職能項目',
-  `Num` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '編碼',
-  `Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '因子名稱',
-  `Definition` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '職能定義',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `ProjectSeq` int(11) NOT NULL COMMENT '職能項目',
+  `Num` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '編碼',
+  `Name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '因子名稱',
+  `Definition` varchar(400) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '職能定義',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`),
   KEY `FK_factor_factor` (`ProjectSeq`) USING BTREE,
   CONSTRAINT `FK_factor_project` FOREIGN KEY (`ProjectSeq`) REFERENCES `function_project` (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='職能因子';
 
 -- 正在傾印表格  ttqs_expert_demo.function_factor 的資料：~0 rows (近似值)
+DELETE FROM `function_factor`;
 
 -- 傾印  資料表 ttqs_expert_demo.function_project 結構
 CREATE TABLE IF NOT EXISTS `function_project` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `ParentSeq` int DEFAULT NULL COMMENT '父層流水序',
-  `Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '職能名稱',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `ParentSeq` int(11) DEFAULT NULL COMMENT '父層流水序',
+  `Name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '職能名稱',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`),
   KEY `FK_project_project` (`ParentSeq`),
   CONSTRAINT `FK_project_project` FOREIGN KEY (`ParentSeq`) REFERENCES `function_project` (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='職能項目';
 
 -- 正在傾印表格  ttqs_expert_demo.function_project 的資料：~6 rows (近似值)
+DELETE FROM `function_project`;
 INSERT INTO `function_project` (`Seq`, `ParentSeq`, `Name`, `CreatDate`, `CreatUser`, `ModifyDate`, `ModifyUser`, `DeleteTag`) VALUES
 	(1, NULL, '一般職能', '2022-01-19 10:59:56', 1, NULL, NULL, 0),
 	(2, NULL, '專業職能', '2022-01-19 10:59:56', 1, NULL, NULL, 0),
@@ -844,64 +875,68 @@ INSERT INTO `function_project` (`Seq`, `ParentSeq`, `Name`, `CreatDate`, `CreatU
 
 -- 傾印  資料表 ttqs_expert_demo.function_set 結構
 CREATE TABLE IF NOT EXISTS `function_set` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `UnitSeq` int DEFAULT NULL COMMENT '單位流水序',
-  `JobSeq` int DEFAULT NULL COMMENT '職稱流水序',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `UnitSeq` int(11) DEFAULT NULL COMMENT '單位流水序',
+  `JobSeq` int(11) DEFAULT NULL COMMENT '職稱流水序',
   `FillDate` date DEFAULT NULL COMMENT '填表日期',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   KEY `Seq` (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='職能設定';
 
 -- 正在傾印表格  ttqs_expert_demo.function_set 的資料：~0 rows (近似值)
+DELETE FROM `function_set`;
 
 -- 傾印  資料表 ttqs_expert_demo.function_unit 結構
 CREATE TABLE IF NOT EXISTS `function_unit` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `UnitSeq` int DEFAULT NULL COMMENT '單位流水序',
-  `ProjectSeq` int DEFAULT NULL COMMENT '職能類別 1.一般 2.專業 3.核心 4.管理',
-  `FactorList` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '職能名稱 對應function_factor.Seq',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `UnitSeq` int(11) DEFAULT NULL COMMENT '單位流水序',
+  `ProjectSeq` int(11) DEFAULT NULL COMMENT '職能類別 1.一般 2.專業 3.核心 4.管理',
+  `FactorList` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '職能名稱 對應function_factor.Seq',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='單位職能';
 
 -- 正在傾印表格  ttqs_expert_demo.function_unit 的資料：~0 rows (近似值)
+DELETE FROM `function_unit`;
 
 -- 傾印  資料表 ttqs_expert_demo.job_description 結構
 CREATE TABLE IF NOT EXISTS `job_description` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `UnitSeq` int DEFAULT NULL COMMENT '單位流水序',
-  `JobSeq` int DEFAULT NULL COMMENT '職稱流水序',
-  `Education` int DEFAULT NULL COMMENT '學歷 1:高中 2: 大學',
-  `Department` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '科系',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `UnitSeq` int(11) DEFAULT NULL COMMENT '單位流水序',
+  `JobSeq` int(11) DEFAULT NULL COMMENT '職稱流水序',
+  `Education` int(11) DEFAULT NULL COMMENT '學歷 1:高中 2: 大學',
+  `Department` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '科系',
   `FillDate` date DEFAULT NULL COMMENT '填表日期',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='職務說明書';
 
 -- 正在傾印表格  ttqs_expert_demo.job_description 的資料：~0 rows (近似值)
+DELETE FROM `job_description`;
 
 -- 傾印  資料表 ttqs_expert_demo.job_title 結構
 CREATE TABLE IF NOT EXISTS `job_title` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
   `Name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '職稱',
-  `IsActive` int DEFAULT '1' COMMENT '是否啟用',
-  `DeleteTag` int DEFAULT '0' COMMENT '刪除標記',
+  `IsActive` int(11) DEFAULT 1 COMMENT '是否啟用',
+  `DeleteTag` int(11) DEFAULT 0 COMMENT '刪除標記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1 COMMENT='職稱';
 
 -- 正在傾印表格  ttqs_expert_demo.job_title 的資料：~22 rows (近似值)
+DELETE FROM `job_title`;
 INSERT INTO `job_title` (`Seq`, `Name`, `IsActive`, `DeleteTag`) VALUES
 	(1, '副總經理', 1, 0),
 	(2, '財務長', 1, 0),
@@ -928,33 +963,35 @@ INSERT INTO `job_title` (`Seq`, `Name`, `IsActive`, `DeleteTag`) VALUES
 
 -- 傾印  資料表 ttqs_expert_demo.lecture_record 結構
 CREATE TABLE IF NOT EXISTS `lecture_record` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `ExpertSeq` int NOT NULL DEFAULT '0' COMMENT '專家Seq',
-  `CourseName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程名稱',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `ExpertSeq` int(11) NOT NULL DEFAULT 0 COMMENT '專家Seq',
+  `CourseName` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程名稱',
   `CourseDate` date NOT NULL COMMENT '課程日期',
-  `CourseScore` int NOT NULL DEFAULT '0' COMMENT '課程評分',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `CourseScore` int(11) NOT NULL DEFAULT 0 COMMENT '課程評分',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='講授及出席紀錄';
 
 -- 正在傾印表格  ttqs_expert_demo.lecture_record 的資料：~0 rows (近似值)
+DELETE FROM `lecture_record`;
 
 -- 傾印  資料表 ttqs_expert_demo.location 結構
 CREATE TABLE IF NOT EXISTS `location` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '序號',
-  `Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '名稱',
-  `Memo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '備註',
-  `Region` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '地區',
-  `RegionOrderNo` int NOT NULL DEFAULT '1' COMMENT '地區排序編號',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '序號',
+  `Name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '名稱',
+  `Memo` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '備註',
+  `Region` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '地區',
+  `RegionOrderNo` int(11) NOT NULL DEFAULT 1 COMMENT '地區排序編號',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='上課地點';
 
 -- 正在傾印表格  ttqs_expert_demo.location 的資料：~5 rows (近似值)
+DELETE FROM `location`;
 INSERT INTO `location` (`Seq`, `Name`, `Memo`, `Region`, `RegionOrderNo`, `DeleteTag`) VALUES
 	(1, '第一會議室', NULL, NULL, 1, 0),
 	(2, '第二會議室', NULL, NULL, 2, 0),
@@ -964,25 +1001,26 @@ INSERT INTO `location` (`Seq`, `Name`, `Memo`, `Region`, `RegionOrderNo`, `Delet
 
 -- 傾印  資料表 ttqs_expert_demo.menu 結構
 CREATE TABLE IF NOT EXISTS `menu` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `Type` int NOT NULL COMMENT '系統別 1:前台 2:後台 3.職能分析',
-  `ParentSeq` int DEFAULT NULL COMMENT '父層流水序',
-  `Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '功能名稱',
-  `Path` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '功能路徑',
-  `OrderNo` int NOT NULL COMMENT '排序',
-  `ShowRole` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '顯示規則 參考user_role表 '',''分割',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `Type` int(11) NOT NULL COMMENT '系統別 1:前台 2:後台 3.職能分析',
+  `ParentSeq` int(11) DEFAULT NULL COMMENT '父層流水序',
+  `Name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '功能名稱',
+  `Path` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '功能路徑',
+  `OrderNo` int(11) NOT NULL COMMENT '排序',
+  `ShowRole` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '顯示規則 參考user_role表 '',''分割',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `IsActive` int NOT NULL DEFAULT '1' COMMENT '是否啟用 0:不啟用 1:啟用',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `IsActive` int(11) NOT NULL DEFAULT 1 COMMENT '是否啟用 0:不啟用 1:啟用',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`),
   KEY `FK_menu_menu` (`ParentSeq`),
   CONSTRAINT `FK_menu_menu` FOREIGN KEY (`ParentSeq`) REFERENCES `menu` (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6017 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='功能列表';
 
 -- 正在傾印表格  ttqs_expert_demo.menu 的資料：~50 rows (近似值)
+DELETE FROM `menu`;
 INSERT INTO `menu` (`Seq`, `Type`, `ParentSeq`, `Name`, `Path`, `OrderNo`, `ShowRole`, `CreatDate`, `CreatUser`, `ModifyDate`, `ModifyUser`, `IsActive`, `DeleteTag`) VALUES
 	(1, 1, NULL, 'Plan', NULL, 10, '1,2,4,5', '2021-09-28 11:44:03', 0, NULL, NULL, 1, 0),
 	(2, 1, NULL, 'Design', NULL, 20, '1,2,4,5', '2021-09-28 11:44:26', 0, NULL, NULL, 1, 0),
@@ -1037,36 +1075,38 @@ INSERT INTO `menu` (`Seq`, `Type`, `ParentSeq`, `Name`, `Path`, `OrderNo`, `Show
 
 -- 傾印  資料表 ttqs_expert_demo.new_ticker 結構
 CREATE TABLE IF NOT EXISTS `new_ticker` (
-  `Seq` int NOT NULL AUTO_INCREMENT,
-  `Text` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '跑馬燈內容',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT,
+  `Text` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '跑馬燈內容',
   `StartTime` datetime DEFAULT NULL COMMENT '開始時間',
   `EndTime` datetime DEFAULT NULL COMMENT '結束時間',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='優惠跑馬燈';
 
 -- 正在傾印表格  ttqs_expert_demo.new_ticker 的資料：~0 rows (近似值)
+DELETE FROM `new_ticker`;
 
 -- 傾印  資料表 ttqs_expert_demo.recommend_class 結構
 CREATE TABLE IF NOT EXISTS `recommend_class` (
-  `Seq` int NOT NULL AUTO_INCREMENT,
-  `CourseCategory` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程類別',
-  `CourseSubcategory` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程子類別',
-  `CourseTitle` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程標題',
-  `CourseTime` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '時間',
-  `Participants` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '參與人數',
-  `Deadline` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '截止時間',
-  `CourseIntroduction` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程介紹',
-  `CourseURL` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程網址',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT,
+  `CourseCategory` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程類別',
+  `CourseSubcategory` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程子類別',
+  `CourseTitle` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程標題',
+  `CourseTime` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '時間',
+  `Participants` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '參與人數',
+  `Deadline` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '截止時間',
+  `CourseIntroduction` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程介紹',
+  `CourseURL` varchar(400) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '課程網址',
   `CreatDate` date DEFAULT NULL COMMENT '建立時間',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=438 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='企網推薦課程';
 
--- 正在傾印表格  ttqs_expert_demo.recommend_class 的資料：~436 rows (近似值)
+-- 正在傾印表格  ttqs_expert_demo.recommend_class 的資料：~437 rows (近似值)
+DELETE FROM `recommend_class`;
 INSERT INTO `recommend_class` (`Seq`, `CourseCategory`, `CourseSubcategory`, `CourseTitle`, `CourseTime`, `Participants`, `Deadline`, `CourseIntroduction`, `CourseURL`, `CreatDate`) VALUES
 	(1, '資訊科技', '資訊安全能力系列', '資安管理-個人篇', '17分鐘', '5860位同學', '2030.12.31 截止', '許多資安事件往往是由於一般使用者疏忽所造成，學完本課程後,您將能夠：瞭解資訊安全基本概念、並正視資訊安全重要性。認識資訊潛在的威脅，並熟悉資訊安全10大好習慣，落實在生活中。', 'https://www.smelearning.org.tw/class.php?course=5764', '2023-01-07'),
 	(2, '資訊科技', '資訊安全能力系列', '資訊安全概論', '48分鐘', '4904位同學', '2030.12.31 截止', '擁有正確資訊安全觀念!\r\n做好資訊安全防護措施!', 'https://www.smelearning.org.tw/class.php?course=5775', '2023-01-07'),
@@ -1508,8 +1548,8 @@ INSERT INTO `recommend_class` (`Seq`, `CourseCategory`, `CourseSubcategory`, `Co
 
 -- 傾印  資料表 ttqs_expert_demo.recommend_class_log 結構
 CREATE TABLE IF NOT EXISTS `recommend_class_log` (
-  `Seq` int NOT NULL AUTO_INCREMENT,
-  `RecommendSeq` int NOT NULL DEFAULT '0',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT,
+  `RecommendSeq` int(11) NOT NULL DEFAULT 0,
   `Participants` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '參與人數',
   `CreatDate` date DEFAULT NULL COMMENT '建立時間',
   PRIMARY KEY (`Seq`),
@@ -1517,7 +1557,8 @@ CREATE TABLE IF NOT EXISTS `recommend_class_log` (
   CONSTRAINT `FK_RecommendSeq` FOREIGN KEY (`RecommendSeq`) REFERENCES `recommend_class` (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=748 DEFAULT CHARSET=latin1 COMMENT='企網推薦課程-人數變化紀錄';
 
--- 正在傾印表格  ttqs_expert_demo.recommend_class_log 的資料：~676 rows (近似值)
+-- 正在傾印表格  ttqs_expert_demo.recommend_class_log 的資料：~747 rows (近似值)
+DELETE FROM `recommend_class_log`;
 INSERT INTO `recommend_class_log` (`Seq`, `RecommendSeq`, `Participants`, `CreatDate`) VALUES
 	(1, 1, '5860位同學', '2023-01-07'),
 	(2, 2, '4904位同學', '2023-01-07'),
@@ -2269,42 +2310,45 @@ INSERT INTO `recommend_class_log` (`Seq`, `RecommendSeq`, `Participants`, `Creat
 
 -- 傾印  資料表 ttqs_expert_demo.r_teacher_student 結構
 CREATE TABLE IF NOT EXISTS `r_teacher_student` (
-  `Seq` int NOT NULL AUTO_INCREMENT,
-  `StudentMainid` int DEFAULT NULL,
-  `TeacherMainid` int DEFAULT NULL,
-  `CommonAdvisor` int DEFAULT NULL,
+  `Seq` int(11) NOT NULL AUTO_INCREMENT,
+  `StudentMainid` int(11) DEFAULT NULL,
+  `TeacherMainid` int(11) DEFAULT NULL,
+  `CommonAdvisor` int(11) DEFAULT NULL,
   `CreateTime` datetime DEFAULT NULL,
-  `CreateUserSeq` int DEFAULT NULL,
+  `CreateUserSeq` int(11) DEFAULT NULL,
   `ModifyTime` datetime DEFAULT NULL,
-  `ModifyUserSeq` int DEFAULT NULL,
+  `ModifyUserSeq` int(11) DEFAULT NULL,
   PRIMARY KEY (`Seq`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- 正在傾印表格  ttqs_expert_demo.r_teacher_student 的資料：~0 rows (近似值)
+DELETE FROM `r_teacher_student`;
 
 -- 傾印  資料表 ttqs_expert_demo.schoolsystem 結構
 CREATE TABLE IF NOT EXISTS `schoolsystem` (
-  `Seq` int NOT NULL AUTO_INCREMENT,
-  `SSName` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Seq` int(11) NOT NULL AUTO_INCREMENT,
+  `SSName` varchar(10) DEFAULT NULL,
   `IsEnable` tinyint(1) DEFAULT NULL,
-  `OrderNo` int DEFAULT NULL,
+  `OrderNo` int(11) DEFAULT NULL,
   `CreateTime` datetime DEFAULT NULL,
-  `CreateUserSeq` int DEFAULT NULL,
+  `CreateUserSeq` int(11) DEFAULT NULL,
   `ModifyTime` datetime DEFAULT NULL,
-  `ModifyUserSeq` int DEFAULT NULL,
+  `ModifyUserSeq` int(11) DEFAULT NULL,
   PRIMARY KEY (`Seq`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- 正在傾印表格  ttqs_expert_demo.schoolsystem 的資料：~0 rows (近似值)
+DELETE FROM `schoolsystem`;
 
 -- 傾印  資料表 ttqs_expert_demo.seriallist 結構
 CREATE TABLE IF NOT EXISTS `seriallist` (
-  `KeyWord` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `SerialNumber` int NOT NULL,
+  `KeyWord` varchar(10) NOT NULL,
+  `SerialNumber` int(11) NOT NULL,
   PRIMARY KEY (`KeyWord`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- 正在傾印表格  ttqs_expert_demo.seriallist 的資料：~8 rows (近似值)
+-- 正在傾印表格  ttqs_expert_demo.seriallist 的資料：~10 rows (近似值)
+DELETE FROM `seriallist`;
 INSERT INTO `seriallist` (`KeyWord`, `SerialNumber`) VALUES
 	('CE20211222', 1),
 	('CE20220107', 1),
@@ -2319,54 +2363,56 @@ INSERT INTO `seriallist` (`KeyWord`, `SerialNumber`) VALUES
 
 -- 傾印  資料表 ttqs_expert_demo.studentmain 結構
 CREATE TABLE IF NOT EXISTS `studentmain` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `SchoolYear` int DEFAULT NULL,
-  `SDegree` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `SchoolId` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `PeopleId` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `SName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `SchoolYear` int(11) DEFAULT NULL,
+  `SDegree` varchar(10) DEFAULT NULL,
+  `SchoolId` varchar(30) NOT NULL,
+  `PeopleId` varchar(10) DEFAULT NULL,
+  `SName` varchar(50) DEFAULT NULL,
   `Birthday` datetime DEFAULT NULL,
-  `EMail` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Phone` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `PhoneExt` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ServiceUnit` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `JobTitle` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `RegAddress` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ComAddress` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Note` varchar(4000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IsValid` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `CreditClassSignUpSeq` int DEFAULT NULL,
-  `Creater` int DEFAULT NULL,
+  `EMail` varchar(200) DEFAULT NULL,
+  `Phone` varchar(30) DEFAULT NULL,
+  `PhoneExt` varchar(20) DEFAULT NULL,
+  `ServiceUnit` varchar(30) DEFAULT NULL,
+  `JobTitle` varchar(20) DEFAULT NULL,
+  `RegAddress` varchar(100) DEFAULT NULL,
+  `ComAddress` varchar(100) DEFAULT NULL,
+  `Note` varchar(4000) DEFAULT NULL,
+  `IsValid` varchar(1) DEFAULT NULL,
+  `CreditClassSignUpSeq` int(11) DEFAULT NULL,
+  `Creater` int(11) DEFAULT NULL,
   `CreateTime` datetime DEFAULT NULL,
-  `Updater` int DEFAULT NULL,
+  `Updater` int(11) DEFAULT NULL,
   `UpdateTime` datetime DEFAULT NULL,
-  `CommonAdvisorId` int DEFAULT NULL,
-  `AdvisorId` int DEFAULT NULL,
-  `UserSeq` int DEFAULT NULL,
-  `SignatureFile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `CommonAdvisorId` int(11) DEFAULT NULL,
+  `AdvisorId` int(11) DEFAULT NULL,
+  `UserSeq` int(11) DEFAULT NULL,
+  `SignatureFile` varchar(255) DEFAULT NULL,
   `IsGraduate` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1099 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1099 DEFAULT CHARSET=utf8mb4;
 
 -- 正在傾印表格  ttqs_expert_demo.studentmain 的資料：~2 rows (近似值)
+DELETE FROM `studentmain`;
 INSERT INTO `studentmain` (`id`, `SchoolYear`, `SDegree`, `SchoolId`, `PeopleId`, `SName`, `Birthday`, `EMail`, `Phone`, `PhoneExt`, `ServiceUnit`, `JobTitle`, `RegAddress`, `ComAddress`, `Note`, `IsValid`, `CreditClassSignUpSeq`, `Creater`, `CreateTime`, `Updater`, `UpdateTime`, `CommonAdvisorId`, `AdvisorId`, `UserSeq`, `SignatureFile`, `IsGraduate`) VALUES
 	(1097, 111, '02', '0218', 'L985622458', '02181', '2006-03-18 00:00:00', 'name@gmail.com', '0975258844', NULL, '', '', NULL, '', NULL, 'Y', NULL, 1, '2022-02-18 14:16:37', 1, '2022-11-28 17:31:30', NULL, 1042, 103, '', 0),
 	(1098, 111, '02', '1110218', 'T021568984', '1110218', NULL, 'name@gmail.com', '', NULL, '', '', NULL, '', NULL, 'Y', NULL, 1, '2022-02-18 14:33:54', 1, '2022-12-07 10:32:02', NULL, 1042, 105, '', 0);
 
 -- 傾印  資料表 ttqs_expert_demo.systemtype 結構
 CREATE TABLE IF NOT EXISTS `systemtype` (
-  `Seq` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `OrderNo` int DEFAULT NULL,
+  `Seq` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(20) DEFAULT NULL,
+  `OrderNo` int(11) DEFAULT NULL,
   `IsEnabled` tinyint(1) DEFAULT NULL,
   `CreateTime` datetime DEFAULT NULL,
-  `CreateUserSeq` int DEFAULT NULL,
+  `CreateUserSeq` int(11) DEFAULT NULL,
   `ModifyTime` datetime DEFAULT NULL,
-  `ModifyUserSeq` int DEFAULT NULL,
+  `ModifyUserSeq` int(11) DEFAULT NULL,
   PRIMARY KEY (`Seq`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 -- 正在傾印表格  ttqs_expert_demo.systemtype 的資料：~3 rows (近似值)
+DELETE FROM `systemtype`;
 INSERT INTO `systemtype` (`Seq`, `Name`, `OrderNo`, `IsEnabled`, `CreateTime`, `CreateUserSeq`, `ModifyTime`, `ModifyUserSeq`) VALUES
 	(1, '基本資料', 1, 1, NULL, NULL, NULL, NULL),
 	(2, '系務管理', 2, 1, '2021-07-19 00:00:00', 1, '2021-07-19 00:00:00', 1),
@@ -2374,58 +2420,60 @@ INSERT INTO `systemtype` (`Seq`, `Name`, `OrderNo`, `IsEnabled`, `CreateTime`, `
 
 -- 傾印  資料表 ttqs_expert_demo.teachermain 結構
 CREATE TABLE IF NOT EXISTS `teachermain` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `SchoolId` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `StaffId` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `PeopleId` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `TName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `JobTitle` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `CertiNo` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `EMail` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Phone` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `PhoneExt` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `HighestEdu` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ServiceUnit` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Department` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `RegAddress` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ComAddress` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Note` varchar(4000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IsValid` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `SchoolId` varchar(30) DEFAULT NULL,
+  `StaffId` varchar(10) DEFAULT NULL,
+  `PeopleId` varchar(10) DEFAULT NULL,
+  `TName` varchar(50) DEFAULT NULL,
+  `JobTitle` varchar(10) DEFAULT NULL,
+  `CertiNo` varchar(20) DEFAULT NULL,
+  `EMail` varchar(200) DEFAULT NULL,
+  `Phone` varchar(30) DEFAULT NULL,
+  `PhoneExt` varchar(20) DEFAULT NULL,
+  `HighestEdu` varchar(30) DEFAULT NULL,
+  `ServiceUnit` varchar(30) DEFAULT NULL,
+  `Department` varchar(30) DEFAULT NULL,
+  `RegAddress` varchar(100) DEFAULT NULL,
+  `ComAddress` varchar(100) DEFAULT NULL,
+  `Note` varchar(4000) DEFAULT NULL,
+  `IsValid` varchar(1) DEFAULT NULL,
   `IsUnderDepart` tinyint(1) NOT NULL,
-  `Mobile` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ServiceUnitName` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ServiceDepart` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ServiceTel` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ServiceExt` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `BankAccount` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `PassbookFile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Creater` int DEFAULT NULL,
+  `Mobile` varchar(30) DEFAULT NULL,
+  `ServiceUnitName` varchar(30) DEFAULT NULL,
+  `ServiceDepart` varchar(20) DEFAULT NULL,
+  `ServiceTel` varchar(10) DEFAULT NULL,
+  `ServiceExt` varchar(10) DEFAULT NULL,
+  `BankAccount` varchar(20) DEFAULT NULL,
+  `PassbookFile` varchar(255) DEFAULT NULL,
+  `Creater` int(11) DEFAULT NULL,
   `CreateTime` datetime DEFAULT NULL,
-  `Updater` int DEFAULT NULL,
+  `Updater` int(11) DEFAULT NULL,
   `UpdateTime` datetime DEFAULT NULL,
-  `SignatureFile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `UserSeq` int DEFAULT NULL,
-  `MasterTargetValue` int DEFAULT NULL,
-  `DoctorTargetValue` int DEFAULT NULL,
-  `TransportationCosts` int DEFAULT NULL,
-  `BankCode` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `SignatureFile` varchar(255) DEFAULT NULL,
+  `UserSeq` int(11) DEFAULT NULL,
+  `MasterTargetValue` int(11) DEFAULT NULL,
+  `DoctorTargetValue` int(11) DEFAULT NULL,
+  `TransportationCosts` int(11) DEFAULT NULL,
+  `BankCode` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1044 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1044 DEFAULT CHARSET=utf8mb4;
 
 -- 正在傾印表格  ttqs_expert_demo.teachermain 的資料：~2 rows (近似值)
+DELETE FROM `teachermain`;
 INSERT INTO `teachermain` (`id`, `SchoolId`, `StaffId`, `PeopleId`, `TName`, `JobTitle`, `CertiNo`, `EMail`, `Phone`, `PhoneExt`, `HighestEdu`, `ServiceUnit`, `Department`, `RegAddress`, `ComAddress`, `Note`, `IsValid`, `IsUnderDepart`, `Mobile`, `ServiceUnitName`, `ServiceDepart`, `ServiceTel`, `ServiceExt`, `BankAccount`, `PassbookFile`, `Creater`, `CreateTime`, `Updater`, `UpdateTime`, `SignatureFile`, `UserSeq`, `MasterTargetValue`, `DoctorTargetValue`, `TransportationCosts`, `BankCode`) VALUES
 	(1042, 'P01', '', 'K256481351', 'P01', '03', '', 'name@gmail.com', '', '', '', '亞洲大學', '經營管理學系', '', NULL, '', 'Y', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2022-02-18 14:10:51', 1, '2022-12-20 15:54:25', 'ab58dbd6-9292-45f9-8ee1-3191fb933ef4.gitconfig', 102, 10, 10, NULL, NULL),
 	(1043, NULL, NULL, 'O123456789', 'test', '03', '', 'name@gmail.com', NULL, NULL, '', NULL, NULL, '12354', NULL, NULL, 'Y', 0, '0975233665', '', '', '', '', '', '', 1, '2022-02-18 14:30:16', 1, '2022-12-07 10:32:40', NULL, NULL, NULL, NULL, NULL, '');
 
 -- 傾印  資料表 ttqs_expert_demo.training_goal 結構
 CREATE TABLE IF NOT EXISTS `training_goal` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
   `Name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '職稱',
-  `DeleteTag` int DEFAULT '0' COMMENT '刪除標記',
+  `DeleteTag` int(11) DEFAULT 0 COMMENT '刪除標記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COMMENT='訓練目的清單';
 
 -- 正在傾印表格  ttqs_expert_demo.training_goal 的資料：~4 rows (近似值)
+DELETE FROM `training_goal`;
 INSERT INTO `training_goal` (`Seq`, `Name`, `DeleteTag`) VALUES
 	(1, ' 強化目前工作職能', 0),
 	(2, '提升未來工作技能、知識', 0),
@@ -2434,13 +2482,14 @@ INSERT INTO `training_goal` (`Seq`, `Name`, `DeleteTag`) VALUES
 
 -- 傾印  資料表 ttqs_expert_demo.training_object 結構
 CREATE TABLE IF NOT EXISTS `training_object` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
   `Name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '名稱',
-  `DeleteTag` int DEFAULT '0' COMMENT '刪除標記',
+  `DeleteTag` int(11) DEFAULT 0 COMMENT '刪除標記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COMMENT='訓練對象';
 
 -- 正在傾印表格  ttqs_expert_demo.training_object 的資料：~6 rows (近似值)
+DELETE FROM `training_object`;
 INSERT INTO `training_object` (`Seq`, `Name`, `DeleteTag`) VALUES
 	(1, '所有同仁', 0),
 	(2, '部門主管', 0),
@@ -2451,23 +2500,24 @@ INSERT INTO `training_object` (`Seq`, `Name`, `DeleteTag`) VALUES
 
 -- 傾印  資料表 ttqs_expert_demo.unit 結構
 CREATE TABLE IF NOT EXISTS `unit` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '單位名稱',
-  `NameEN` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '單位名稱(英文)',
-  `Abbreviation` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '單位縮寫',
-  `Code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '單位代碼',
-  `PhoneNumber` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '單位電話',
-  `ParentSeq` int DEFAULT NULL COMMENT '父層流水序',
-  `Level` int DEFAULT NULL COMMENT '下拉選單層級',
-  `OrderNo` int DEFAULT NULL COMMENT '排序',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
-  `IsActive` int NOT NULL DEFAULT '1' COMMENT '是否啟用',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `Name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '單位名稱',
+  `NameEN` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '單位名稱(英文)',
+  `Abbreviation` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '單位縮寫',
+  `Code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '單位代碼',
+  `PhoneNumber` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '單位電話',
+  `ParentSeq` int(11) DEFAULT NULL COMMENT '父層流水序',
+  `Level` int(11) DEFAULT NULL COMMENT '下拉選單層級',
+  `OrderNo` int(11) DEFAULT NULL COMMENT '排序',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
+  `IsActive` int(11) NOT NULL DEFAULT 1 COMMENT '是否啟用',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='單位清單';
 
 -- 正在傾印表格  ttqs_expert_demo.unit 的資料：~18 rows (近似值)
+DELETE FROM `unit`;
 INSERT INTO `unit` (`Seq`, `Name`, `NameEN`, `Abbreviation`, `Code`, `PhoneNumber`, `ParentSeq`, `Level`, `OrderNo`, `CreatDate`, `CreatUser`, `IsActive`, `DeleteTag`) VALUES
 	(1, '總經理室', NULL, '', NULL, '', NULL, 1, 1, '2022-11-09 10:18:45', 0, 1, 0),
 	(2, '稽核室\r\n', NULL, NULL, NULL, '', NULL, 1, 2, '2022-11-09 10:18:45', 0, 0, 0),
@@ -2490,27 +2540,28 @@ INSERT INTO `unit` (`Seq`, `Name`, `NameEN`, `Abbreviation`, `Code`, `PhoneNumbe
 
 -- 傾印  資料表 ttqs_expert_demo.user 結構
 CREATE TABLE IF NOT EXISTS `user` (
-  `UserSeq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `UserWorkNum` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '員工編號',
-  `UserName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '使用者姓名',
-  `UserAccount` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '使用者帳號',
-  `UserPassword` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '使用者密碼',
-  `UserRole` int NOT NULL DEFAULT '3' COMMENT '使用者權限 對應表user_role',
-  `UserMobile` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '使用者手機',
-  `Extension` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '分機號碼',
-  `UserMail` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '使用者信箱',
-  `UserUnit` int NOT NULL COMMENT '使用者單位 對應表unit',
-  `UserJobTitle` int DEFAULT NULL COMMENT '使用者職稱',
-  `Management` int DEFAULT NULL COMMENT '是否為管理職 0:否 1:部門主管 2:理級主管',
+  `UserSeq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `UserWorkNum` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '員工編號',
+  `UserName` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '使用者姓名',
+  `UserAccount` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '使用者帳號',
+  `UserPassword` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '使用者密碼',
+  `UserRole` int(11) NOT NULL DEFAULT 3 COMMENT '使用者權限 對應表user_role',
+  `UserMobile` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '使用者手機',
+  `Extension` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '分機號碼',
+  `UserMail` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '使用者信箱',
+  `UserUnit` int(11) NOT NULL COMMENT '使用者單位 對應表unit',
+  `UserJobTitle` int(11) DEFAULT NULL COMMENT '使用者職稱',
+  `Management` int(11) DEFAULT NULL COMMENT '是否為管理職 0:否 1:部門主管 2:理級主管',
   `StratWorkDay` date DEFAULT NULL COMMENT '到職日期',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL DEFAULT '0' COMMENT '建立人 0:自行註冊',
-  `IsActive` int NOT NULL DEFAULT '1' COMMENT '是否啟用 1:啟用 0:不啟用',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL DEFAULT 0 COMMENT '建立人 0:自行註冊',
+  `IsActive` int(11) NOT NULL DEFAULT 1 COMMENT '是否啟用 1:啟用 0:不啟用',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`UserSeq`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='使用者資料';
 
--- 正在傾印表格  ttqs_expert_demo.user 的資料：~4 rows (近似值)
+-- 正在傾印表格  ttqs_expert_demo.user 的資料：~5 rows (近似值)
+DELETE FROM `user`;
 INSERT INTO `user` (`UserSeq`, `UserWorkNum`, `UserName`, `UserAccount`, `UserPassword`, `UserRole`, `UserMobile`, `Extension`, `UserMail`, `UserUnit`, `UserJobTitle`, `Management`, `StratWorkDay`, `CreatDate`, `CreatUser`, `IsActive`, `DeleteTag`) VALUES
 	(1, '111', 'Admin/系統管理員', 'admin', '827ccb0eea8a706c4c34a16891f84e7b', 1, '0977377874', '', '', 1, 1, 0, '2021-11-02', '2021-09-28 11:56:43', 0, 1, 0),
 	(2, '0000001', 'user', 'user', '827ccb0eea8a706c4c34a16891f84e7b', 3, '0900000000', '123', 'user@test.cm', 1, 22, 0, '2022-10-26', '2022-10-26 14:32:10', 1, 1, 0),
@@ -2520,15 +2571,16 @@ INSERT INTO `user` (`UserSeq`, `UserWorkNum`, `UserName`, `UserAccount`, `UserPa
 
 -- 傾印  資料表 ttqs_expert_demo.user_role 結構
 CREATE TABLE IF NOT EXISTS `user_role` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `Sort` int NOT NULL DEFAULT '0' COMMENT '排序',
-  `Name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '權限名稱',
-  `Memo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '備註說明',
-  `DeleteTag` int DEFAULT '0' COMMENT '刪除標記',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `Sort` int(11) NOT NULL DEFAULT 0 COMMENT '排序',
+  `Name` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '權限名稱',
+  `Memo` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '備註說明',
+  `DeleteTag` int(11) DEFAULT 0 COMMENT '刪除標記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='帳號權限';
 
 -- 正在傾印表格  ttqs_expert_demo.user_role 的資料：~5 rows (近似值)
+DELETE FROM `user_role`;
 INSERT INTO `user_role` (`Seq`, `Sort`, `Name`, `Memo`, `DeleteTag`) VALUES
 	(1, 1, '系統管理者', '', 0),
 	(2, 2, '課程管理者', '所有課程管理者', 0),
@@ -2538,55 +2590,60 @@ INSERT INTO `user_role` (`Seq`, `Sort`, `Name`, `Memo`, `DeleteTag`) VALUES
 
 -- 傾印  資料表 ttqs_expert_demo.view_history 結構
 CREATE TABLE IF NOT EXISTS `view_history` (
-  `Seq` int NOT NULL AUTO_INCREMENT,
-  `CourseSeq` int NOT NULL,
-  `AppendixSeq` int NOT NULL DEFAULT '0' COMMENT '教材影片Seq',
-  `UserSeq` int NOT NULL DEFAULT '0' COMMENT '觀看使用者Seq',
-  `ViewLastTime` decimal(6,1) NOT NULL DEFAULT '0.0' COMMENT '最後觀看時間',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT,
+  `CourseSeq` int(11) NOT NULL,
+  `AppendixSeq` int(11) NOT NULL DEFAULT 0 COMMENT '教材影片Seq',
+  `UserSeq` int(11) NOT NULL DEFAULT 0 COMMENT '觀看使用者Seq',
+  `ViewLastTime` decimal(6,1) NOT NULL DEFAULT 0.0 COMMENT '最後觀看時間',
   `FristViewTime` datetime DEFAULT NULL COMMENT '第一次觀看日期',
   `FristFinishTime` datetime DEFAULT NULL COMMENT '第一次看完影片時間',
-  `ViewFinishTag` int NOT NULL DEFAULT '0' COMMENT '是否已看完該影片 0:否 1:是',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `ViewFinishTag` int(11) NOT NULL DEFAULT 0 COMMENT '是否已看完該影片 0:否 1:是',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`,`AppendixSeq`),
   KEY `FK_view_history_appendix` (`AppendixSeq`,`CourseSeq`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='觀看紀錄';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COMMENT='觀看紀錄';
 
--- 正在傾印表格  ttqs_expert_demo.view_history 的資料：~0 rows (近似值)
+-- 正在傾印表格  ttqs_expert_demo.view_history 的資料：~1 rows (近似值)
+DELETE FROM `view_history`;
+INSERT INTO `view_history` (`Seq`, `CourseSeq`, `AppendixSeq`, `UserSeq`, `ViewLastTime`, `FristViewTime`, `FristFinishTime`, `ViewFinishTag`, `CreatDate`, `CreatUser`, `ModifyDate`, `ModifyUser`, `DeleteTag`) VALUES
+	(1, 1, 0, 5, 0.0, NULL, '2023-01-15 00:22:51', 1, '2023-01-15 00:22:51', 0, NULL, NULL, 0);
 
 -- 傾印  資料表 ttqs_expert_demo.view_log 結構
 CREATE TABLE IF NOT EXISTS `view_log` (
-  `Seq` int NOT NULL AUTO_INCREMENT,
-  `CourseSeq` int NOT NULL,
-  `AppendixSeq` int NOT NULL DEFAULT '0' COMMENT '教材影片Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT,
+  `CourseSeq` int(11) NOT NULL,
+  `AppendixSeq` int(11) NOT NULL DEFAULT 0 COMMENT '教材影片Seq',
   `ViewStartTime` datetime NOT NULL COMMENT '開始觀看時間',
   `ViewEndTime` datetime DEFAULT NULL COMMENT '結束觀看時間',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='觀看歷程記錄';
 
 -- 正在傾印表格  ttqs_expert_demo.view_log 的資料：~0 rows (近似值)
+DELETE FROM `view_log`;
 
 -- 傾印  資料表 ttqs_expert_demo.work_function_set 結構
 CREATE TABLE IF NOT EXISTS `work_function_set` (
-  `Seq` int NOT NULL AUTO_INCREMENT COMMENT '流水序',
-  `SetSeq` int DEFAULT NULL COMMENT '職能設定流水序',
-  `FactorSeq` int DEFAULT NULL COMMENT '職能因子流水序',
-  `StandardScore` int DEFAULT NULL COMMENT '標準分',
-  `CreatDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立日期',
-  `CreatUser` int NOT NULL COMMENT '建立人員Seq',
+  `Seq` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水序',
+  `SetSeq` int(11) DEFAULT NULL COMMENT '職能設定流水序',
+  `FactorSeq` int(11) DEFAULT NULL COMMENT '職能因子流水序',
+  `StandardScore` int(11) DEFAULT NULL COMMENT '標準分',
+  `CreatDate` datetime NOT NULL DEFAULT current_timestamp() COMMENT '建立日期',
+  `CreatUser` int(11) NOT NULL COMMENT '建立人員Seq',
   `ModifyDate` datetime DEFAULT NULL COMMENT '異動日期',
-  `ModifyUser` int DEFAULT NULL COMMENT '異動人員Seq',
-  `DeleteTag` int NOT NULL DEFAULT '0' COMMENT '刪除註記',
+  `ModifyUser` int(11) DEFAULT NULL COMMENT '異動人員Seq',
+  `DeleteTag` int(11) NOT NULL DEFAULT 0 COMMENT '刪除註記',
   PRIMARY KEY (`Seq`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='工作職能設定';
 
 -- 正在傾印表格  ttqs_expert_demo.work_function_set 的資料：~0 rows (近似值)
+DELETE FROM `work_function_set`;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

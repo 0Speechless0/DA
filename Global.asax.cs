@@ -20,10 +20,17 @@ namespace DA
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            using(var context = new web_demoEntities() )
+
+            if(ConfigurationManager.AppSettings["tokenAuth"].ToString() != "N")
             {
-                ConfigurationManager.AppSettings["web_demo_url"] = context.company_data.FirstOrDefault().Domain +"/WebDemo";
+
+                using (var context = new web_demoEntities())
+                {
+                    ConfigurationManager.AppSettings["web_demo_url"] = context.company_data.FirstOrDefault().Domain + "/WebDemo";
+                }
+
             }
+
 
             ServicePointManager.ServerCertificateValidationCallback
                 += (sender, cert, chain, sslPolicyErrors) =>
