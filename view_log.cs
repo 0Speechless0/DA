@@ -22,6 +22,5 @@ namespace DA
         public System.DateTime CreatDate { get; set; }
         public int CreatUser { get; set; }
         public int DeleteTag { get; set; }
-        public int LectureType { get; set; }
     }
 }

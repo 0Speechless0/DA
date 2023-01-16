@@ -96,7 +96,7 @@ namespace DA.Services
                         ), 1)
 
                    }
-                ).ToList();
+                ).Where(row => row.weight > 0 ).ToList();
         }
 
 

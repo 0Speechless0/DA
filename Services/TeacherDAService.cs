@@ -12,13 +12,13 @@ namespace DA.Services
     {
 
         public static Dictionary<int, Dictionary<int, string>> teacherMap = new Dictionary<int, Dictionary<int, string>>();
-        public static Dictionary<int, Dictionary<int, int>> viewTimeMap = new Dictionary<int, Dictionary<int, int>>();
+        public static Dictionary<int, int> viewTimeMap = new Dictionary<int, int>();
 
         static Func<course, string> getTeacherName = (row) =>
             teacherMap[row.LecturerType.Value][row.LecturerType.Value == 1 ? row.Lecturer.Value : row.OtherLecturer.Value];
 
         static Func<course, int> getCourseTotalView = (row) =>
-            viewTimeMap[row.LecturerType.Value].ContainsKey(row.Seq) ? viewTimeMap[row.LecturerType.Value][row.Seq] : 0;
+            viewTimeMap.ContainsKey(row.Seq) ? viewTimeMap[row.Seq] : 0;
         IDiagramBaseService<course> _service;
 
         public TeacherDAService()
@@ -34,9 +34,7 @@ namespace DA.Services
                 teacherMap[2] = new Dictionary<int, string>();
                 teacherMap[1] = new Dictionary<int, string>();
 
-                //viewTimeMap[2] 外部講師課程時數統計字典 ；viewTimeMap[1]內部講師課程時數統計字典
-                viewTimeMap[2] = new Dictionary<int, int>();
-                viewTimeMap[1] = new Dictionary<int, int>();
+
                 foreach (var teacher in context.expert_data)
                 {
                     teacherMap[2][teacher.Seq] = teacher.Name;
@@ -46,15 +44,12 @@ namespace DA.Services
                 {
                     teacherMap[1][teacher.UserSeq] = teacher.UserName;
                 }
-                Dictionary<int, int> CourseViewSum =
+                viewTimeMap =
                     context.view_log
                     .GroupBy(row => row.CourseSeq)
                     .ToDictionary(row => row.Key, row => row.Sum(row2 => (int)(row2.ViewEndTime - row2.ViewStartTime)?.TotalHours));
 
-                foreach (var viewlog in context.view_log)
-                {
-                    viewTimeMap[viewlog.LectureType][viewlog.CourseSeq] = CourseViewSum[viewlog.CourseSeq];
-                }
+
 
                 _service.loadDataSource(context.course, row => row.Lecturer != null && getTeacherName.Invoke(row).Contains(searchWord[0] ?? String.Empty));
 
