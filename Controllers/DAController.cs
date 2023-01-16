@@ -24,7 +24,7 @@ namespace DA.Controllers
         public JsonResult getMainDiagramData(int type, string category = null, string bigCategory = null)
         {
 
-            var service = ServiceProvider.getService(type, bigCategory, category).Service;
+            var service = ServiceProvider.getService(type);
             service.dataBuild(bigCategory, category);
 
             int firstYear = DateTime.Now.Year;
@@ -52,7 +52,7 @@ namespace DA.Controllers
         }
         public JsonResult getSubDiagramData(int type, string category, string bigCategory=null)
         {
-            var service = ServiceProvider.getService(type, bigCategory, category).Service;
+            var service = ServiceProvider.getService(type);
             int firstYear = DateTime.Now.Year;
             return Json(new
             {

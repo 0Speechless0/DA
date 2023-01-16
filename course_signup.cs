@@ -31,11 +31,11 @@ namespace DA
         public Nullable<int> IsSignedOut { get; set; }
         public Nullable<System.DateTime> IsSignOutTime { get; set; }
         public string Memo { get; set; }
+        public Nullable<int> HasExam { get; set; }
         public System.DateTime CreatDate { get; set; }
         public int CreatUser { get; set; }
         public Nullable<System.DateTime> ModifyDate { get; set; }
         public Nullable<int> ModifyUser { get; set; }
-        public Nullable<int> HasExam { get; set; }
     
         public virtual course course { get; set; }
         public virtual user user { get; set; }

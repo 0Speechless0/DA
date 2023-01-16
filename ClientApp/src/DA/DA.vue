@@ -41,6 +41,12 @@ export default {
                         DAUnit : "上課數",
                         anonyName : true
                     }
+                case 2 :
+                    return {
+                        DATitle : "推薦講師",
+                        DAUnit : "上課時數",
+                        anonyName : true
+                    }
                 case 3 : 
                     return {
                         DATitle : "推薦課程",

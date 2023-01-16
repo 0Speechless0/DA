@@ -14,6 +14,12 @@ namespace DA
     
     public partial class recommend_class
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public recommend_class()
+        {
+            this.recommend_class_log = new HashSet<recommend_class_log>();
+        }
+    
         public int Seq { get; set; }
         public string CourseCategory { get; set; }
         public string CourseSubcategory { get; set; }
@@ -24,5 +30,8 @@ namespace DA
         public string CourseIntroduction { get; set; }
         public string CourseURL { get; set; }
         public Nullable<System.DateTime> CreatDate { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<recommend_class_log> recommend_class_log { get; set; }
     }
 }

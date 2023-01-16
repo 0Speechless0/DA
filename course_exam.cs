@@ -12,16 +12,17 @@ namespace DA
     using System;
     using System.Collections.Generic;
     
-    public partial class view_log
+    public partial class course_exam
     {
         public int Seq { get; set; }
         public int CourseSeq { get; set; }
-        public int AppendixSeq { get; set; }
-        public System.DateTime ViewStartTime { get; set; }
-        public Nullable<System.DateTime> ViewEndTime { get; set; }
+        public int UserSeq { get; set; }
+        public string Question { get; set; }
+        public string Answer { get; set; }
         public System.DateTime CreatDate { get; set; }
         public int CreatUser { get; set; }
+        public Nullable<System.DateTime> ModifyDate { get; set; }
+        public Nullable<int> ModifyUser { get; set; }
         public int DeleteTag { get; set; }
-        public int LectureType { get; set; }
     }
 }

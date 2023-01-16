@@ -63,6 +63,7 @@ namespace DA.Services
                                 )
                             )
                 )
+                .Where(row => row > 0)
                 .Select(row => decimal.Round(row, 1))
                 .ToList();
 

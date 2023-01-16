@@ -19,44 +19,27 @@ namespace DA.Common
 
                     new ServiceSwitchModel
                     {
-                        ViewTitle = "職能分析"
-                    },
+                        ViewTitle = "職能分析",
+                        Service = new CourseDAService()
+    },
                     new ServiceSwitchModel
                     {
-                        ViewTitle = "學員分析"
-                    },
+                        ViewTitle = "學員分析",
+                        Service = new StudentDAService()
+    },
                     new ServiceSwitchModel
                     {
-                        ViewTitle = "推薦分析"
-                    },
+                        ViewTitle = "推薦分析",
+                        Service = new TeacherDAService()
+    },
                     new ServiceSwitchModel
                     {
                         ViewTitle = "推薦分析2",
+                        Service = new GoodCourseDAService(),
                         getBigCategoriesService = BigCategoriesService.getGoodCourseBigCategories
                     },
 
         };
-
-        public static ServiceSwitchModel getService(int index, params string[] keyWord)
-        {
-            switch(index)
-            {
-                case 0:
-                    serviceList[index].Service = new CourseDAService();
-                    break;
-                case 1:
-                    serviceList[index].Service = new StudentDAService();
-                    break;
-                case 2:
-                    serviceList[index].Service = new TeacherDAService();
-                    break;
-                case 3:
-                    serviceList[index].Service = new GoodCourseDAService();
-                    break;
-            }
-
-            return serviceList[index];
-        }
         public static string getServiceTitle(int type)
         {
             return serviceList[type].ViewTitle;

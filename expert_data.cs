@@ -16,6 +16,9 @@ namespace DA
     {
         public int Seq { get; set; }
         public string Name { get; set; }
+        public string ExpertMemo { get; set; }
+        public string ExpertImage { get; set; }
+        public string ExpertImageType { get; set; }
         public string Area { get; set; }
         public int Gender { get; set; }
         public string Identity { get; set; }
@@ -40,8 +43,5 @@ namespace DA
         public Nullable<System.DateTime> ModifyDate { get; set; }
         public Nullable<int> ModifyUser { get; set; }
         public int DeleteTag { get; set; }
-        public string ExpertMemo { get; set; }
-        public string ExpertImage { get; set; }
-        public string ExpertImageType { get; set; }
     }
 }
