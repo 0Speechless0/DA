@@ -35,8 +35,8 @@ namespace DA.Services
             public int Compare(string x, string y)
             {
 
-                if (_categoriesOrder[x] > _categoriesOrder[y]) return 1;
-                if (_categoriesOrder[x] < _categoriesOrder[y]) return -1;
+                if (_categoriesOrder[x] < _categoriesOrder[y]) return 1;
+                if (_categoriesOrder[x] > _categoriesOrder[y]) return -1;
 
                 return 0;
             }
@@ -123,9 +123,10 @@ namespace DA.Services
         {
             return dataSource.GroupBy(categorySelector)
                 .Select(group => new CloudWord {
-                    name = group.Key.ToString(), 
-                    weight = decimal.Round(group.Sum(dataSelector) , 0)
+                    name = group.Key.ToString(),
+                    weight = decimal.Round(group.Sum(dataSelector), 0)
                 })
+                .OrderByDescending(row => row.weight)
                 .ToList();
         }
 

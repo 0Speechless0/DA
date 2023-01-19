@@ -27,7 +27,7 @@ namespace DA.Services
                     from row in context.function_category
                     select row).ToDictionary(row => row.Seq, row => row.Name);
 
-                _service.loadDataSource(context.course, row => functionCategoryMap[row.FunctionCategory ?? 0].Contains(searchWord[0] ?? String.Empty));
+                _service.loadDataSource(context.course, row => functionCategoryMap[row.FunctionCategory ?? 0].Contains(searchWord[1] ?? String.Empty));
             }
 
             _service.buildDataSource(

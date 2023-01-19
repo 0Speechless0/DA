@@ -25,7 +25,7 @@ namespace DA.Services
             {
 
                 studentNameMap = context.user.ToDictionary(row => row.UserSeq, row => row.UserName);
-                _service.loadDataSource(context.view_history, row => studentNameMap[row.UserSeq].Contains(searchWord[0] ?? String.Empty));
+                _service.loadDataSource(context.view_history, row => studentNameMap[row.UserSeq].Contains(searchWord[1] ?? String.Empty));
             }
 
             _service.buildDataSource(
