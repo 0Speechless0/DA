@@ -13,6 +13,8 @@ namespace DA
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+
+        public static string authToken;
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -21,9 +23,10 @@ namespace DA
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 
-            if(ConfigurationManager.AppSettings["tokenAuth"].ToString() != "N")
+            if(ConfigurationManager.AppSettings.AllKeys.Contains("tokenAuth") )
             {
 
+                authToken = ConfigurationManager.AppSettings["tokenAuth"].ToString();
                 using (var context = new web_demoEntities())
                 {
                     ConfigurationManager.AppSettings["web_demo_url"] = context.company_data.FirstOrDefault().Domain + "/WebDemo";

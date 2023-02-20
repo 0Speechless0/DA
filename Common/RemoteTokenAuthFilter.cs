@@ -20,15 +20,17 @@ namespace DA.Common
         {
 
             string homeUrl = ConfigurationManager.AppSettings["web_demo_url"];
-            bool redirect = ConfigurationManager.AppSettings["tokenAuth"] == null ? true : false;
 
-            if (!redirect)
+
+            bool redirect = MvcApplication.authToken == null ? true : false;
+
+            if (redirect)
             {
                 base.OnActionExecuting(filterContext);
                 return;
             }
 
-            string token = filterContext.HttpContext.Request.Form.Get("token"); 
+            string token = filterContext.HttpContext.Request.Form.Get("token") ?? MvcApplication.authToken; 
             if ( !tokenManager.checkTokenVaild(token))
             {
 
